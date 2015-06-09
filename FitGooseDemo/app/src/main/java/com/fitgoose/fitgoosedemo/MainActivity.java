@@ -8,6 +8,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
+import com.fitgoose.fitgoosedemo.data.ExPlanXRef;
+import com.fitgoose.fitgoosedemo.data.ExSet;
+import com.fitgoose.fitgoosedemo.data.FGDataSource;
+import com.fitgoose.fitgoosedemo.data.GlobalVariables;
+import com.fitgoose.fitgoosedemo.data.Plan;
+
+import java.util.ArrayList;
+
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -16,10 +24,89 @@ public class MainActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
+
+    private FGDataSource datasource;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //first get a FGDataSource instance
+        datasource = FGDataSource.getInstance(this);
+
+    {//TODO: this is a fake database to start with
+
+        datasource.deleteAll();
+
+        Plan plan  = new Plan("To reset","To rest");
+        plan.resetID();
+        ExPlanXRef exPlanXRef = new ExPlanXRef(0,0,3);
+        exPlanXRef.resetID();
+        ExSet exSet = new ExSet(0,1000,0);
+        exSet.resetID();
+
+        plan  = new Plan("2015-06-09","PlanOne");
+        datasource.storePlan(plan);
+        plan = new Plan("2015-06-09","PlanTwo");
+        datasource.storePlan(plan);
+        plan = new Plan("2015-06-10","PlanThree");
+        datasource.storePlan(plan);
+        plan = new Plan("2015-06-12","PlanFour");
+        datasource.storePlan(plan);
+
+        // PlanOne
+        // PlanOne, running, 3 sets
+        exPlanXRef = new ExPlanXRef(0,0,3);
+        datasource.storeExPlanXRef(exPlanXRef);
+        exSet = new ExSet(0,1000,0);
+        datasource.storeExSet(exSet);
+        exSet = new ExSet(0,800,0);
+        datasource.storeExSet(exSet);
+        exSet = new ExSet(0,500,0);
+        datasource.storeExSet(exSet);
+        // PlanOne, bench press, 2 sets
+        exPlanXRef = new ExPlanXRef(0,1,2);
+        datasource.storeExPlanXRef(exPlanXRef);
+        exSet = new ExSet(1,90,5);
+        datasource.storeExSet(exSet);
+        exSet = new ExSet(1,100,10);
+        datasource.storeExSet(exSet);
+
+        // PlanTwo
+        // PlanTwo, bench press, 1 sets
+        exPlanXRef = new ExPlanXRef(1,1,1);
+        datasource.storeExPlanXRef(exPlanXRef);
+        exSet = new ExSet(2,110,15);
+        datasource.storeExSet(exSet);
+        // PlanTwo, running, 3 sets
+        exPlanXRef = new ExPlanXRef(1,0,4);
+        datasource.storeExPlanXRef(exPlanXRef);
+        exSet = new ExSet(3,100,2);
+        datasource.storeExSet(exSet);
+        exSet = new ExSet(3,800,0);
+        datasource.storeExSet(exSet);
+        exSet = new ExSet(3,500,0);
+        datasource.storeExSet(exSet);
+        exSet = new ExSet(3,500,0);
+        datasource.storeExSet(exSet);
+
+        // PlanThree
+        // bench press, 2 sets
+        exPlanXRef = new ExPlanXRef(2,1,1);
+        datasource.storeExPlanXRef(exPlanXRef);
+        exSet = new ExSet(4,120,5);
+        datasource.storeExSet(exSet);
+
+        // PlanFour
+        // bench press, 2 sets
+        exPlanXRef = new ExPlanXRef(3,0,1);
+        datasource.storeExPlanXRef(exPlanXRef);
+        exSet = new ExSet(5,12000,0);
+        datasource.storeExSet(exSet);
+
+        datasource.close();
+    }// fake database
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);

@@ -43,6 +43,9 @@ public final class Exercise {
         return eID;
     }
 
+    public void resetID() {
+        eID=0;
+    }
     /**
      * getExerciseByID:
      * @param eid

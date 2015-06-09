@@ -20,7 +20,16 @@ public class ExSet {
         this.complete = false;
     }
 
+    public ExSet(int quantity, int numOfReps, boolean complete) {
+        setID ++;
+        this.quantity = quantity;
+        this.numOfReps = numOfReps;
+        this.complete = complete;
+    }
+
     public int getID() {
         return setID;
     }
+
+    public void resetID() {setID = 0;}
 }

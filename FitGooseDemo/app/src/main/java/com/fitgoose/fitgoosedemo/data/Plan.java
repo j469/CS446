@@ -19,4 +19,6 @@ public class Plan {
     public int getID() {
         return pID;
     }
+
+    public void resetID() {pID = 0;}
 }

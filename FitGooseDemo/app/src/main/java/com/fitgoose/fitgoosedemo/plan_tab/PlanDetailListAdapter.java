@@ -6,30 +6,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.fitgoose.fitgoosedemo.R;
-import com.fitgoose.fitgoosedemo.data.ExSet;
-import com.fitgoose.fitgoosedemo.data.FGDataSource;
+import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 import com.fitgoose.fitgoosedemo.data.StatChunk;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ExpandableListAdapter extends BaseExpandableListAdapter {
+
+public class PlanDetailListAdapter extends BaseExpandableListAdapter {
 
     private Context _context;
-    private List<String> _listDataHeader;
-    private List< ArrayList<String> > _listDataChild;
-    private FGDataSource datasource;
+    private ArrayList<Integer> _listDataHeader;
+    private ArrayList< ArrayList<StatChunk> > _listDataChild;
 
-    public ExpandableListAdapter(Context context, List<String> listDataHeader,
-                                 List< ArrayList<String> > listChildData) {
+    public PlanDetailListAdapter(Context context, ArrayList<Integer> eIDs,
+                                    ArrayList< ArrayList<StatChunk> > statChunks) {
         this._context = context;
-        this._listDataHeader = listDataHeader;
-        this._listDataChild = listChildData;
-        datasource = FGDataSource.getInstance(context);
+        this._listDataHeader = eIDs;
+        this._listDataChild = statChunks;
     }
 
     @Override
@@ -47,40 +43,45 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
-        final String childPName = (String) getChild(groupPosition, childPosition);//plan name
+        final StatChunk childDetails = (StatChunk) getChild(groupPosition, childPosition);
+        int eid = (Integer) getGroup(groupPosition);
 
-        // inflate layer two child layout xml
+        // inflate layer three chlid layout xml
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.plan_layer_two_child, null);
-        }
 
-        // get the ExpandableListView to show exercises
-        ExpandableListView plan_layer_three_list = (ExpandableListView) convertView
-                .findViewById(R.id.plan_list_items);
-
-        // set the adapter
-        int pid = datasource.searchPidByPname(childPName);
-        ArrayList<Integer> eIDs = datasource.searchEidByPid(pid);
-        ArrayList< ArrayList<StatChunk> > statChunks = new ArrayList<>();
-        for (int eid: eIDs) {
-            ArrayList<ExSet> tempExSets = datasource.searchExSet(pid,eid);
-            ArrayList<StatChunk> statChunkArrayList = new ArrayList<>();
-            int i = 0;
-            for (ExSet es: tempExSets) {
-                StatChunk tempStatChunk = new StatChunk( eid, i, es.quantity, es.numOfReps, es.complete);
-                statChunkArrayList.add(tempStatChunk);
-                i++;
+            // check if this exercise has two units
+            if ( GlobalVariables.searchSecondUnitByEid(eid) ) {
+                convertView = infalInflater.inflate(R.layout.plan_layer_three_child_with_second_unit, null);
+            } else {
+                convertView = infalInflater.inflate(R.layout.plan_layer_three_child_without_second_unit, null);
             }
-            statChunks.add(statChunkArrayList);
         }
 
+        // set id
+        TextView textView = (TextView) convertView.findViewById(R.id.plan_list_exset_setid);
+        int i = childDetails.setid;
+        textView.setText(i);
+        // complete
+        textView = (TextView) convertView.findViewById(R.id.plan_list_exset_complete);
+        String s = (childDetails.complete) ? "Complete" : "Not complete";
+        textView.setText(s);
+        // quantity
+        textView = (TextView) convertView.findViewById(R.id.plan_list_exset_quantity);
+        i = childDetails.quantity;
+        textView.setText(i);
+        // unit
+        textView = (TextView) convertView.findViewById(R.id.plan_list_exset_complete);
+        s = GlobalVariables.searchUnitByEid(eid);
+        textView.setText(s);
+        // second unit, number of repeats
+        if ( GlobalVariables.searchSecondUnitByEid(eid) ) {
+            textView = (TextView) convertView.findViewById(R.id.plan_list_exset_reps);
+            i = childDetails.reps;
+            textView.setText(i);
+        }
 
-        PlanDetailListAdapter planDetailListAdapter = new PlanDetailListAdapter(_context,eIDs,statChunks);
-        plan_layer_three_list.setAdapter(planDetailListAdapter);
-
-        datasource.close();
         return convertView;
     }
 
@@ -107,17 +108,18 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
-        String headerTitle = (String) getGroup(groupPosition);
+        int eid = (Integer) getGroup(groupPosition);
+        String headerTitle = GlobalVariables.searchENameByEid(eid);
 
-        // inflate layer two header layout xml
+        // inflate layer three header layout xml
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.plan_layer_two_header, null);
+            convertView = infalInflater.inflate(R.layout.plan_layer_three_header, null);
         }
 
         TextView plan_list_header = (TextView) convertView
-                .findViewById(R.id.plan_list_header);
+                .findViewById(R.id.plan_exercise_ename);
         plan_list_header.setTypeface(null, Typeface.BOLD);
         plan_list_header.setText(headerTitle);
 
