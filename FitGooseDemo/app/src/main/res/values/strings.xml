@@ -24,6 +24,18 @@
     <string name="action_settings">Settings</string>
     <string name="action_example">Example</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="graph_time_ranges">
+        <item>Time Range:</item>
+        <item>Past Week</item>
+        <item>Past Month</item>
+        <item>Past Year</item>
+        <item>All Time</item>
+    </string-array>
+
+    <string-array name="graph_properties">
+        <item>Properties:</item>
+        <item>Number of Sets</item>
+        <item>Intensity</item>
+    </string-array>
+
 </resources>
