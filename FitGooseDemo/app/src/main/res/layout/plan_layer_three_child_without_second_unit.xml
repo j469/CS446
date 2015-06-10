@@ -18,15 +18,15 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:layout_gravity="start"
+            android:gravity="start"
             android:layout_weight = "3" />
 
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Set # "
-            android:layout_gravity="end"
+            android:text="Set #"
+            android:gravity="end"
             android:layout_weight = "2" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:layout_gravity="start"
+            android:gravity="start"
             android:layout_weight = "1" />
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:layout_gravity="end"
+            android:gravity="end"
             android:layout_weight = "1" />
 
     </LinearLayout>
@@ -60,7 +60,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:layout_gravity="right"
+            android:gravity="end"
             android:layout_weight = "1" />
 
         <TextView
@@ -68,7 +68,8 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:layout_gravity="left"
+            android:gravity="start"
+            android:padding="6dp"
             android:layout_weight = "1" />
 
     </LinearLayout>
