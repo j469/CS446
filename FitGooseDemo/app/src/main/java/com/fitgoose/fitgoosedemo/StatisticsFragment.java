@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -24,7 +25,9 @@ public class StatisticsFragment extends Fragment {
     ArrayAdapter<CharSequence> exerciseAdapter;
     ArrayAdapter<CharSequence> timeRangeAdapter;
     ArrayAdapter<CharSequence> adapter;
+    SpinnerListener spinnerListener;
     GraphView graph;
+    LineGraphSeries<DataPoint> series;
 
     private String[] sampleExerciseNames = {"Push Up", "Jogging", "Bench Press"};
 
@@ -41,29 +44,35 @@ public class StatisticsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_statistics, container, false);
 
+        //Initialize the spinner listener
+        spinnerListener = new SpinnerListener();
+
         // Setup the spinners for selecting graph settings
         exerciseSpinner = (Spinner) rootView.findViewById(R.id.exercise_spinner);
         exerciseAdapter = new ArrayAdapter<CharSequence>(getActivity(),
                 android.R.layout.simple_spinner_item, getExerciseNames());
         exerciseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         exerciseSpinner.setAdapter(exerciseAdapter);
+        exerciseSpinner.setOnItemSelectedListener(spinnerListener);
 
         timeRangeSpinner = (Spinner) rootView.findViewById(R.id.time_range_spinner);
         timeRangeAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.graph_time_ranges,
                 android.R.layout.simple_spinner_item);
         timeRangeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timeRangeSpinner.setAdapter(timeRangeAdapter);
+        timeRangeSpinner.setOnItemSelectedListener(spinnerListener);
 
         propertySpinner = (Spinner) rootView.findViewById(R.id.properties_spinner);
         adapter = ArrayAdapter.createFromResource(getActivity(), R.array.graph_properties,
                 android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         propertySpinner.setAdapter(adapter);
+        propertySpinner.setOnItemSelectedListener(spinnerListener);
 
         // Create the graph view
         graph = (GraphView) rootView.findViewById(R.id.graph);
 
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+        series = new LineGraphSeries<DataPoint>(new DataPoint[] {
                 new DataPoint(0, 1),
                 new DataPoint(1, 5),
                 new DataPoint(2, 3),
@@ -86,5 +95,17 @@ public class StatisticsFragment extends Fragment {
         list.add(0, "Exercise:");
 
         return list;
+    }
+
+    private class SpinnerListener implements AdapterView.OnItemSelectedListener {
+
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            graph.addSeries(series);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+        }
     }
 }
