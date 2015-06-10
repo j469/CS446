@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fitgoose.fitgoosedemo.R;
@@ -63,36 +64,24 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         plan_list_header.setTypeface(null, Typeface.BOLD);
         plan_list_header.setText(childPName);
 
-        // get the ExpandableListView to show exercises
-        ExpandableListView plan_layer_three_list = (ExpandableListView) convertView
-                .findViewById(R.id.plan_list_items);
-
         // set the adapter
         int pid = datasource.searchPidByPname(childPName);
-
-        // Test
-        //Log.d("ExpandableListAdapter","getChildView "+childPName+" pid: " +Integer.toString(pid));
-
         ArrayList<Integer> eIDs = datasource.searchEidByPid(pid);
-        ArrayList< ArrayList<StatChunk> > statChunks = new ArrayList<>();
+        ArrayList<StatChunk>statChunks = new ArrayList<>();
         for (int eid: eIDs) {
-            // Test
-            Log.d("ExpandableListAdapter","getChildView: eid: "+Integer.toString(eid));
-
             ArrayList<ExSet> tempExSets = datasource.searchExSet(pid,eid);
-            ArrayList<StatChunk> statChunkArrayList = new ArrayList<>();
             int i = 0;
             for (ExSet es: tempExSets) {
                 StatChunk tempStatChunk = new StatChunk( eid, i, es.quantity, es.numOfReps, es.complete);
-                statChunkArrayList.add(tempStatChunk);
+                statChunks.add(tempStatChunk);
                 i++;
             }
-            statChunks.add(statChunkArrayList);
         }
-
-
-        PlanDetailListAdapter planDetailListAdapter = new PlanDetailListAdapter(_context,eIDs,statChunks);
-        plan_layer_three_list.setAdapter(planDetailListAdapter);
+        // TODO
+        PlanDetailAdapter planDetailListAdapter = new PlanDetailAdapter(_context, R.layout.plan_layer_three_child_with_second_unit, statChunks);
+        //ListView listViewItems = new ListView(_context);
+        ListView listViewItems = (ListView) convertView.findViewById(R.id.plan_list_items);
+        listViewItems.setAdapter(planDetailListAdapter);
 
         datasource.close();
         return convertView;

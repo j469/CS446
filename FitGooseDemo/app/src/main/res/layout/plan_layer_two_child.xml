@@ -18,7 +18,7 @@
         android:textSize="22sp" />
 
     <!-- this is the frame to plug in the real plans /> -->
-    <ExpandableListView
+    <ListView
         android:id="@+id/plan_list_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

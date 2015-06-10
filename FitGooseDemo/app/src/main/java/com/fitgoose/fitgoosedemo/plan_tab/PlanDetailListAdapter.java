@@ -118,7 +118,7 @@ public class PlanDetailListAdapter extends BaseExpandableListAdapter {
         String headerTitle = GlobalVariables.searchENameByEid(eid);
 
         Log.d("PlanDetailListAdapter", "getGroupView eid: " + Integer.toString(eid)
-                + " ename: " + headerTitle);
+                + " ename: " + headerTitle +" groupP: " + Integer.toString(groupPosition));
 
         // inflate layer three header layout xml
         if (convertView == null) {

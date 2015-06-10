@@ -32,17 +32,25 @@ public class GlobalVariables {
     }
 
     public static String searchUnitByEid (int eid) {
+        String rtn = "";
         for (Exercise e: storedExercises) {
-            if ( eid == e.getID()) return e.unit;
+            if ( eid == e.getID()) {
+                rtn = e.unit;
+                break;
+            }
         }
-        return null;
+        return rtn;
     }
 
     public static Boolean searchSecondUnitByEid (int eid) {
+        Boolean rtn = false;
         for (Exercise e: storedExercises) {
-            if ( eid == e.getID()) return e.secondUnit;
+            if ( eid == e.getID()) {
+                rtn = e.secondUnit;
+                break;
+            }
         }
-        return null;
+        return rtn;
     }
 
     //TODO: need addExercise() method to let users store their exercises
