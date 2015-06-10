@@ -2,6 +2,7 @@ package com.fitgoose.fitgoosedemo.plan_tab;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,15 +57,28 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.plan_layer_two_child, null);
         }
 
+        // first display plan name
+        TextView plan_list_header = (TextView) convertView
+                .findViewById(R.id.plan_p_name);
+        plan_list_header.setTypeface(null, Typeface.BOLD);
+        plan_list_header.setText(childPName);
+
         // get the ExpandableListView to show exercises
         ExpandableListView plan_layer_three_list = (ExpandableListView) convertView
                 .findViewById(R.id.plan_list_items);
 
         // set the adapter
         int pid = datasource.searchPidByPname(childPName);
+
+        // Test
+        //Log.d("ExpandableListAdapter","getChildView "+childPName+" pid: " +Integer.toString(pid));
+
         ArrayList<Integer> eIDs = datasource.searchEidByPid(pid);
         ArrayList< ArrayList<StatChunk> > statChunks = new ArrayList<>();
         for (int eid: eIDs) {
+            // Test
+            Log.d("ExpandableListAdapter","getChildView: eid: "+Integer.toString(eid));
+
             ArrayList<ExSet> tempExSets = datasource.searchExSet(pid,eid);
             ArrayList<StatChunk> statChunkArrayList = new ArrayList<>();
             int i = 0;
@@ -108,6 +122,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
         String headerTitle = (String) getGroup(groupPosition);
+
+        //Log.d("ExpandableListAdapter","getGroupView "+headerTitle);
 
         // inflate layer two header layout xml
         if (convertView == null) {

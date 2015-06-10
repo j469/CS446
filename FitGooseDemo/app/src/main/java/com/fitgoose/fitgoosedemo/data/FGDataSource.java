@@ -142,7 +142,7 @@ public class FGDataSource extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(EXPLANXREF_EPRID,e.getID());
         values.put(EXPLANXREF_PID, e.pID);
-        values.put(EXPLANXREF_EID, e.pID);
+        values.put(EXPLANXREF_EID, e.eID);
         values.put(EXPLANXREF_SETS, e.numOfSets);
 
         db.insert(TABLE_EXPLANXREF, null, values);

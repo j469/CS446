@@ -7,7 +7,7 @@ package com.fitgoose.fitgoosedemo.data;
 
 public final class Exercise {
 
-    private static int eID = 0;
+    private int eID;
     public boolean type; // false means default, true means user's modification
     public String name;
     public String unit;
@@ -22,9 +22,9 @@ public final class Exercise {
     public boolean secondUnit; // weight exercise is true here
 
     // Constructors
-    public Exercise (boolean type, String name, String unit, boolean shoulder, boolean arms,
+    public Exercise (int eid, boolean type, String name, String unit, boolean shoulder, boolean arms,
                  boolean back, boolean chest, boolean abs, boolean legs, boolean oxy, boolean cardio, boolean secondUnit) {
-        eID ++;
+        this.eID = eid;
         this.type = type;
         this.name = name;
         this.unit = unit;

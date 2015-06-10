@@ -2,6 +2,7 @@ package com.fitgoose.fitgoosedemo.plan_tab;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,11 @@ public class PlanDetailListAdapter extends BaseExpandableListAdapter {
 
         final StatChunk childDetails = (StatChunk) getChild(groupPosition, childPosition);
         int eid = (Integer) getGroup(groupPosition);
+
+
+        // Test
+        Log.d("PlanDetailListAdapter","getChildView "+Integer.toString(eid));
+
 
         // inflate layer three chlid layout xml
         if (convertView == null) {
@@ -111,6 +117,9 @@ public class PlanDetailListAdapter extends BaseExpandableListAdapter {
         int eid = (Integer) getGroup(groupPosition);
         String headerTitle = GlobalVariables.searchENameByEid(eid);
 
+        Log.d("PlanDetailListAdapter", "getGroupView eid: " + Integer.toString(eid)
+                + " ename: " + headerTitle);
+
         // inflate layer three header layout xml
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
@@ -120,7 +129,6 @@ public class PlanDetailListAdapter extends BaseExpandableListAdapter {
 
         TextView plan_list_header = (TextView) convertView
                 .findViewById(R.id.plan_exercise_ename);
-        plan_list_header.setTypeface(null, Typeface.BOLD);
         plan_list_header.setText(headerTitle);
 
         return convertView;

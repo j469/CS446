@@ -61,7 +61,7 @@ public class WorkoutPlansFragment extends Fragment{
         Calendar c = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         // then store the data, to pass to adapter
-        for (int i=0; i<8; i++) {
+        for (int i=0; i<7; i++) {
             // first add the date to listDataHeader[]
             String curDate = sdf.format(c.getTime());
             listDataHeader.add(curDate);

@@ -6,13 +6,23 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="6dp">
+
+    <!-- this is how "date" really display /> -->
+    <TextView
+        android:id="@+id/plan_p_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:layout_alignParentStart="true"
+        android:textSize="22sp" />
 
     <!-- this is the frame to plug in the real plans /> -->
     <ExpandableListView
         android:id="@+id/plan_list_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/plan_p_name"/>
 
 </RelativeLayout>

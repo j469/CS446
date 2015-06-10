@@ -6,14 +6,13 @@
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:orientation="vertical"
-android:padding="8dp">
+android:padding="4dp">
 
     <!-- this is how "date" really display /> -->
     <TextView
         android:id="@+id/plan_list_header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:textSize="22sp" />
 
 </RelativeLayout>

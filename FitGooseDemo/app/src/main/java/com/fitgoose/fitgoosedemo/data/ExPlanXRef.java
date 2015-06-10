@@ -22,5 +22,5 @@ public class ExPlanXRef {
         return eprID;
     }
 
-    public void resetID() {eprID = 0;}
+    public void resetID() {eprID = -1;}
 }

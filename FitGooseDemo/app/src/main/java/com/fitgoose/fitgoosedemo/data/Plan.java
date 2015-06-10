@@ -20,5 +20,5 @@ public class Plan {
         return pID;
     }
 
-    public void resetID() {pID = 0;}
+    public void resetID() {pID = -1;}
 }

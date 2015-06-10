@@ -31,5 +31,5 @@ public class ExSet {
         return setID;
     }
 
-    public void resetID() {setID = 0;}
+    public void resetID() {setID = -1;}
 }
