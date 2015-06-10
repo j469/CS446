@@ -49,10 +49,6 @@ public class PlanDetailAdapter extends ArrayAdapter< StatChunk > {
             }
         }
 
-        //TODO
-        Log.d("PlanDetailAdapter", GlobalVariables.searchENameByEid(eid)+" setid: " + Integer.toString(childDetails.setid)
-                + " quantity: " + Integer.toString(childDetails.quantity));
-
         // set exercise name
         TextView textView = (TextView) convertView.findViewById(R.id.plan_list_exercise_name);
         String s = GlobalVariables.searchENameByEid(eid);

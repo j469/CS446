@@ -14,7 +14,9 @@ import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 import com.fitgoose.fitgoosedemo.data.Plan;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -46,13 +48,23 @@ public class MainActivity extends ActionBarActivity
         ExSet exSet = new ExSet(0,1000,0);
         exSet.resetID();
 
-        plan  = new Plan("2015-06-09","PlanOne");
+        // Today
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String curDate = sdf.format(c.getTime());
+        plan  = new Plan(curDate,"PlanOne");
         datasource.storePlan(plan);
-        plan = new Plan("2015-06-09","PlanTwo");
+        plan = new Plan(curDate,"PlanTwo");
         datasource.storePlan(plan);
-        plan = new Plan("2015-06-10","PlanThree");
+        // tomorrow
+        c.add(Calendar.DATE, 1);
+        curDate = sdf.format(c.getTime());
+        plan = new Plan(curDate,"PlanThree");
         datasource.storePlan(plan);
-        plan = new Plan("2015-06-12","PlanFour");
+        // two days later
+        c.add(Calendar.DATE, 2);
+        curDate = sdf.format(c.getTime());
+        plan = new Plan(curDate,"PlanFour");
         datasource.storePlan(plan);
 
         // PlanOne

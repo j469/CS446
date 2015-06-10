@@ -77,9 +77,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 i++;
             }
         }
-        // TODO
-        PlanDetailAdapter planDetailListAdapter = new PlanDetailAdapter(_context, R.layout.plan_layer_three_child_with_second_unit, statChunks);
-        //ListView listViewItems = new ListView(_context);
+
+        PlanDetailAdapter planDetailListAdapter = new PlanDetailAdapter(_context,
+                                R.layout.plan_layer_three_child_with_second_unit, statChunks);
         ListView listViewItems = (ListView) convertView.findViewById(R.id.plan_list_items);
         listViewItems.setAdapter(planDetailListAdapter);
 
