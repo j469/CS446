@@ -46,18 +46,4 @@ public final class Exercise {
     public void resetID() {
         eID=0;
     }
-    /**
-     * getExerciseByID:
-     * @param eid
-     * @return an Exercise object if valid eid, otherwise null pointer
-     */
-
-    public Exercise getExerciseByID (int eid) {
-        for (Exercise e: GlobalVariables.storedExercises) {
-            if (e.getID() == eid) return e;
-        }
-        return null;
-    }
-
-    //public Exercise getExerciseByName (String name) {}
 }

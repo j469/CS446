@@ -58,7 +58,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.plan_layer_two_child, null);
         }
 
-        // first display plan name
+/*        // first display plan name
         TextView plan_list_header = (TextView) convertView
                 .findViewById(R.id.plan_p_name);
         plan_list_header.setTypeface(null, Typeface.BOLD);
@@ -82,7 +82,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 R.layout.plan_layer_three_child_with_second_unit, statChunks);
         ListView listViewItems = (ListView) convertView.findViewById(R.id.plan_list_items);
         listViewItems.setAdapter(planDetailListAdapter);
-
+*/
         datasource.close();
         return convertView;
     }

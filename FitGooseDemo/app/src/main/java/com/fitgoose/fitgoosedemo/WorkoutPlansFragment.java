@@ -51,7 +51,7 @@ public class WorkoutPlansFragment extends Fragment{
 
         View rootView = inflater.inflate(R.layout.fragment_plans_workout, container, false);
 
-        // get the listview
+/*        // get the listview
         expListView = (ExpandableListView) rootView.findViewById(R.id.plan_expandableListView);
 
         // preparing list data
@@ -76,7 +76,7 @@ public class WorkoutPlansFragment extends Fragment{
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
-
+*/
         datasource.close();
         return rootView;
     }

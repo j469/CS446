@@ -8,14 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
-import com.fitgoose.fitgoosedemo.data.ExPlanXRef;
+import com.fitgoose.fitgoosedemo.data.Daily;
 import com.fitgoose.fitgoosedemo.data.ExSet;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
-import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 import com.fitgoose.fitgoosedemo.data.Plan;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends ActionBarActivity
@@ -37,89 +35,42 @@ public class MainActivity extends ActionBarActivity
         //first get a FGDataSource instance
         datasource = FGDataSource.getInstance(this);
 
-    {//TODO: this is a fake database to start with
+/*    {//TODO: this is a fake database to start with
 
         datasource.deleteAll();
 
-        Plan plan  = new Plan("To reset","To rest");
-        plan.resetID();
-        ExPlanXRef exPlanXRef = new ExPlanXRef(0,0,3);
-        exPlanXRef.resetID();
-        ExSet exSet = new ExSet(0,1000,0);
-        exSet.resetID();
-
         // Today
+        // two sets of running, one set of bench press
         Calendar c = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String curDate = sdf.format(c.getTime());
-        plan  = new Plan(curDate,"PlanOne");
-        datasource.storePlan(plan);
-        plan = new Plan(curDate,"PlanTwo");
-        datasource.storePlan(plan);
+        Daily daily = new Daily(0,curDate,0,2);
+        datasource.storeDaily(daily);
+        ExSet exSet = new ExSet(0,0,1000,0,0);
+        datasource.storeExSet(exSet);
+        exSet = new ExSet(0,0,500,0,0);
+        datasource.storeExSet(exSet);
+        daily = new Daily(0,curDate,1,1);
+        datasource.storeDaily(daily);
+        exSet = new ExSet(0,1,50,5,1);
+        datasource.storeExSet(exSet);
+
         // tomorrow
+        // two sets of bench press, one set of running
         c.add(Calendar.DATE, 1);
         curDate = sdf.format(c.getTime());
-        plan = new Plan(curDate,"PlanThree");
-        datasource.storePlan(plan);
-        // two days later
-        c.add(Calendar.DATE, 2);
-        curDate = sdf.format(c.getTime());
-        plan = new Plan(curDate,"PlanFour");
-        datasource.storePlan(plan);
-
-        // PlanOne
-        // PlanOne, running, 3 sets
-        exPlanXRef = new ExPlanXRef(0,0,3);
-        datasource.storeExPlanXRef(exPlanXRef);
-        exSet = new ExSet(0,1000,0);
+        daily = new Daily(0,curDate,1,1);
+        datasource.storeDaily(daily);
+        exSet = new ExSet(0,2,100,10,1);
         datasource.storeExSet(exSet);
-        exSet = new ExSet(0,800,0);
+        daily = new Daily(0,curDate,0,2);
+        datasource.storeDaily(daily);
+        exSet = new ExSet(0,3,7000,10,0);
         datasource.storeExSet(exSet);
-        exSet = new ExSet(0,500,0);
+        exSet = new ExSet(0,3,500,1,1);
         datasource.storeExSet(exSet);
-        // PlanOne, bench press, 2 sets
-        exPlanXRef = new ExPlanXRef(0,1,2);
-        datasource.storeExPlanXRef(exPlanXRef);
-        exSet = new ExSet(1,90,5);
-        datasource.storeExSet(exSet);
-        exSet = new ExSet(1,100,10);
-        datasource.storeExSet(exSet);
-
-        // PlanTwo
-        // PlanTwo, bench press, 1 sets
-        exPlanXRef = new ExPlanXRef(1,1,1);
-        datasource.storeExPlanXRef(exPlanXRef);
-        exSet = new ExSet(2,110,15);
-        datasource.storeExSet(exSet);
-        // PlanTwo, running, 3 sets
-        exPlanXRef = new ExPlanXRef(1,0,4);
-        datasource.storeExPlanXRef(exPlanXRef);
-        exSet = new ExSet(3,100,2);
-        datasource.storeExSet(exSet);
-        exSet = new ExSet(3,800,0);
-        datasource.storeExSet(exSet);
-        exSet = new ExSet(3,500,0);
-        datasource.storeExSet(exSet);
-        exSet = new ExSet(3,500,0);
-        datasource.storeExSet(exSet);
-
-        // PlanThree
-        // bench press, 2 sets
-        exPlanXRef = new ExPlanXRef(2,1,1);
-        datasource.storeExPlanXRef(exPlanXRef);
-        exSet = new ExSet(4,120,5);
-        datasource.storeExSet(exSet);
-
-        // PlanFour
-        // bench press, 2 sets
-        exPlanXRef = new ExPlanXRef(3,0,1);
-        datasource.storeExPlanXRef(exPlanXRef);
-        exSet = new ExSet(5,12000,0);
-        datasource.storeExSet(exSet);
-
-        datasource.close();
     }// fake database
-
+*/
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 

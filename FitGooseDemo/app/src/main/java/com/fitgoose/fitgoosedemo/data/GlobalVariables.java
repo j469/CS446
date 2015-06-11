@@ -53,6 +53,17 @@ public class GlobalVariables {
         return rtn;
     }
 
+    public Exercise getExerciseByEid (int eid) {
+        Exercise rtn = null;
+        for (Exercise e: storedExercises) {
+            if ( eid == e.getID()) {
+                rtn = e;
+                break;
+            }
+        }
+        return rtn;
+    }
+
     //TODO: need addExercise() method to let users store their exercises
 
 
