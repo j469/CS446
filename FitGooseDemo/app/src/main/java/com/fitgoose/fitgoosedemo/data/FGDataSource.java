@@ -311,6 +311,48 @@ public class FGDataSource extends SQLiteOpenHelper {
     }
 
 
+    /**
+     * delete Daily and the attached ExSets of the specific date and eid,
+     * @param date
+     * @param eid if eid== -1, delete all the dailies of this date
+     */
+    public static void deleteDaily(String date, int eid){
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
+
+        // first search all the dID
+        ArrayList<Integer> dIDs = new ArrayList<>();
+        String s;
+        if (eid == -1) {
+            s = "SELECT did FROM daily WHERE date = ? ;";
+        } else {
+            s = "SELECT did FROM daily WHERE date = ? AND eid = " + Integer.toString(eid) +" ;";
+        }
+        Cursor cursor = database.rawQuery(s, new String[]{date} );
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    dIDs.add(cursor.getInt(0));
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+        // then search all the setID
+        ArrayList<Integer> setIDs = new ArrayList<>();
+        s = "SELECT setid FROM exset WHERE did = ? ;";
+        cursor = database.rawQuery(s, new String[]{date} );
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    dIDs.add(cursor.getInt(0));
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+        database.close();
+    }
+
     /** TODO: focus on the format of each parameter, and PLEASE use String.valueOf( someString ) instead of just someString
      * dbDelte(): delete a specific row with your arguments
      * @param table_name "plan" or "daily" or "exset" (LOWER CASE!!!)
