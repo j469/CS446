@@ -34,43 +34,6 @@ public class MainActivity extends ActionBarActivity
 
         //first get a FGDataSource instance
         datasource = FGDataSource.getInstance(this);
-
-/*    {//TODO: this is a fake database to start with
-
-        datasource.deleteAll();
-
-        // Today
-        // two sets of running, one set of bench press
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String curDate = sdf.format(c.getTime());
-        Daily daily = new Daily(0,curDate,0,2);
-        datasource.storeDaily(daily);
-        ExSet exSet = new ExSet(0,0,1000,0,0);
-        datasource.storeExSet(exSet);
-        exSet = new ExSet(0,0,500,0,0);
-        datasource.storeExSet(exSet);
-        daily = new Daily(0,curDate,1,1);
-        datasource.storeDaily(daily);
-        exSet = new ExSet(0,1,50,5,1);
-        datasource.storeExSet(exSet);
-
-        // tomorrow
-        // two sets of bench press, one set of running
-        c.add(Calendar.DATE, 1);
-        curDate = sdf.format(c.getTime());
-        daily = new Daily(0,curDate,1,1);
-        datasource.storeDaily(daily);
-        exSet = new ExSet(0,2,100,10,1);
-        datasource.storeExSet(exSet);
-        daily = new Daily(0,curDate,0,2);
-        datasource.storeDaily(daily);
-        exSet = new ExSet(0,3,7000,10,0);
-        datasource.storeExSet(exSet);
-        exSet = new ExSet(0,3,500,1,1);
-        datasource.storeExSet(exSet);
-    }// fake database
-*/
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 

@@ -318,16 +318,17 @@ public class FGDataSource extends SQLiteOpenHelper {
      */
     public static void deleteDaily(String date, int eid){
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
-
         // first search all the dID
         ArrayList<Integer> dIDs = new ArrayList<>();
         String s;
-        if (eid == -1) {
+        Cursor cursor;
+        if (eid < 0) {
             s = "SELECT did FROM daily WHERE date = ? ;";
+            cursor = database.rawQuery(s, new String[]{date});
         } else {
-            s = "SELECT did FROM daily WHERE date = ? AND eid = " + Integer.toString(eid) +" ;";
+            s = "SELECT did FROM daily WHERE date = ? AND eid = ? ;";
+            cursor = database.rawQuery(s, new String[]{date,Integer.toString(eid)});
         }
-        Cursor cursor = database.rawQuery(s, new String[]{date} );
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
@@ -337,17 +338,10 @@ public class FGDataSource extends SQLiteOpenHelper {
             cursor.close();
         }
 
-        // then search all the setID
-        ArrayList<Integer> setIDs = new ArrayList<>();
-        s = "SELECT setid FROM exset WHERE did = ? ;";
-        cursor = database.rawQuery(s, new String[]{date} );
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                do {
-                    dIDs.add(cursor.getInt(0));
-                } while (cursor.moveToNext());
-            }
-            cursor.close();
+        // then delete all the Daily and ExSets
+        for (int did: dIDs) {
+            database.delete(TABLE_EXSET, EXSET__DID + "=?", new String[]{ Integer.toString(did)} );
+            database.delete(TABLE_DAILY, DAILY_DID + "=?", new String[]{ Integer.toString(did)} );
         }
 
         database.close();

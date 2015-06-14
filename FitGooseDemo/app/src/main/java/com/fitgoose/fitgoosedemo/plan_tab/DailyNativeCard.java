@@ -66,8 +66,7 @@ public class DailyNativeCard extends CardWithList{
                         mSpinnerDialog.show();
                         break;
                     case R.id.action_remove:
-                        //some action
-                        Log.d("setPopupMenu", "remove");
+                        FGDataSource.deleteDaily(date,-1);
                         break;
                 }
 
@@ -79,7 +78,13 @@ public class DailyNativeCard extends CardWithList{
 
     @Override
     protected void initCard() {
-        setSwipeable(false);
+        setSwipeable(true);
+        setOnSwipeListener(new OnSwipeListener() {
+            @Override
+            public void onSwipe(Card card) {
+                FGDataSource.deleteDaily(date, -1);
+            }
+        });
         setUseEmptyView(true);
     }
 
@@ -92,7 +97,8 @@ public class DailyNativeCard extends CardWithList{
         List<ListObject> mObjects = new ArrayList<ListObject>();
         //Transfer Daily to DailyObject
         int complete;
-        for (Daily d: dailies) {
+        for (final Daily d: dailies) {
+            // set values
             DailyObject dailyObject = new DailyObject(this);
             complete = 0;
             dailyObject.exercise = GlobalVariables.searchENameByEid(d.eID);
@@ -103,8 +109,19 @@ public class DailyNativeCard extends CardWithList{
             dailyObject.complete = complete;
             dailyObject.setObjectId(dailyObject.exercise);
             dailyObject.setSwipeable(true);
+
+            // set swipeable
+            dailyObject.setSwipeable(true);
+            dailyObject.setOnItemSwipeListener(new OnItemSwipeListener() {
+                @Override
+                public void onItemSwipe(ListObject object, boolean dismissRight) {
+                    FGDataSource.deleteDaily(date,d.eID);
+                }
+            });
             mObjects.add(dailyObject);
         }
+
+
 
         return mObjects;
     }
