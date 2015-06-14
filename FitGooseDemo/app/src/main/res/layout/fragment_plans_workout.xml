@@ -13,33 +13,20 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity$PlaceholderFragment">
 
-    <TextView
-        android:id="@+id/plan_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/plan_title"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/plan_add_button"
-        android:textSize="30sp"
-        android:layout_gravity="center" />
-
-    <Button
-        android:id="@+id/plan_add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/plan_add_button"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/plan_title" />
-
     <!-- this is the frame to place date /> -->
-    <ExpandableListView
-        android:id="@+id/plan_expandableListView"
-        android:layout_width="wrap_content"
+    <it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card:list_card_layout_resourceID="@layout/native_recyclerview_card_layout"
+        android:id="@+id/plan_recyclerview"/>
+
+    <it.gmariotti.cardslib.library.view.CardViewNative
+        android:id="@+id/carddemo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/plan_title"
-        android:layout_alignParentStart="true" />
+        card:card_layout_resourceID="@layout/native_cardwithlist_layout"
+        style="@style/card_external"
+        android:layout_below="@id/plan_recyclerview"
+        />
 
 </RelativeLayout>

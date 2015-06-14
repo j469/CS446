@@ -19,8 +19,10 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     // Use a Singleton to instantiate FGDataSource
     private static FGDataSource sInstance;
-
+    private static Context mContext;
+    
     public static synchronized FGDataSource getInstance(Context context) {
+        mContext = context;
         if (sInstance == null) {
             sInstance = new FGDataSource(context.getApplicationContext());
         }
@@ -133,12 +135,12 @@ public class FGDataSource extends SQLiteOpenHelper {
      * You don't need to worry about the first parameter of each object(which is the auto increment primary key),
      * just type zero or any integer you like.
      */
-    public void storePlan(Plan p) {
+    public static void storePlan(Plan p) {
         // 0. set log information
         Log.d("storePlan", Integer.toString(p.getID()));
 
         // 1. get reference to writable DB
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
         // 2. create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
@@ -163,9 +165,9 @@ public class FGDataSource extends SQLiteOpenHelper {
     }
 
 
-    public void storeDaily (Daily d) {
+    public static void storeDaily (Daily d) {
         Log.d("storeDaily", Integer.toString(d.getID()));
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
         ContentValues values = new ContentValues();
         //values.put(DAILY_DID, d.getID());
@@ -178,9 +180,9 @@ public class FGDataSource extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void storeExSet (ExSet e) {
+    public static void storeExSet (ExSet e) {
         Log.d("storeExSet", Integer.toString(e.getID()));
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
         ContentValues values = new ContentValues();
         //values.put(EXSET__SETID,e.getID());
@@ -194,19 +196,40 @@ public class FGDataSource extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * @return all the dates of existing daily records
+     */
+    public static ArrayList<String> searchAllDates() {
+        ArrayList<String> rtn = new ArrayList<>();
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
+
+        String s = "SELECT DISTINCT date FROM daily;";
+        Cursor cursor = database.rawQuery(s, null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    rtn.add( cursor.getString(0) );
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+        database.close();
+        return rtn;
+    }
 
     /** TODO: this is for calendar
      * searchProgressByDate(): get the total sets & complete sets of the specific date
      * @param date (format: yyyy-MM-dd in String)
      * @return ArrayList< (int)total_sets, (int)complete_sets >
      */
-    public ArrayList<Integer> searchProgressByDate (String date) {
+    public static ArrayList<Integer> searchProgressByDate (String date) {
 
         ArrayList<Integer> rtn = new ArrayList<> ();
         int total_sets = 0;
         int complete_sets = 0;
 
-        SQLiteDatabase database = this.getReadableDatabase();
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
 
         String s = "SELECT e.complete "
             + "FROM daily AS d, exset AS e "
@@ -236,10 +259,10 @@ public class FGDataSource extends SQLiteOpenHelper {
      * @param date (format: yyyy-MM-dd in String)
      * @return An arraylist of class Daily, each Daily object attached an array of ExSet
      */
-    public ArrayList<Daily> searchDailyByDate (String date) {
+    public static ArrayList<Daily> searchDailyByDate (String date) {
 
         ArrayList<Daily> rtn = new ArrayList<> ();
-        SQLiteDatabase database = this.getReadableDatabase();
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
 
         // first build Daily
         String s = "SELECT d.did, d.eid, d.numofsets "
@@ -294,8 +317,8 @@ public class FGDataSource extends SQLiteOpenHelper {
      * @param whereClause such as "pid" "pname" "date" etc
      * @param whereArgs String[] { String.valueOf(date) } or String[]{ Integer.toString(setID) }
      */
-    public void dbDelete(String table_name, String whereClause, String[] whereArgs) {
-        SQLiteDatabase database = this.getReadableDatabase();
+    public static void dbDelete(String table_name, String whereClause, String[] whereArgs) {
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
         database.delete(table_name, whereClause+" =? ", whereArgs);
         database.close();
     }
@@ -313,15 +336,15 @@ public class FGDataSource extends SQLiteOpenHelper {
      *              data.put("Field2",19);
      *              data.put("Field3","male");
      */
-    public void dbUpdate(String table_name, ContentValues values, String whereClause, String[] whereArgs){
-        SQLiteDatabase database = this.getReadableDatabase();
+    public static void dbUpdate(String table_name, ContentValues values, String whereClause, String[] whereArgs){
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
         database.update(table_name, values, whereClause + " =? ", whereArgs);
         database.close();
     }
 
 
-    public void deleteAll() {
-        SQLiteDatabase database = this.getReadableDatabase();
+    public static void deleteAll() {
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
         database.execSQL("delete from "+ TABLE_PLAN);
         database.execSQL("delete from " + TABLE_DAILY);
         database.execSQL("delete from " + TABLE_EXSET);

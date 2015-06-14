@@ -6,7 +6,7 @@ public class Daily {
     public int dID = 0;
     public String date;
     public int eID;
-    int numOfSets;
+    public int numOfSets;
     public ArrayList<ExSet> exSets;
 
     public Daily (String date, int eID, int numOfSets) {

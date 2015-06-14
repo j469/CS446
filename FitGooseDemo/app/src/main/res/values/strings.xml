@@ -31,5 +31,6 @@
 <!-- Workout plan tab related, J -->
     <string name="plan_title">Workout Plan</string>
     <string name="plan_add_button">Add a plan</string>
+    <string name="card_empty_cardwithlist_text">No exercise today!</string>
 
 </resources>
