@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.R;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
@@ -48,7 +49,13 @@ public class SpinnerDialog extends Dialog {
             public void onClick(View v) {
                 // sets
                 EditText edit = (EditText)findViewById(R.id.daily_add_set_number);
-                int sets = Integer.parseInt(edit.getText().toString());
+                int sets;
+                try {
+                    sets = Integer.parseInt(edit.getText().toString());
+                } catch (NumberFormatException e) {
+                    Toast.makeText(mContext, "Needs the number of sets.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 // exercise
                 int n = mSpinner.getSelectedItemPosition();
                 mReadyListener.ready(n,sets);

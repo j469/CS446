@@ -63,6 +63,7 @@ public class DailyNativeCard extends CardWithList{
                                 //WorkoutPlansFragment.mCardArrayAdapter.notifyDataSetChanged();
                             }
                         });
+                        mSpinnerDialog.setTitle(date);
                         mSpinnerDialog.show();
                         break;
                     case R.id.action_remove:
