@@ -12,6 +12,7 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -28,7 +29,6 @@ public class StatisticsFragment extends Fragment {
     private ArrayAdapter<CharSequence> adapter;
     private SpinnerListener spinnerListener;
     private GraphView graph;
-    private LineGraphSeries<DataPoint> series;
 
     private String[] sampleExerciseNames = {"Push Up", "Jogging", "Bench Press"};
 
@@ -72,15 +72,7 @@ public class StatisticsFragment extends Fragment {
 
         // Create the graph view
         graph = (GraphView) rootView.findViewById(R.id.graph);
-
-        series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph.addSeries(series);
+        evaluatePlot();
 
         return rootView;
     }
@@ -98,15 +90,72 @@ public class StatisticsFragment extends Fragment {
         return list;
     }
 
+    private void evaluatePlot() {
+        int numDataPts = 0;
+        int min = 0;
+        int max = 0;
+        graph.removeAllSeries();
+
+        switch (exerciseSpinner.getSelectedItemPosition()) {
+            case 1:
+                min = 4;
+                max = 7;
+                break;
+            case 2:
+                min = 20;
+                max = 60;
+                break;
+            case 3:
+                min = 0;
+                max = 20;
+                break;
+        }
+        switch (timeRangeSpinner.getSelectedItemPosition()) {
+            case 1:
+                numDataPts = 7;
+                break;
+            case 2:
+                numDataPts = 30;
+                break;
+            case 3:
+                numDataPts = 12;
+                break;
+            case 4:
+                numDataPts = 50;
+                break;
+        }
+        if(numDataPts != 0) {
+            graph.getViewport().setXAxisBoundsManual(true);
+            graph.getViewport().setMinX(0);
+            graph.getViewport().setMaxX(numDataPts - 1);
+            graph.getViewport().setYAxisBoundsManual(true);
+            graph.getViewport().setMinY(0);
+            graph.getViewport().setMaxY(max);
+            graph.addSeries(getRandomSeries(numDataPts, min, max));
+        }
+    }
+
     private class SpinnerListener implements AdapterView.OnItemSelectedListener {
 
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            // TODO: Update Plot
+            evaluatePlot();
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
         }
+    }
+
+    // Test method for generating a random series
+    private LineGraphSeries<DataPoint> getRandomSeries(int numDataPts, int min, int max) {
+        Random rng = new Random();
+        DataPoint[] dpts = new DataPoint[numDataPts];
+
+        for(int i = 0; i < numDataPts; i++) {
+            dpts[i] = new DataPoint(i, min + rng.nextInt(max - min));
+        }
+
+        return new LineGraphSeries<DataPoint>(dpts);
     }
 }
