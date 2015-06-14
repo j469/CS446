@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/daily_add_choose_exercise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose an exercise:"
+        android:textSize="22sp"/>
+
+    <Spinner
+        android:id="@+id/daily_add_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/daily_add_choose_exercise"/>
+
+    <TextView
+        android:id="@+id/daily_add_choose_sets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How many sets?"
+        android:textSize="22sp"
+        android:layout_below="@id/daily_add_spinner"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/daily_add_set_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@id/daily_add_spinner"
+        android:layout_toRightOf="@id/daily_add_choose_sets"/>
+
+    <Button
+        android:id="@+id/daily_add_dialogOK"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:layout_below="@id/daily_add_choose_sets"/>
+
+    <Button
+        android:id="@+id/daily_add_dialogCancel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_below="@id/daily_add_choose_sets"
+        android:layout_toRightOf="@id/daily_add_dialogOK"/>
+
+</RelativeLayout>
