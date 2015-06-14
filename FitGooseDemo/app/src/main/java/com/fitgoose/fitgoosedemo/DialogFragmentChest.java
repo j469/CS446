@@ -10,13 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.Button;
 
 /**
  * Created by selway on 15-06-13.
  */
-public class DialogFragmentChest extends DialogFragment {
+public class DialogFragmentChest extends DialogFragment{
 
     public DialogFragmentChest() {
 
@@ -41,6 +43,68 @@ public class DialogFragmentChest extends DialogFragment {
                 switch ((int) l) {
                     case 0:
                         getDialog().setContentView(R.layout.dialog_body_chart_next);
+
+                        final EditText num_lbs = (EditText) getDialog().findViewById(R.id.num_lbs);
+                        final EditText num_set = (EditText) getDialog().findViewById(R.id.num_set);
+
+                        Button sub_lbs = (Button) getDialog().findViewById(R.id.sub_lbs);
+                        sub_lbs.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Toast.makeText(getActivity(), "Sub lbs", Toast.LENGTH_SHORT).show();
+                                //num_lbs.setText("@/"current_lbs);
+                                String tempNum = num_lbs.getText().toString();
+                                int tempLbs = Integer.parseInt(tempNum) - 5;
+                                tempNum = String.valueOf(tempLbs);
+                                num_lbs.setText(tempNum);
+                            }
+                        });
+
+                        Button add_lbs = (Button) getDialog().findViewById(R.id.add_lbs);
+                        add_lbs.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                String tempNum = num_lbs.getText().toString();
+                                int tempLbs = Integer.parseInt(tempNum) + 5;
+                                tempNum = String.valueOf(tempLbs);
+                                num_lbs.setText(tempNum);
+                            }
+                        });
+
+                        Button sub_set = (Button) getDialog().findViewById(R.id.sub_set);
+                        sub_set.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Toast.makeText(getActivity(), "Sub lbs", Toast.LENGTH_SHORT).show();
+                                //num_lbs.setText("@/"current_lbs);
+                                String tempNum = num_set.getText().toString();
+                                int tempLbs = Integer.parseInt(tempNum) - 1;
+                                tempNum = String.valueOf(tempLbs);
+                                num_set.setText(tempNum);
+                            }
+                        });
+
+                        Button add_set = (Button) getDialog().findViewById(R.id.add_set);
+                        add_set.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                //Toast.makeText(getActivity(), "Sub lbs", Toast.LENGTH_SHORT).show();
+                                //num_lbs.setText("@/"current_lbs);
+                                String tempNum = num_set.getText().toString();
+                                int tempLbs = Integer.parseInt(tempNum) + 1;
+                                tempNum = String.valueOf(tempLbs);
+                                num_set.setText(tempNum);
+                            }
+                        });
+
+                        Button done_btn = (Button) getDialog().findViewById(R.id.done_btn);
+                        done_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                getDialog().dismiss();
+                            }
+                        });
+
                         break;
                     case 1:
                         Toast.makeText(getActivity(), "Incline Dumbbell Press", Toast.LENGTH_SHORT).show();
