@@ -35,7 +35,7 @@ public class DailyNativeCard extends CardWithList{
     private String date;
 
     public DailyNativeCard(Context context, String date) {
-        super(context,R.layout.daily_card_inner_main);
+        super(context, R.layout.daily_card_inner_main);
         this.date = date;
     }
 
@@ -56,17 +56,20 @@ public class DailyNativeCard extends CardWithList{
                             public void cancelled() {
                                 // do your code here
                             }
+
                             public void ready(int position, int number_of_sets) {
                                 int eid = GlobalVariables.storedExercises[position].getID();
-                                Daily daily = new Daily(date,eid,number_of_sets);
+                                Daily daily = new Daily(date, eid, number_of_sets);
                                 FGDataSource.storeDaily(daily);
+                                updateItems(daily);
                                 //WorkoutPlansFragment.mCardArrayAdapter.notifyDataSetChanged();
                             }
                         });
+                        mSpinnerDialog.setTitle(date);
                         mSpinnerDialog.show();
                         break;
                     case R.id.action_remove:
-                        FGDataSource.deleteDaily(date,-1);
+                        FGDataSource.deleteDaily(date, -1);
                         break;
                 }
 
@@ -120,10 +123,30 @@ public class DailyNativeCard extends CardWithList{
             });
             mObjects.add(dailyObject);
         }
-
-
-
         return mObjects;
+    }
+
+    public void updateItems(final Daily d) {
+        //Init the object list
+        List<ListObject> mObjects = new ArrayList<ListObject>();
+        // set values
+        DailyObject dailyObject = new DailyObject(this);
+        dailyObject.exercise = GlobalVariables.searchENameByEid(d.eID);
+        dailyObject.total = d.numOfSets;
+        dailyObject.complete = 0;
+        dailyObject.setObjectId(dailyObject.exercise);
+        dailyObject.setSwipeable(true);
+        // set swipeable
+        dailyObject.setSwipeable(true);
+        dailyObject.setOnItemSwipeListener(new OnItemSwipeListener() {
+                @Override
+                public void onItemSwipe(ListObject object, boolean dismissRight) {
+                    FGDataSource.deleteDaily(date,d.eID);
+                }
+            });
+        mObjects.add(dailyObject);
+        getLinearListAdapter().addAll(mObjects);
+
     }
 
     @Override

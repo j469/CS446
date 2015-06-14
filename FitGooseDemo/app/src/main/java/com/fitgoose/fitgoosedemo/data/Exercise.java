@@ -42,8 +42,4 @@ public final class Exercise {
     public int getID() {
         return eID;
     }
-
-    public void resetID() {
-        eID=0;
-    }
 }
