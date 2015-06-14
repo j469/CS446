@@ -8,13 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
-import com.fitgoose.fitgoosedemo.data.Daily;
-import com.fitgoose.fitgoosedemo.data.ExSet;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
-import com.fitgoose.fitgoosedemo.data.Plan;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -23,17 +17,14 @@ public class MainActivity extends ActionBarActivity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
-
-
-    private FGDataSource datasource;
+    private FGDataSource mFGDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mFGDataSource = FGDataSource.getInstance(this);
         setContentView(R.layout.activity_main);
 
-        //first get a FGDataSource instance
-        datasource = FGDataSource.getInstance(this);
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
@@ -42,14 +33,12 @@ public class MainActivity extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        // By default, selects first item in the menu
-//        mNavigationDrawerFragment.selectItem(0);
     }
 
     /**
      * Part of the NavigationDrawerCallbacks interface so the NavigationDrawerFragment can make a
      * callback to change the content fragment that's being displayed
-    */
+     */
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         Fragment contentFragment = null;

@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.plan_tab.DailyNativeCard;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.recyclerview.internal.CardArrayRecyclerViewAdapter;
@@ -42,12 +44,17 @@ public class WorkoutPlansFragment extends Fragment{
 
         View rootView = inflater.inflate(R.layout.fragment_plans_workout, container, false);
         //prepare data
-        ArrayList<String> dates = FGDataSource.searchAllDates();
+        ArrayList<String> dates = new ArrayList<>();// = FGDataSource.searchAllDates();
         ArrayList<Card> cards = new ArrayList<>();
 
-        // fake
-        dates.add( String.valueOf("2016-01-03"));
-        dates.add( String.valueOf("2016-01-04"));
+        // a week
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        for (int i=0;i<7;i++) {
+            String curDate = sdf.format(c.getTime());
+            dates.add(curDate);
+            c.add(Calendar.DATE,1);
+        }
 
 
         for (String date: dates) {
