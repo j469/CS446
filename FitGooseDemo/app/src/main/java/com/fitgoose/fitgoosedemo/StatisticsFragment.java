@@ -19,15 +19,16 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 public class StatisticsFragment extends Fragment {
 
-    Spinner exerciseSpinner;
-    Spinner timeRangeSpinner;
-    Spinner propertySpinner;
-    ArrayAdapter<CharSequence> exerciseAdapter;
-    ArrayAdapter<CharSequence> timeRangeAdapter;
-    ArrayAdapter<CharSequence> adapter;
-    SpinnerListener spinnerListener;
-    GraphView graph;
-    LineGraphSeries<DataPoint> series;
+    private View rootView;
+    private Spinner exerciseSpinner;
+    private Spinner timeRangeSpinner;
+    private Spinner propertySpinner;
+    private ArrayAdapter<CharSequence> exerciseAdapter;
+    private ArrayAdapter<CharSequence> timeRangeAdapter;
+    private ArrayAdapter<CharSequence> adapter;
+    private SpinnerListener spinnerListener;
+    private GraphView graph;
+    private LineGraphSeries<DataPoint> series;
 
     private String[] sampleExerciseNames = {"Push Up", "Jogging", "Bench Press"};
 
@@ -42,7 +43,7 @@ public class StatisticsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_statistics, container, false);
+        rootView = inflater.inflate(R.layout.fragment_statistics, container, false);
 
         //Initialize the spinner listener
         spinnerListener = new SpinnerListener();
@@ -101,7 +102,7 @@ public class StatisticsFragment extends Fragment {
 
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            graph.addSeries(series);
+            // TODO: Update Plot
         }
 
         @Override
