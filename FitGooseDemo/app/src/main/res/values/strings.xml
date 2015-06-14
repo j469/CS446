@@ -25,7 +25,6 @@
     <string name="action_example">Example</string>
 
     <string-array name="graph_time_ranges">
-        <item>Time Range:</item>
         <item>Past Week</item>
         <item>Past Month</item>
         <item>Past Year</item>
@@ -33,9 +32,8 @@
     </string-array>
 
     <string-array name="graph_properties">
-        <item>Properties:</item>
-        <item>Number of Sets</item>
-        <item>Intensity</item>
+        <item>Average</item>
+        <item>Best Set</item>
     </string-array>
 
 </resources>

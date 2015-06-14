@@ -85,7 +85,7 @@ public class StatisticsFragment extends Fragment {
     private ArrayList<CharSequence> getExerciseNames() {
         ArrayList<CharSequence> list = new ArrayList<CharSequence>(
                 Arrays.asList(sampleExerciseNames));
-        list.add(0, "Exercise:");
+        list.add(0, "-");
 
         return list;
     }
@@ -111,20 +111,20 @@ public class StatisticsFragment extends Fragment {
                 break;
         }
         switch (timeRangeSpinner.getSelectedItemPosition()) {
-            case 1:
+            case 0:
                 numDataPts = 7;
                 break;
-            case 2:
+            case 1:
                 numDataPts = 30;
                 break;
-            case 3:
+            case 2:
                 numDataPts = 12;
                 break;
-            case 4:
+            case 3:
                 numDataPts = 50;
                 break;
         }
-        if(numDataPts != 0) {
+        if(numDataPts != 0 && max > min) {
             graph.getViewport().setXAxisBoundsManual(true);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(numDataPts - 1);
@@ -149,6 +149,8 @@ public class StatisticsFragment extends Fragment {
 
     // Test method for generating a random series
     private LineGraphSeries<DataPoint> getRandomSeries(int numDataPts, int min, int max) {
+        if (max <= min) return null;
+
         Random rng = new Random();
         DataPoint[] dpts = new DataPoint[numDataPts];
 

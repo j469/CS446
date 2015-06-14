@@ -12,22 +12,70 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/graph_setting"
+        android:id="@+id/layout_spinners"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Spinner
-            android:id="@+id/exercise_spinner"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_exercise_spinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Spinner
-            android:id="@+id/time_range_spinner"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/spinner_label_width"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/spinner_label_text_size"
+                android:text="Exercise: "
+                android:id="@+id/label_exercise_spinner" />
+
+            <Spinner
+                android:id="@+id/exercise_spinner"
+                android:layout_width="@dimen/spinner_width"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_timer_range_spinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Spinner
-            android:id="@+id/properties_spinner"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/spinner_label_width"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/spinner_label_text_size"
+                android:text="Time Range: "
+                android:id="@+id/label_time_range_spinner" />
+
+            <Spinner
+                android:id="@+id/time_range_spinner"
+                android:layout_width="@dimen/spinner_width"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_properties_spinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/spinner_label_width"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/spinner_label_text_size"
+                android:text="Property: "
+                android:id="@+id/label_properties_spinner" />
+
+            <Spinner
+                android:id="@+id/properties_spinner"
+                android:layout_width="@dimen/spinner_width"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
