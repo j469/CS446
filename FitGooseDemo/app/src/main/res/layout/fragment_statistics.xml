@@ -8,13 +8,89 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity$PlaceholderFragment">
+    tools:context=".MainActivity$PlaceholderFragment"
+    android:orientation="vertical">
 
-    <TextView android:id="@+id/test_text_view"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:id="@+id/layout_spinners"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:gravity="center"
-        android:text="@string/title_statistics"/>
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_exercise_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/spinner_label_width"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/spinner_label_text_size"
+                android:text="Exercise: "
+                android:id="@+id/label_exercise_spinner" />
+
+            <Spinner
+                android:id="@+id/exercise_spinner"
+                android:layout_width="@dimen/spinner_width"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_timer_range_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/spinner_label_width"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/spinner_label_text_size"
+                android:text="Time Range: "
+                android:id="@+id/label_time_range_spinner" />
+
+            <Spinner
+                android:id="@+id/time_range_spinner"
+                android:layout_width="@dimen/spinner_width"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_properties_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/spinner_label_width"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/spinner_label_text_size"
+                android:text="Property: "
+                android:id="@+id/label_properties_spinner" />
+
+            <Spinner
+                android:id="@+id/properties_spinner"
+                android:layout_width="@dimen/spinner_width"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/graph_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/graph" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

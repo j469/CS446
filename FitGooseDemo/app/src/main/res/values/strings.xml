@@ -24,6 +24,28 @@
     <string name="action_settings">Settings</string>
     <string name="action_example">Example</string>
 
+    <string-array name="graph_time_ranges">
+        <item>Past Week</item>
+        <item>Past Month</item>
+        <item>Past Year</item>
+        <item>All Time</item>
+    </string-array>
+
+    <string-array name="graph_properties">
+        <item>Average</item>
+        <item>Best Set</item>
+    </string-array>
+
+    <string-array name="chest_exercise">
+        <item>Numbbell Bench Press</item>
+        <item>Incline Dumbbell Press</item>
+        <item>Push ups</item>
+        <item>Low Cable Crossover</item>
+        <item>Body Weight Flyes</item>
+    </string-array>
+
+    <color name="red">#FF0000</color>
+
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
