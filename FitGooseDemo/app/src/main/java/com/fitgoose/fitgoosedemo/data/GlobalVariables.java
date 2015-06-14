@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class GlobalVariables {
 
     /** TODO: (Selway) add more exercises here
+     * TODO: save to database
      *  Stored exercises:
      *  Format: ( int eid, false , String name, String unit, boolean shoulder, boolean arms,
      *       boolean back, boolean chest, boolean abs, boolean legs, boolean oxy,
