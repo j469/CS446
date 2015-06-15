@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
+import com.fitgoose.fitgoosedemo.plan_tab.BaseFragment;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -42,7 +43,7 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         Fragment contentFragment = null;
-
+        BaseFragment contentFragment2=null;
         switch(position) {
             case 0:
                 contentFragment = new TodaysExercisesFragment();
@@ -72,6 +73,9 @@ public class MainActivity extends ActionBarActivity
                     .replace(R.id.container, contentFragment)
                     .commit();
         }
+
+
+
     }
 
     @Override
