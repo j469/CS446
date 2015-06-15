@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 
+import com.fitgoose.fitgoosedemo.data.FGDataSource;
+
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -15,10 +17,12 @@ public class MainActivity extends ActionBarActivity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
+    private FGDataSource mFGDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mFGDataSource = FGDataSource.getInstance(this);
         setContentView(R.layout.activity_main);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -34,7 +38,7 @@ public class MainActivity extends ActionBarActivity
     /**
      * Part of the NavigationDrawerCallbacks interface so the NavigationDrawerFragment can make a
      * callback to change the content fragment that's being displayed
-    */
+     */
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         Fragment contentFragment = null;
