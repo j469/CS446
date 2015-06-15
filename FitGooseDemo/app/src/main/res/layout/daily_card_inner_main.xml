@@ -25,6 +25,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"/>
 
+        <ImageView
+            android:id="@+id/daily_card_exercise_sets_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true" />
 
         <TextView
             android:id="@+id/daily_card_exercise_sets_total"
@@ -32,7 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textSize="20sp"
-            android:layout_alignParentRight="true"/>
+            android:paddingRight="25dp"
+            android:layout_toLeftOf="@id/daily_card_exercise_sets_icon" />
 
         <TextView
             android:id="@+id/daily_card_exercise_sets_slash"

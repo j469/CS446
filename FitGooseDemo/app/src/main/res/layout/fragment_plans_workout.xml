@@ -20,13 +20,4 @@
         card:list_card_layout_resourceID="@layout/native_recyclerview_card_layout"
         android:id="@+id/plan_recyclerview"/>
 
-    <it.gmariotti.cardslib.library.view.CardViewNative
-        android:id="@+id/carddemo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card:card_layout_resourceID="@layout/native_cardwithlist_layout"
-        style="@style/card_external"
-        android:layout_below="@id/plan_recyclerview"
-        />
-
 </RelativeLayout>
