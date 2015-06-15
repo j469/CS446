@@ -36,4 +36,14 @@
         <item>Best Set</item>
     </string-array>
 
+    <string-array name="chest_exercise">
+        <item>Numbbell Bench Press</item>
+        <item>Incline Dumbbell Press</item>
+        <item>Push ups</item>
+        <item>Low Cable Crossover</item>
+        <item>Body Weight Flyes</item>
+    </string-array>
+
+    <color name="red">#FF0000</color>
+
 </resources>
