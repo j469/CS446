@@ -70,6 +70,7 @@ public class DailyNativeCard extends CardWithList{
                         break;
                     case R.id.action_remove:
                         FGDataSource.deleteDaily(date, -1);
+                        deleteAllDaily();
                         break;
                 }
 
@@ -127,8 +128,6 @@ public class DailyNativeCard extends CardWithList{
     }
 
     public void updateItems(final Daily d) {
-        //Init the object list
-        List<ListObject> mObjects = new ArrayList<ListObject>();
         // set values
         DailyObject dailyObject = new DailyObject(this);
         dailyObject.exercise = GlobalVariables.searchENameByEid(d.eID);
@@ -139,14 +138,16 @@ public class DailyNativeCard extends CardWithList{
         // set swipeable
         dailyObject.setSwipeable(true);
         dailyObject.setOnItemSwipeListener(new OnItemSwipeListener() {
-                @Override
-                public void onItemSwipe(ListObject object, boolean dismissRight) {
-                    FGDataSource.deleteDaily(date,d.eID);
-                }
-            });
-        mObjects.add(dailyObject);
-        getLinearListAdapter().addAll(mObjects);
+            @Override
+            public void onItemSwipe(ListObject object, boolean dismissRight) {
+                FGDataSource.deleteDaily(date, d.eID);
+            }
+        });
+        getLinearListAdapter().add(dailyObject);
+    }
 
+    public void deleteAllDaily() {
+        getLinearListAdapter().clear();
     }
 
     @Override
