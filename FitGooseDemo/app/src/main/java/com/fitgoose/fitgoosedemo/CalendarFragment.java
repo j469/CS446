@@ -27,15 +27,17 @@ public class CalendarFragment extends Fragment{
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_calendar, container, false);
 
-
         calendar = (CalendarView) rootView.findViewById(R.id.calendar);
         calendar.setOnDateChangeListener(new OnDateChangeListener(){
-
             @Override
             public void onSelectedDayChange(CalendarView view,
                                             int year, int month, int dayOfMonth) {
-                Toast.makeText(getActivity().getApplicationContext(),
-                        dayOfMonth +"/"+month+"/"+ year,Toast.LENGTH_LONG).show();}});
+                // need to add 1 to Month
+                 String date = String.valueOf(year) +"-"+ String.valueOf(month+1) + "-" + String.valueOf(dayOfMonth);
+                //then toast
+                Toast.makeText(getActivity().getApplicationContext(),date,Toast.LENGTH_LONG).show();
+            }
+        });
 
         return rootView;
     }
