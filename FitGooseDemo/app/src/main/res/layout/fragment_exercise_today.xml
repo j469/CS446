@@ -20,7 +20,7 @@
                     android:id="@+id/img1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bodychart"
+                    android:src="@drawable/bodychart2"
                     />
 
                 <Button
@@ -29,8 +29,8 @@
                     android:layout_height="50dp"
                     android:text=""
                     android:layout_marginTop="125dp"
-                    android:layout_marginLeft="130dp"
-                    android:background="@android:color/transparent"/>
+                    android:layout_marginLeft="135dp"
+                    android:background="@drawable/chest_in_process"/>
 
             </RelativeLayout>
 
