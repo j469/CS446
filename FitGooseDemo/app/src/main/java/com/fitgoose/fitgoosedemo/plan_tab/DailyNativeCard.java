@@ -58,7 +58,7 @@ public class DailyNativeCard extends CardWithList{
                             }
 
                             public void ready(int position, int number_of_sets) {
-                                int eid = GlobalVariables.storedExercises[position].getID();
+                                int eid = GlobalVariables.storedExercises.get(position).getID();
                                 Daily daily = new Daily(date, eid, number_of_sets);
                                 FGDataSource.storeDaily(daily);
                                 updateItems(daily);

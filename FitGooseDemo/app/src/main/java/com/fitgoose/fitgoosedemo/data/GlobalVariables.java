@@ -1,5 +1,6 @@
 package com.fitgoose.fitgoosedemo.data;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -16,11 +17,7 @@ public class GlobalVariables {
      *       boolean back, boolean chest, boolean abs, boolean legs, boolean oxy,
      *       boolean cardio, boolean secondUnit)
      */
-    public static Exercise[] storedExercises = new Exercise[] {
-            new Exercise(0,false, "Run", "Meters", false, false, false, false, false, true, true, false,false),
-            new Exercise(1,false, "Bench Press", "KG", true, true, false, true, false, false, false, true, true),
-            new Exercise(2,false, "Push Up", "N/A", true, true, false, true, false, false, false, true, true)
-    };
+    public static ArrayList<Exercise> storedExercises = new ArrayList<>();
 
     public static ArrayList<String> getAllEName () {
         ArrayList<String> rtn = new ArrayList<>();
