@@ -41,7 +41,7 @@ public class FGDataSource extends SQLiteOpenHelper {
      * initial database etc.
      */
 
-    private static final String EXERCISE_CREATE = "CREATE TABLE exercise ( "
+    private static final String EXERCISE_CREATE = "CREATE TABLE IF NOT EXISTS exercise ( "
             + "eid INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "type INTEGER NOT NULL, "
             + "name TEXT NOT NULL UNIQUE, "
@@ -57,7 +57,7 @@ public class FGDataSource extends SQLiteOpenHelper {
             + "secondUnit INTEGER NOT NULL "
             + "); " ;
 
-    private static final String PLAN_CREATE = "CREATE TABLE plan ( "
+    private static final String PLAN_CREATE = "CREATE TABLE IF NOT EXISTS plan ( "
             + "pid INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "pname TEXT NOT NULL UNIQUE, "
             + "active INTEGER NOT NULL, "
@@ -70,14 +70,14 @@ public class FGDataSource extends SQLiteOpenHelper {
             + "sun INTEGER NOT NULL "
             + "); " ;
 
-    private static final String DAILY_CREATE = "CREATE TABLE daily ( "
+    private static final String DAILY_CREATE = "CREATE TABLE IF NOT EXISTS daily ( "
             + "did INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "date TEXT NOT NULL, "
             + "eid INTEGER NOT NULL, "
             + "numofsets INTEGER NOT NULL "
             + "); " ;
 
-    private static final String EXSET_CREATE = "CREATE TABLE exset ( "
+    private static final String EXSET_CREATE = "CREATE TABLE IF NOT EXISTS exset ( "
             + "setid INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "did INTEGER NOT NULL, "
             + "quantity INTEGER NOT NULL, "
