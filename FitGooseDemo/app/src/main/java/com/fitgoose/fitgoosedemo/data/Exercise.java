@@ -7,7 +7,7 @@ package com.fitgoose.fitgoosedemo.data;
 
 public final class Exercise {
 
-    private int eID;
+    public int eID;
     public boolean type; // false means default, true means user's modification
     public String name;
     public String unit;
@@ -37,6 +37,23 @@ public final class Exercise {
         this.oxy = oxy;
         this.cardio = cardio;
         this.secondUnit = secondUnit;
+    }
+
+    public Exercise (int eid, int type, String name, String unit, int shoulder, int arms,
+                     int back, int chest, int abs, int legs, int oxy, int cardio, int secondUnit) {
+        this.eID = eid;
+        this.type = (type>=1) ;
+        this.name = name;
+        this.unit = unit;
+        this.shoulder = (shoulder>=1) ;
+        this.arms = (arms>=1) ;
+        this.back = (back>=1) ;
+        this.chest = (chest>=1) ;
+        this.abs = (abs>=1) ;
+        this.legs = (legs>=1) ;
+        this.oxy = (oxy>=1) ;
+        this.cardio = (cardio>=1) ;
+        this.secondUnit = (secondUnit>=1) ;
     }
 
     public int getID() {

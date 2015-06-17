@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.fitgoose.fitgoosedemo.data.Exercise;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.plan_tab.DailyNativeCard;
 
@@ -41,7 +42,6 @@ public class WorkoutPlansFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.fragment_plans_workout, container, false);
         //prepare data
         ArrayList<String> dates = new ArrayList<>();// = FGDataSource.searchAllDates();

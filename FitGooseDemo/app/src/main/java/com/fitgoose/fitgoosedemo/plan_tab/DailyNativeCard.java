@@ -58,7 +58,7 @@ public class DailyNativeCard extends CardWithList{
                             }
 
                             public void ready(int position, int number_of_sets) {
-                                int eid = GlobalVariables.storedExercises[position].getID();
+                                int eid = GlobalVariables.storedExercises.get(position).getID();
                                 Daily daily = new Daily(date, eid, number_of_sets);
                                 FGDataSource.storeDaily(daily);
                                 updateItems(daily);
@@ -157,12 +157,21 @@ public class DailyNativeCard extends CardWithList{
         TextView exercise  = (TextView) convertView.findViewById(R.id.daily_card_exercise_name);
         TextView complete  = (TextView) convertView.findViewById(R.id.daily_card_exercise_sets_complete);
         TextView total  = (TextView) convertView.findViewById(R.id.daily_card_exercise_sets_total);
+        ImageView icon = (ImageView) convertView.findViewById(R.id.daily_card_exercise_sets_icon);
 
         //Retrieve the values from the object
         DailyObject dailyObject = (DailyObject) object;
         exercise.setText( String.valueOf(dailyObject.exercise));
         complete.setText( String.valueOf(dailyObject.complete));
-        total.setText( String.valueOf(dailyObject.total));
+        total.setText(String.valueOf(dailyObject.total));
+
+        if (dailyObject.complete == dailyObject.total) {
+            icon.setImageResource(R.drawable.ic_done_black_24dp);
+        } else if (dailyObject.complete != 0) {
+            icon.setImageResource(R.drawable.ic_trending_flat_black_24dp);
+        } else {
+            icon.setImageResource(R.drawable.ic_query_builder_black_24dp);
+        }
 
         return  convertView;
     }
