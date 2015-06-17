@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -20,6 +21,12 @@ import android.widget.Button;
  */
 public class DialogFragmentChest extends DialogFragment{
 
+    String[] chest_exercises = new String[] {"Dumbell Bench Press", "Incline Dumbbell Press", "Push ups", "Barbell Bench Press - Medium Grip"};
+    String[] abs_exercises = new String[] {"Bottoms Up", "Spell Caster", "Spider Crawl"};
+    String[] quads_exercises = new String[] {"Barbell Full Squat", "Barbell Walking Lunge"};
+    String[] shoulder_exercises = new String[] {"Standing Alternating Dumbbell Press", "Clean and Press", "Single Dumbbell Raise", "Single-Arm Linear Jammer"};
+    String muscleArea;
+
     public DialogFragmentChest() {
 
     }
@@ -27,17 +34,49 @@ public class DialogFragmentChest extends DialogFragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        muscleArea = getArguments().getString("muscleArea");
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getDialog().setTitle("Chest Area");
+
+
+
+
         // List for exercises
         View view = inflater.inflate(R.layout.dialog_body_chart, container);
-        ListView chestList = (ListView) view.findViewById(R.id.chest_list);
-        chestList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ListView exercisesList = (ListView) view.findViewById(R.id.exercises_list);
+
+        if (muscleArea == "chest") {
+            getDialog().setTitle("Chest Area");
+            ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, chest_exercises);
+            exercisesList.setAdapter(exercisesAdapter);
+        }
+        else if (muscleArea == "abs") {
+            getDialog().setTitle("Abs Area");
+            ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, abs_exercises);
+            exercisesList.setAdapter(exercisesAdapter);
+        }
+        else if (muscleArea == "quads") {
+            getDialog().setTitle("Quads Area");
+            ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, quads_exercises);
+            exercisesList.setAdapter(exercisesAdapter);
+        }
+        else if (muscleArea == "shoulder") {
+            getDialog().setTitle("Shoulder Area");
+            ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, shoulder_exercises);
+            exercisesList.setAdapter(exercisesAdapter);
+        }
+
+
+
+        exercisesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch ((int) l) {
@@ -101,6 +140,8 @@ public class DialogFragmentChest extends DialogFragment{
                         done_btn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                Button chestBtn = (Button) getActivity().findViewById(R.id.chest_btn);
+                                chestBtn.setBackgroundResource(R.drawable.chest_done);
                                 getDialog().dismiss();
                             }
                         });
@@ -113,10 +154,7 @@ public class DialogFragmentChest extends DialogFragment{
                         Toast.makeText(getActivity(), "Push ups", Toast.LENGTH_SHORT).show();
                         break;
                     case 3:
-                        Toast.makeText(getActivity(), "Low Cable Crossover", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 4:
-                        Toast.makeText(getActivity(), "Body Weight Flyes", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Barbell Bench Press - Medium Grip", Toast.LENGTH_SHORT).show();
                         break;
                 }
 

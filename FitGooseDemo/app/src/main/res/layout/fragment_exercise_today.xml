@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
 
     <HorizontalScrollView
@@ -17,20 +19,101 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/img1"
+                    android:id="@+id/body_chart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/bodychart2"
+                    android:src="@drawable/bodychart"
                     />
 
                 <Button
-                    android:id="@+id/chest"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:id="@+id/chest_btn"
+                    android:layout_width="75dp"
+                    android:layout_height="45dp"
                     android:text=""
                     android:layout_marginTop="125dp"
-                    android:layout_marginLeft="135dp"
+                    android:layout_marginLeft="140dp"
                     android:background="@drawable/chest_in_process"/>
+
+                <Button
+                    android:id="@+id/shoulder1_btn"
+                    android:layout_width="92dp"
+                    android:layout_height="32dp"
+                    android:text=""
+                    android:layout_marginTop="97dp"
+                    android:layout_marginLeft="145dp"
+                    android:background="@drawable/shoulder1_undo"/>
+
+                <Button
+                    android:id="@+id/shoulder2_btn"
+                    android:layout_width="22dp"
+                    android:layout_height="42dp"
+                    android:text=""
+                    android:layout_marginTop="127dp"
+                    android:layout_marginLeft="116dp"
+                    android:background="@drawable/shoulder2_undo"/>
+
+                <Button
+                    android:id="@+id/upper_arm1_btn"
+                    android:layout_width="38dp"
+                    android:layout_height="43dp"
+                    android:text=""
+                    android:layout_marginTop="89dp"
+                    android:layout_marginLeft="233dp"
+                    android:background="@android:color/transparent"/>
+
+                <Button
+                    android:id="@+id/upper_arm2_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="43dp"
+                    android:text=""
+                    android:layout_marginTop="169dp"
+                    android:layout_marginLeft="114dp"
+                    android:background="@android:color/transparent"/>
+
+                <Button
+                    android:id="@+id/forearm1_btn"
+                    android:layout_width="40dp"
+                    android:layout_height="55dp"
+                    android:text=""
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="243dp"
+                    android:background="@android:color/transparent"/>
+
+                <Button
+                    android:id="@+id/forearm2_btn"
+                    android:layout_width="33dp"
+                    android:layout_height="55dp"
+                    android:text=""
+                    android:layout_marginTop="215dp"
+                    android:layout_marginLeft="98dp"
+                    android:background="@android:color/transparent"/>
+
+                <Button
+                    android:id="@+id/abs_btn"
+                    android:layout_width="60dp"
+                    android:layout_height="83dp"
+                    android:text=""
+                    android:layout_marginTop="186dp"
+                    android:layout_marginLeft="142dp"
+                    android:background="@drawable/abs_in_process"/>
+
+                <Button
+                    android:id="@+id/quads_btn"
+                    android:layout_width="100dp"
+                    android:layout_height="125dp"
+                    android:text=""
+                    android:layout_marginTop="260dp"
+                    android:layout_marginLeft="130dp"
+                    android:background="@drawable/quads_done"/>
+
+                <Button
+                    android:id="@+id/calves_btn"
+                    android:layout_width="95dp"
+                    android:layout_height="100dp"
+                    android:text=""
+                    android:layout_marginTop="385dp"
+                    android:layout_marginLeft="150dp"
+                    android:background="@android:color/transparent"/>
 
             </RelativeLayout>
 
