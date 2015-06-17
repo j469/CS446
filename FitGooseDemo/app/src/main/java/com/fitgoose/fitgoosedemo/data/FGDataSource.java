@@ -35,11 +35,28 @@ public class FGDataSource extends SQLiteOpenHelper {
     }
 
     private static final String DATABASE_NAME = "FitGoose.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     /**
      * initial database etc.
      */
+
+    private static final String EXERCISE_CREATE = "CREATE TABLE exercise ( "
+            + "eid INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "type INTEGER NOT NULL, "
+            + "name TEXT NOT NULL UNIQUE, "
+            + "unit TEXT NOT NULL, "
+            + "shoulder INTEGER NOT NULL, "
+            + "arms INTEGER NOT NULL, "
+            + "back INTEGER NOT NULL, "
+            + "chest INTEGER NOT NULL, "
+            + "abs INTEGER NOT NULL, "
+            + "legs INTEGER NOT NULL, "
+            + "oxy INTEGER NOT NULL, "
+            + "cardio INTEGER NOT NULL, "
+            + "secondUnit INTEGER NOT NULL "
+            + "); " ;
+
     private static final String PLAN_CREATE = "CREATE TABLE plan ( "
             + "pid INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "pname TEXT NOT NULL UNIQUE, "
@@ -70,6 +87,7 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     // Delete tables
     private static final String TABLES_DELETE = " DROP TABLE IF EXISTS plan; "
+            + " DROP TABLE IF EXISTS exercise; "
             + " DROP TABLE IF EXISTS daily; "
             + " DROP TABLE IF EXISTS exset; " ;
 
@@ -77,6 +95,7 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase database) {
+        database.execSQL(EXERCISE_CREATE);
         database.execSQL(PLAN_CREATE);
         database.execSQL(DAILY_CREATE);
         database.execSQL(EXSET_CREATE);
@@ -99,6 +118,7 @@ public class FGDataSource extends SQLiteOpenHelper {
      */
 
     // Books table name
+    private static final String TABLE_EXERCISE= "exercise";
     private static final String TABLE_PLAN = "plan";
     private static final String TABLE_DAILY = "daily";
     private static final String TABLE_EXSET = "exset";
@@ -123,6 +143,19 @@ public class FGDataSource extends SQLiteOpenHelper {
     private static final String EXSET__QUANTITY = "quantity";
     private static final String EXSET__REPS = "numofreps";
     private static final String EXSET__COMPLETE = "complete";
+    private static final String EXERCISE_EID = "eid";
+    private static final String EXERCISE_TYPE = "type";
+    private static final String EXERCISE_NAME = "name";
+    private static final String EXERCISE_UNIT = "unit";
+    private static final String EXERCISE_SHOULDER = "shoulder";
+    private static final String EXERCISE_ARMS = "arms";
+    private static final String EXERCISE_BACK = "back";
+    private static final String EXERCISE_CHEST = "chest";
+    private static final String EXERCISE_ABS = "abs";
+    private static final String EXERCISE_LEGS = "legs";
+    private static final String EXERCISE_OXY = "oxy";
+    private static final String EXERCISE_CARDIO = "cardio";
+    private static final String EXERCISE_SU = "secondUnit";
 
     private static final String[] PLAN_COLUMNS = {PLAN_PID,PLAN_PNAME,PLAN_ACTIVE,PLAN_MON,PLAN_TUE,PLAN_WED,PLAN_THU,PLAN_FRI,PLAN_SAT,PLAN_SUN};
     private static final String[] DAILY_COLUMNS = {DAILY_DID,DAILY_DATE,DAILY_EID,DAILY_SETS};
@@ -164,6 +197,30 @@ public class FGDataSource extends SQLiteOpenHelper {
         db.close();
     }
 
+    public static void storeExercise(Exercise e) {
+        Log.d("storeExercise", Integer.toString(e.getID()));
+
+        SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(EXERCISE_TYPE, e.type);
+        values.put(EXERCISE_NAME, e.name);
+        values.put(EXERCISE_UNIT, e.unit);
+        values.put(EXERCISE_SHOULDER, e.shoulder);
+        values.put(EXERCISE_ARMS, e.arms);
+        values.put(EXERCISE_BACK, e.back);
+        values.put(EXERCISE_CHEST, e.chest);
+        values.put(EXERCISE_ABS, e.abs);
+        values.put(EXERCISE_LEGS, e.legs);
+        values.put(EXERCISE_OXY, e.oxy);
+        values.put(EXERCISE_CARDIO, e.cardio);
+        values.put(EXERCISE_SU, e.secondUnit);
+
+        db.insert(TABLE_EXERCISE,null,values);
+
+        db.close();
+    }
+
 
     public static void storeDaily (Daily d) {
         Log.d("storeDaily", Integer.toString(d.getID()));
@@ -194,6 +251,30 @@ public class FGDataSource extends SQLiteOpenHelper {
         db.insert(TABLE_EXSET, null, values);
 
         db.close();
+    }
+
+    /**
+     * call this method whenever start the app
+     */
+    public static void cacheExercise() {
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
+        GlobalVariables.storedExercises.clear();
+
+        String s = "SELECT * FROM exercise;";
+        Cursor cursor = database.rawQuery(s, null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    Exercise e = new Exercise(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getString(3),
+                            cursor.getInt(4),cursor.getInt(5),cursor.getInt(6),cursor.getInt(7),cursor.getInt(8),
+                            cursor.getInt(9),cursor.getInt(10),cursor.getInt(11),cursor.getInt(12));
+                    GlobalVariables.storedExercises.add(e);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+        database.close();
     }
 
     /**

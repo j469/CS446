@@ -58,7 +58,7 @@ public class DailyNativeCard extends CardWithList{
                             }
 
                             public void ready(int position, int number_of_sets) {
-                                int eid = GlobalVariables.storedExercises[position].getID();
+                                int eid = GlobalVariables.storedExercises.get(position).getID();
                                 Daily daily = new Daily(date, eid, number_of_sets);
                                 FGDataSource.storeDaily(daily);
                                 updateItems(daily);
@@ -70,6 +70,7 @@ public class DailyNativeCard extends CardWithList{
                         break;
                     case R.id.action_remove:
                         FGDataSource.deleteDaily(date, -1);
+                        deleteAllDaily();
                         break;
                 }
 
@@ -127,8 +128,6 @@ public class DailyNativeCard extends CardWithList{
     }
 
     public void updateItems(final Daily d) {
-        //Init the object list
-        List<ListObject> mObjects = new ArrayList<ListObject>();
         // set values
         DailyObject dailyObject = new DailyObject(this);
         dailyObject.exercise = GlobalVariables.searchENameByEid(d.eID);
@@ -139,14 +138,16 @@ public class DailyNativeCard extends CardWithList{
         // set swipeable
         dailyObject.setSwipeable(true);
         dailyObject.setOnItemSwipeListener(new OnItemSwipeListener() {
-                @Override
-                public void onItemSwipe(ListObject object, boolean dismissRight) {
-                    FGDataSource.deleteDaily(date,d.eID);
-                }
-            });
-        mObjects.add(dailyObject);
-        getLinearListAdapter().addAll(mObjects);
+            @Override
+            public void onItemSwipe(ListObject object, boolean dismissRight) {
+                FGDataSource.deleteDaily(date, d.eID);
+            }
+        });
+        getLinearListAdapter().add(dailyObject);
+    }
 
+    public void deleteAllDaily() {
+        getLinearListAdapter().clear();
     }
 
     @Override
@@ -156,12 +157,21 @@ public class DailyNativeCard extends CardWithList{
         TextView exercise  = (TextView) convertView.findViewById(R.id.daily_card_exercise_name);
         TextView complete  = (TextView) convertView.findViewById(R.id.daily_card_exercise_sets_complete);
         TextView total  = (TextView) convertView.findViewById(R.id.daily_card_exercise_sets_total);
+        ImageView icon = (ImageView) convertView.findViewById(R.id.daily_card_exercise_sets_icon);
 
         //Retrieve the values from the object
         DailyObject dailyObject = (DailyObject) object;
         exercise.setText( String.valueOf(dailyObject.exercise));
         complete.setText( String.valueOf(dailyObject.complete));
-        total.setText( String.valueOf(dailyObject.total));
+        total.setText(String.valueOf(dailyObject.total));
+
+        if (dailyObject.complete == dailyObject.total) {
+            icon.setImageResource(R.drawable.ic_done_black_24dp);
+        } else if (dailyObject.complete != 0) {
+            icon.setImageResource(R.drawable.ic_trending_flat_black_24dp);
+        } else {
+            icon.setImageResource(R.drawable.ic_query_builder_black_24dp);
+        }
 
         return  convertView;
     }
