@@ -1,7 +1,6 @@
 package com.fitgoose.fitgoosedemo.plan_tab;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +13,10 @@ import java.util.List;
 
 
 import com.fitgoose.fitgoosedemo.R;
-import com.fitgoose.fitgoosedemo.WorkoutPlansFragment;
 import com.fitgoose.fitgoosedemo.data.ExSet;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
-import com.fitgoose.fitgoosedemo.data.Daily;
-import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 import com.fitgoose.fitgoosedemo.data.Plan;
-import com.fitgoose.fitgoosedemo.plan_tab.SpinnerDialog;
-
-import org.w3c.dom.Text;
+import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -59,9 +53,9 @@ public class DailyNativeCard extends CardWithList{
 
                             public void ready(int position, int number_of_sets) {
                                 int eid = GlobalVariables.storedExercises.get(position).getID();
-                                Daily daily = new Daily(date, eid, number_of_sets);
-                                FGDataSource.storeDaily(daily);
-                                updateItems(daily);
+                                Plan plan = new Plan(date, eid, number_of_sets);
+                                FGDataSource.storePlan(plan);
+                                updateItems(plan);
                                 //WorkoutPlansFragment.mCardArrayAdapter.notifyDataSetChanged();
                             }
                         });
@@ -69,7 +63,7 @@ public class DailyNativeCard extends CardWithList{
                         mSpinnerDialog.show();
                         break;
                     case R.id.action_remove:
-                        FGDataSource.deleteDaily(date, -1);
+                        FGDataSource.deletePlan(date, -1);
                         deleteAllDaily();
                         break;
                 }
@@ -86,7 +80,7 @@ public class DailyNativeCard extends CardWithList{
         setOnSwipeListener(new OnSwipeListener() {
             @Override
             public void onSwipe(Card card) {
-                FGDataSource.deleteDaily(date, -1);
+                FGDataSource.deletePlan(date, -1);
             }
         });
         setUseEmptyView(true);
@@ -95,13 +89,13 @@ public class DailyNativeCard extends CardWithList{
 
     @Override
     protected List<ListObject> initChildren() {
-        //Search Daily arraylist by date
-        ArrayList<Daily> dailies = FGDataSource.searchDailyByDate(date);
+        //Search Plan arraylist by date
+        ArrayList<Plan> dailies = FGDataSource.searchPlanByDate(date);
         //Init the object list
         List<ListObject> mObjects = new ArrayList<ListObject>();
-        //Transfer Daily to DailyObject
+        //Transfer Plan to DailyObject
         int complete;
-        for (final Daily d: dailies) {
+        for (final Plan d: dailies) {
             // set values
             DailyObject dailyObject = new DailyObject(this);
             complete = 0;
@@ -119,7 +113,7 @@ public class DailyNativeCard extends CardWithList{
             dailyObject.setOnItemSwipeListener(new OnItemSwipeListener() {
                 @Override
                 public void onItemSwipe(ListObject object, boolean dismissRight) {
-                    FGDataSource.deleteDaily(date,d.eID);
+                    FGDataSource.deletePlan(date, d.eID);
                 }
             });
             mObjects.add(dailyObject);
@@ -127,7 +121,7 @@ public class DailyNativeCard extends CardWithList{
         return mObjects;
     }
 
-    public void updateItems(final Daily d) {
+    public void updateItems(final Plan d) {
         // set values
         DailyObject dailyObject = new DailyObject(this);
         dailyObject.exercise = GlobalVariables.searchENameByEid(d.eID);
@@ -140,7 +134,7 @@ public class DailyNativeCard extends CardWithList{
         dailyObject.setOnItemSwipeListener(new OnItemSwipeListener() {
             @Override
             public void onItemSwipe(ListObject object, boolean dismissRight) {
-                FGDataSource.deleteDaily(date, d.eID);
+                FGDataSource.deletePlan(date, d.eID);
             }
         });
         getLinearListAdapter().add(dailyObject);
@@ -182,7 +176,7 @@ public class DailyNativeCard extends CardWithList{
     }
 
     // -------------------------------------------------------------
-    // Daily Object
+    // Plan Object
     // -------------------------------------------------------------
 
     public class DailyObject extends DefaultListObject{

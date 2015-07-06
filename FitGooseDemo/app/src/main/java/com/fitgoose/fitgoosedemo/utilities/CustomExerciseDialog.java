@@ -49,7 +49,7 @@ public class CustomExerciseDialog extends Dialog {
 
                 if (!name.equals("") && !unit.equals("")) {
                     Exercise e = new Exercise(1, true, name, unit, checkBox_shoulder, checkBox_arm, checkBox_back, checkBox_chest,
-                            checkBox_abs, checkBox_legs, checkBox_oxy, checkBox_cardio, checkBox_secondUnit);
+                            checkBox_abs, checkBox_legs, checkBox_oxy, checkBox_cardio, checkBox_secondUnit,"");
                     FGDataSource.storeExercise(e);
                     FGDataSource.cacheExercise();
                     CustomExerciseDialog.this.dismiss();

@@ -3,7 +3,6 @@ package com.fitgoose.fitgoosedemo.data;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -35,7 +34,7 @@ public class FGDataSource extends SQLiteOpenHelper {
     }
 
     private static final String DATABASE_NAME = "FitGoose.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 7;
 
     /**
      * initial database etc.
@@ -54,11 +53,12 @@ public class FGDataSource extends SQLiteOpenHelper {
             + "legs INTEGER NOT NULL, "
             + "oxy INTEGER NOT NULL, "
             + "cardio INTEGER NOT NULL, "
-            + "secondUnit INTEGER NOT NULL "
+            + "secondUnit INTEGER NOT NULL, "
+            + "youtube TEXT NOT NULL "
             + "); " ;
 
-    private static final String PLAN_CREATE = "CREATE TABLE IF NOT EXISTS plan ( "
-            + "pid INTEGER PRIMARY KEY AUTOINCREMENT, "
+    private static final String RP_CREATE = "CREATE TABLE IF NOT EXISTS rp ( "
+            + "rpid INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "pname TEXT NOT NULL UNIQUE, "
             + "active INTEGER NOT NULL, "
             + "mon INTEGER NOT NULL, "
@@ -70,8 +70,8 @@ public class FGDataSource extends SQLiteOpenHelper {
             + "sun INTEGER NOT NULL "
             + "); " ;
 
-    private static final String DAILY_CREATE = "CREATE TABLE IF NOT EXISTS daily ( "
-            + "did INTEGER PRIMARY KEY AUTOINCREMENT, "
+    private static final String PLAN_CREATE = "CREATE TABLE IF NOT EXISTS plan ( "
+            + "pid INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "date TEXT NOT NULL, "
             + "eid INTEGER NOT NULL, "
             + "numofsets INTEGER NOT NULL "
@@ -79,26 +79,51 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     private static final String EXSET_CREATE = "CREATE TABLE IF NOT EXISTS exset ( "
             + "setid INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "did INTEGER NOT NULL, "
+            + "pid INTEGER NOT NULL, "
             + "quantity INTEGER NOT NULL, "
             + "numofreps INTEGER NOT NULL, "
             + "complete INTEGER NOT NULL "
             + ");" ;
 
+    private static final String REGIMEN_CREATE = "CREATE TABLE IF NOT EXISTS regimen ( "
+            + "rid INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "rname TEXT NOT NULL UNIQUE"
+            + ");" ;
+
+    private static final String REXREF_CREATE = "CREATE TABLE IF NOT EXISTS rexref ( "
+            + "refid INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "rid INTEGER NOT NULL, "
+            + "eid INTEGER NOT NULL, "
+            + "numofreps INTEGER NOT NULL "
+            + ");" ;
+
+    private static final String RPE_CREATE = "CREATE TABLE IF NOT EXISTS rpe ( "
+            + "rpeid INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "rpid INTEGER NOT NULL, "
+            + "eid INTEGER NOT NULL, "
+            + "numofreps INTEGER NOT NULL "
+            + ");" ;
+
     // Delete tables
-    private static final String TABLES_DELETE = " DROP TABLE IF EXISTS plan; "
-            + " DROP TABLE IF EXISTS exercise; "
-            + " DROP TABLE IF EXISTS daily; "
-            + " DROP TABLE IF EXISTS exset; " ;
+    private static final String TABLES_DELETE = " DROP TABLE IF EXISTS exercise; "
+            + " DROP TABLE IF EXISTS rp; "
+            + " DROP TABLE IF EXISTS plan; "
+            + " DROP TABLE IF EXISTS exset; "
+            + " DROP TABLE IF EXISTS regimen; "
+            + " DROP TABLE IF EXISTS rexref; "
+            + " DROP TABLE IF EXISTS rpe; ";
 
 
 
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(EXERCISE_CREATE);
+        database.execSQL(RP_CREATE);
         database.execSQL(PLAN_CREATE);
-        database.execSQL(DAILY_CREATE);
         database.execSQL(EXSET_CREATE);
+        database.execSQL(REGIMEN_CREATE);
+        database.execSQL(REXREF_CREATE);
+        database.execSQL(RPE_CREATE);
         Log.d(FGDataSource.class.getName(), "Database on create.");
     }
 
@@ -120,26 +145,29 @@ public class FGDataSource extends SQLiteOpenHelper {
     // Books table name
     private static final String TABLE_EXERCISE= "exercise";
     private static final String TABLE_PLAN = "plan";
-    private static final String TABLE_DAILY = "daily";
+    private static final String TABLE_RP = "rp";
     private static final String TABLE_EXSET = "exset";
+    private static final String TABLE_REGIMEN = "regimen";
+    private static final String TABLE_REXREF = "rexref";
+    private static final String TABLE_RPE = "rpe";
 
     // Books Table Columns names
+    private static final String RP_PID = "rpid";
+    private static final String RP_PNAME = "pname";
+    private static final String RP_ACTIVE = "active";
+    private static final String RP_MON = "mon";
+    private static final String RP_TUE = "tue";
+    private static final String RP_WED = "wed";
+    private static final String RP_THU = "thu";
+    private static final String RP_FRI = "fri";
+    private static final String RP_SAT = "sat";
+    private static final String RP_SUN = "sun";
     private static final String PLAN_PID = "pid";
-    private static final String PLAN_PNAME = "pname";
-    private static final String PLAN_ACTIVE = "active";
-    private static final String PLAN_MON = "mon";
-    private static final String PLAN_TUE = "tue";
-    private static final String PLAN_WED = "wed";
-    private static final String PLAN_THU = "thu";
-    private static final String PLAN_FRI = "fri";
-    private static final String PLAN_SAT = "sat";
-    private static final String PLAN_SUN = "sun";
-    private static final String DAILY_DID = "did";
-    private static final String DAILY_DATE = "date";
-    private static final String DAILY_EID = "eid";
-    private static final String DAILY_SETS = "numofsets";
+    private static final String PLAN_DATE = "date";
+    private static final String PLAN_EID = "eid";
+    private static final String PLAN_SETS = "numofsets";
     private static final String EXSET__SETID = "setid";
-    private static final String EXSET__DID = "did";
+    private static final String EXSET__PID = "pid";
     private static final String EXSET__QUANTITY = "quantity";
     private static final String EXSET__REPS = "numofreps";
     private static final String EXSET__COMPLETE = "complete";
@@ -156,49 +184,81 @@ public class FGDataSource extends SQLiteOpenHelper {
     private static final String EXERCISE_OXY = "oxy";
     private static final String EXERCISE_CARDIO = "cardio";
     private static final String EXERCISE_SU = "secondUnit";
+    private static final String EXERCISE_YOUTUBE = "youtube";
+    private static final String REGIMEN_RID = "rid";
+    private static final String REGIMEN_RNAME = "rname";
+    private static final String REXREF_REFID = "refid";
+    private static final String REXREF_RID = "rid";
+    private static final String REXREF_EID = "eid";
+    private static final String REXREF_SETS = "numofsets";
+    private static final String RPE_RPEID = "rpeid";
+    private static final String RPE_RPID = "rpid";
+    private static final String RPE_EID = "eid";
+    private static final String RPE_SETS = "numofsets";
 
-    private static final String[] PLAN_COLUMNS = {PLAN_PID,PLAN_PNAME,PLAN_ACTIVE,PLAN_MON,PLAN_TUE,PLAN_WED,PLAN_THU,PLAN_FRI,PLAN_SAT,PLAN_SUN};
-    private static final String[] DAILY_COLUMNS = {DAILY_DID,DAILY_DATE,DAILY_EID,DAILY_SETS};
-    private static final String[] EXSET_COLUMNS = {EXSET__SETID,EXSET__DID,EXSET__QUANTITY,EXSET__REPS,EXSET__COMPLETE};
+    private static final String[] RP_COLUMNS = {RP_PID,RP_PNAME,RP_ACTIVE,RP_MON,RP_TUE,RP_WED,RP_THU,RP_FRI,RP_SAT,RP_SUN};
+    private static final String[] PLAN_COLUMNS = {PLAN_PID,PLAN_DATE,PLAN_EID,PLAN_SETS};
+    private static final String[] EXSET_COLUMNS = {EXSET__SETID,EXSET__PID,EXSET__QUANTITY,EXSET__REPS,EXSET__COMPLETE};
 
     /**
      * The methods storeDaily, storeExSet etc. are the methods to store records into database.
-     * First, you need to make a new object    ( Daily tempDaily = new Daily(0,date,0,0) )
+     * First, you need to make a new object    ( Plan tempDaily = new Plan(0,date,0,0) )
      * then store it   ( FGDataSource.storeDaily(tempDaily) )
      * You don't need to worry about the first parameter of each object(which is the auto increment primary key),
      * just type zero or any integer you like.
      */
-    public static void storePlan(Plan p) {
+    public static void storeRP(RepeatPlan rp) {
         // 0. set log information
-        Log.d("storePlan", Integer.toString(p.getID()));
+        Log.d("storeRP", rp.pname);
 
         // 1. get reference to writable DB
         SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
         // 2. create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
-        //values.put(PLAN_PID,p.getID());
-        values.put(PLAN_PNAME, p.pname);
-        values.put(PLAN_ACTIVE, p.active);
-        values.put(PLAN_MON, p.Mon);
-        values.put(PLAN_TUE, p.Tue);
-        values.put(PLAN_WED, p.Wed);
-        values.put(PLAN_THU, p.Thu);
-        values.put(PLAN_FRI, p.Fri);
-        values.put(PLAN_SAT, p.Sat);
-        values.put(PLAN_SUN, p.Sun);
+        values.put(RP_PNAME, rp.pname);
+        values.put(RP_ACTIVE, rp.active);
+        values.put(RP_MON, rp.Mon);
+        values.put(RP_TUE, rp.Tue);
+        values.put(RP_WED, rp.Wed);
+        values.put(RP_THU, rp.Thu);
+        values.put(RP_FRI, rp.Fri);
+        values.put(RP_SAT, rp.Sat);
+        values.put(RP_SUN, rp.Sun);
 
         // 3. insert
-        db.insert(TABLE_PLAN, // table
+        db.insert(TABLE_RP, // table
                 null, //nullColumnHack
                 values); // key/value -> keys = column names/ values = column values
 
-        // 4. close
+        // 4. store to RPExerciseXRef
+        int rpID = 0;
+        String s = "SELECT rpid FROM rp WHERE pname = ? ;";
+        Cursor cursor = db.rawQuery(s, new String[]{rp.pname});
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                rpID = cursor.getInt(0);
+            }
+            cursor.close();
+        }
+
+        // then store to TABLE_RPE
+        for (int i = 0; i < rp.eIDs.size(); i++) {
+            int eID = rp.eIDs.get(i);
+            int numOfSets = rp.sets.get(i);
+            ContentValues temp = new ContentValues();
+            temp.put(RPE_RPID, rpID);
+            temp.put(RPE_EID, eID);
+            temp.put(RPE_SETS, numOfSets);
+            db.insert(TABLE_RPE, null, temp);
+        }
+
+
         db.close();
     }
 
     public static void storeExercise(Exercise e) {
-        Log.d("storeExercise", Integer.toString(e.getID()));
+        Log.d("storeExercise", Integer.toString(e.eID));
 
         SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
@@ -215,6 +275,7 @@ public class FGDataSource extends SQLiteOpenHelper {
         values.put(EXERCISE_OXY, e.oxy);
         values.put(EXERCISE_CARDIO, e.cardio);
         values.put(EXERCISE_SU, e.secondUnit);
+        values.put(EXERCISE_YOUTUBE, e.youtubeURL);
 
         db.insert(TABLE_EXERCISE,null,values);
 
@@ -222,33 +283,67 @@ public class FGDataSource extends SQLiteOpenHelper {
     }
 
 
-    public static void storeDaily (Daily d) {
-        Log.d("storeDaily", Integer.toString(d.getID()));
+    public static void storePlan (Plan p) {
+        Log.d("storePlan", Integer.toString(p.pID));
         SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        //values.put(DAILY_DID, d.getID());
-        values.put(DAILY_DATE, d.date);
-        values.put(DAILY_EID, d.eID);
-        values.put(DAILY_SETS, d.numOfSets);
+        values.put(PLAN_DATE, p.date);
+        values.put(PLAN_EID, p.eID);
+        values.put(PLAN_SETS, p.numOfSets);
 
-        db.insert(TABLE_DAILY, null, values);
+        db.insert(TABLE_PLAN, null, values);
 
         db.close();
     }
 
     public static void storeExSet (ExSet e) {
-        Log.d("storeExSet", Integer.toString(e.getID()));
+        Log.d("storeExSet", Integer.toString(e.setID));
         SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        //values.put(EXSET__SETID,e.getID());
-        values.put(EXSET__DID, e.dID);
+        values.put(EXSET__PID, e.pID);
         values.put(EXSET__QUANTITY, e.quantity);
         values.put(EXSET__REPS, e.numOfReps);
         values.put(EXSET__COMPLETE, e.complete);
 
         db.insert(TABLE_EXSET, null, values);
+
+        db.close();
+    }
+
+    public static void storeRegimen (Regimen r) {
+        Log.d("storeRegimen", r.rname);
+        SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
+
+        // first store to regimen table
+        ContentValues values = new ContentValues();
+        values.put(REGIMEN_RNAME, r.rname);
+        db.insert(TABLE_REGIMEN, null, values);
+
+        // then get corresponding rID
+        int rID = r.rID;
+        if (rID == 0) {
+            String s = "SELECT rid FROM regimen WHERE rname = ? ;";
+            Cursor cursor = db.rawQuery(s, new String[]{r.rname});
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    rID = cursor.getInt(0);
+                }
+                cursor.close();
+            }
+        }
+
+        // then store to TABLE_REXREF
+        for (int i = 0; i < r.eIDs.size(); i++) {
+            int eID = r.eIDs.get(i);
+            int numOfSets = r.sets.get(i);
+            ContentValues temp = new ContentValues();
+            temp.put(REXREF_RID, rID);
+            temp.put(REXREF_EID, eID);
+            temp.put(REXREF_SETS, numOfSets);
+            db.insert(TABLE_REXREF, null, temp);
+        }
 
         db.close();
     }
@@ -260,14 +355,14 @@ public class FGDataSource extends SQLiteOpenHelper {
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
         GlobalVariables.storedExercises.clear();
 
-        String s = "SELECT * FROM exercise;";
+        String s = " SELECT * FROM exercise;";
         Cursor cursor = database.rawQuery(s, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
                     Exercise e = new Exercise(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getString(3),
                             cursor.getInt(4),cursor.getInt(5),cursor.getInt(6),cursor.getInt(7),cursor.getInt(8),
-                            cursor.getInt(9),cursor.getInt(10),cursor.getInt(11),cursor.getInt(12));
+                            cursor.getInt(9),cursor.getInt(10),cursor.getInt(11),cursor.getInt(12),cursor.getString(13));
                     GlobalVariables.storedExercises.add(e);
                 } while (cursor.moveToNext());
             }
@@ -278,13 +373,13 @@ public class FGDataSource extends SQLiteOpenHelper {
     }
 
     /**
-     * @return all the dates of existing daily records
+     * @return all the dates of existing plan records
      */
     public static ArrayList<String> searchAllDates() {
         ArrayList<String> rtn = new ArrayList<>();
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
 
-        String s = "SELECT DISTINCT date FROM daily;";
+        String s = " SELECT DISTINCT date FROM plan;";
         Cursor cursor = database.rawQuery(s, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -312,10 +407,10 @@ public class FGDataSource extends SQLiteOpenHelper {
 
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
 
-        String s = "SELECT e.complete "
-            + "FROM daily AS d, exset AS e "
-            + "WHERE d.date = ? "
-            + "AND d.did = e.did; " ;
+        String s = " SELECT e.complete "
+            + " FROM plan AS p, exset AS e "
+            + " WHERE p.date = ? "
+            + " AND p.pid = e.pid; " ;
 
         Cursor cursor = database.rawQuery(s, new String[]{date} );
         if (cursor != null) {
@@ -335,42 +430,42 @@ public class FGDataSource extends SQLiteOpenHelper {
     }
 
 
-    /** TODO: this is for checklist/graph/history etc. And ExSets are already attached to Daily.
-     * searchDailyByDate(): get Daily and ExSet of a specific date
+    /** TODO: this is for checklist/graph/history etc. And ExSets are already attached to Plan.
+     * searchPlanByDate(): get Plan and ExSet of a specific date
      * @param date (format: yyyy-MM-dd in String)
-     * @return An arraylist of class Daily, each Daily object attached an array of ExSet
+     * @return An arraylist of class Plan, each Plan object attached an array of ExSet
      */
-    public static ArrayList<Daily> searchDailyByDate (String date) {
+    public static ArrayList<Plan> searchPlanByDate(String date) {
 
-        ArrayList<Daily> rtn = new ArrayList<> ();
+        ArrayList<Plan> rtn = new ArrayList<> ();
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
 
-        // first build Daily
-        String s = "SELECT d.did, d.eid, d.numofsets "
-                + "FROM daily AS d "
-                + "WHERE d.date = ? ";
+        // first build Plan
+        String s = " SELECT pid, eid, numofsets "
+                + " FROM plan"
+                + " WHERE date = ? ";
         Cursor cursor = database.rawQuery(s, new String[]{date} );
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    int did = cursor.getInt(0);
+                    int pid = cursor.getInt(0);
                     int eid = cursor.getInt(1);
                     int num = cursor.getInt(2);
-                    Daily daily = new Daily(did,date,eid,num);
-                    rtn.add(daily);
+                    Plan plan = new Plan(pid,date,eid,num);
+                    rtn.add(plan);
                 } while (cursor.moveToNext());
             }
             cursor.close();
         }
 
-        //then use did to get ExSet, and attach the ExSets to the Daily
-        for (Daily daily: rtn) {
+        //then use pid to get ExSet, and attach the ExSets to the Plan
+        for (Plan plan : rtn) {
             ArrayList<ExSet> exSets = new ArrayList<>();
-            int did = daily.dID;
-            s = "SELECT setid, quantity, numofreps, complete "
-                    + "FROM exset "
-                    + "WHERE did = ? ";
-            cursor = database.rawQuery(s, new String[]{ Integer.toString(did)} );
+            int pid = plan.pID;
+            s = " SELECT setid, quantity, numofreps, complete "
+                    + " FROM exset "
+                    + " WHERE pid = ? ";
+            cursor = database.rawQuery(s, new String[]{ Integer.toString(pid)} );
             if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     do {
@@ -378,13 +473,13 @@ public class FGDataSource extends SQLiteOpenHelper {
                         int quantity = cursor.getInt(1);
                         int numofreps = cursor.getInt(2);
                         int complete = cursor.getInt(3);
-                        ExSet exSet = new ExSet(setid,did,quantity,numofreps,complete);
+                        ExSet exSet = new ExSet(setid,pid,quantity,numofreps,complete);
                         exSets.add(exSet);
                     } while (cursor.moveToNext());
                 }
                 cursor.close();
             }
-            Daily.attachDaily(daily,exSets);
+            plan.attachExSets(exSets);
         }
 
         database.close();
@@ -393,36 +488,36 @@ public class FGDataSource extends SQLiteOpenHelper {
 
 
     /**
-     * delete Daily and the attached ExSets of the specific date and eid,
+     * delete Plan and the attached ExSets of the specific date and eid,
      * @param date
-     * @param eid if eid== -1, delete all the dailies of this date
+     * @param eid if eid== -1, delete all the plans of this date
      */
-    public static void deleteDaily(String date, int eid){
+    public static void deletePlan(String date, int eid){
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
-        // first search all the dID
-        ArrayList<Integer> dIDs = new ArrayList<>();
+        // first search all the pID
+        ArrayList<Integer> pIDs = new ArrayList<>();
         String s;
         Cursor cursor;
         if (eid < 0) {
-            s = "SELECT did FROM daily WHERE date = ? ;";
+            s = "SELECT pid FROM plan WHERE date = ? ;";
             cursor = database.rawQuery(s, new String[]{date});
         } else {
-            s = "SELECT did FROM daily WHERE date = ? AND eid = ? ;";
+            s = "SELECT pid FROM plan WHERE date = ? AND eid = ? ;";
             cursor = database.rawQuery(s, new String[]{date,Integer.toString(eid)});
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    dIDs.add(cursor.getInt(0));
+                    pIDs.add(cursor.getInt(0));
                 } while (cursor.moveToNext());
             }
             cursor.close();
         }
 
-        // then delete all the Daily and ExSets
-        for (int did: dIDs) {
-            database.delete(TABLE_EXSET, EXSET__DID + "=?", new String[]{ Integer.toString(did)} );
-            database.delete(TABLE_DAILY, DAILY_DID + "=?", new String[]{ Integer.toString(did)} );
+        // then delete all the Plan and ExSets
+        for (int pid: pIDs) {
+            database.delete(TABLE_EXSET, EXSET__PID + "=?", new String[]{ Integer.toString(pid)} );
+            database.delete(TABLE_PLAN, PLAN_PID + "=?", new String[]{ Integer.toString(pid)} );
         }
 
         database.close();
@@ -463,8 +558,10 @@ public class FGDataSource extends SQLiteOpenHelper {
     public static void deleteAll() {
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
         database.execSQL("delete from "+ TABLE_PLAN);
-        database.execSQL("delete from " + TABLE_DAILY);
+        database.execSQL("delete from " + TABLE_RP);
         database.execSQL("delete from " + TABLE_EXSET);
+        database.execSQL("delete from " + TABLE_REGIMEN);
+        database.execSQL("delete from " + TABLE_REXREF);
         database.close();
     }
 }

@@ -20,10 +20,11 @@ public final class Exercise {
     public boolean oxy;
     public boolean cardio;
     public boolean secondUnit; // weight exercise is true here
+    public String youtubeURL;
 
     // Constructors
     public Exercise (int eid, boolean type, String name, String unit, boolean shoulder, boolean arms,
-                 boolean back, boolean chest, boolean abs, boolean legs, boolean oxy, boolean cardio, boolean secondUnit) {
+                 boolean back, boolean chest, boolean abs, boolean legs, boolean oxy, boolean cardio, boolean secondUnit,String youtubeURL) {
         this.eID = eid;
         this.type = type;
         this.name = name;
@@ -37,10 +38,11 @@ public final class Exercise {
         this.oxy = oxy;
         this.cardio = cardio;
         this.secondUnit = secondUnit;
+        this.youtubeURL = youtubeURL;
     }
 
     public Exercise (int eid, int type, String name, String unit, int shoulder, int arms,
-                     int back, int chest, int abs, int legs, int oxy, int cardio, int secondUnit) {
+                     int back, int chest, int abs, int legs, int oxy, int cardio, int secondUnit,String youtubeURL) {
         this.eID = eid;
         this.type = (type>=1) ;
         this.name = name;
@@ -54,6 +56,7 @@ public final class Exercise {
         this.oxy = (oxy>=1) ;
         this.cardio = (cardio>=1) ;
         this.secondUnit = (secondUnit>=1) ;
+        this.youtubeURL = youtubeURL;
     }
 
     public int getID() {
