@@ -7,9 +7,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.plan_tab.BaseFragment;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -25,6 +30,18 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         mFGDataSource = FGDataSource.getInstance(this);
         mFGDataSource.cacheExercise();
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("DefaultDB");
+        query.getInBackground("UUulziCovR", new GetCallback<ParseObject>() {
+            public void done(ParseObject object, ParseException e) {
+                if (e == null) {
+                    Toast.makeText(getApplicationContext(),"Download DB from server success.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(),"Download DB from server failed.", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
         setContentView(R.layout.activity_main);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)

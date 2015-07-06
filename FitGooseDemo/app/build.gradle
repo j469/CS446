@@ -38,4 +38,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'com.jjoe64:graphview:4.0.1'
+
+    // Parse server
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile fileTree(dir: 'libs/Parse-1.9.3', include: 'Parse-*.jar')
 }

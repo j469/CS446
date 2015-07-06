@@ -263,7 +263,7 @@ public class FGDataSource extends SQLiteOpenHelper {
         SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(EXERCISE_TYPE, e.type);
+        values.put(EXERCISE_TYPE, 1);
         values.put(EXERCISE_NAME, e.name);
         values.put(EXERCISE_UNIT, e.unit);
         values.put(EXERCISE_SHOULDER, e.shoulder);
