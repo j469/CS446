@@ -8,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -26,9 +28,10 @@ import it.gmariotti.cardslib.library.prototypes.LinearListView;
 
 
 public class DailyNativeCard extends CardWithList{
-    private String date;
+    private Calendar date;
+    private String strDate;
 
-    public DailyNativeCard(Context context, String date) {
+    public DailyNativeCard(Context context, Calendar date) {
         super(context, R.layout.daily_card_inner_main);
         this.date = date;
     }
@@ -38,6 +41,9 @@ public class DailyNativeCard extends CardWithList{
 
         //Add Header
         CardHeader header = new CardHeader(getContext(),R.layout.daily_card_inner_header);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        strDate = sdf.format(date.getTime());
 
         //Add a popup menu. This method set OverFlow button to visible
         header.setPopupMenu(R.menu.daily, new CardHeader.OnClickCardHeaderPopupMenuListener() {
@@ -59,7 +65,7 @@ public class DailyNativeCard extends CardWithList{
                                 //WorkoutPlansFragment.mCardArrayAdapter.notifyDataSetChanged();
                             }
                         });
-                        mSpinnerDialog.setTitle(date);
+                        mSpinnerDialog.setTitle(strDate);
                         mSpinnerDialog.show();
                         break;
                     case R.id.action_remove:
@@ -70,7 +76,7 @@ public class DailyNativeCard extends CardWithList{
 
             }
         });
-        header.setTitle(date); //should use R.string.
+        header.setTitle(strDate); //should use R.string.
         return header;
     }
 
