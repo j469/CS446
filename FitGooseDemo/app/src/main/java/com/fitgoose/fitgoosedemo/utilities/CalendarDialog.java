@@ -9,13 +9,15 @@ import android.widget.Button;
 import com.fitgoose.fitgoosedemo.R;
 import com.fitgoose.fitgoosedemo.plan_tab.DailyNativeCard;
 
+import java.util.Calendar;
+
 import it.gmariotti.cardslib.library.view.CardViewNative;
 
 
 public class CalendarDialog extends Dialog {
     private DailyNativeCard mCard;
 
-    public CalendarDialog(Context context, String date) {
+    public CalendarDialog(Context context, Calendar date) {
         super(context);
         mCard = new DailyNativeCard(context,date);
         mCard.init();

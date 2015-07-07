@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /** FGDataSource:
  * This class maintains the database connection and supports adding, fetching
@@ -72,7 +73,7 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     private static final String PLAN_CREATE = "CREATE TABLE IF NOT EXISTS plan ( "
             + "pid INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "date TEXT NOT NULL, "
+            + "date INTEGER NOT NULL, "
             + "eid INTEGER NOT NULL, "
             + "numofsets INTEGER NOT NULL "
             + "); " ;
@@ -288,7 +289,7 @@ public class FGDataSource extends SQLiteOpenHelper {
         SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(PLAN_DATE, p.date);
+        values.put(PLAN_DATE, p.date.getTimeInMillis());
         values.put(PLAN_EID, p.eID);
         values.put(PLAN_SETS, p.numOfSets);
 
@@ -375,8 +376,8 @@ public class FGDataSource extends SQLiteOpenHelper {
     /**
      * @return all the dates of existing plan records
      */
-    public static ArrayList<String> searchAllDates() {
-        ArrayList<String> rtn = new ArrayList<>();
+    public static ArrayList<Calendar> searchAllDates() {
+        ArrayList<Calendar> rtn = new ArrayList<>();
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
 
         String s = " SELECT DISTINCT date FROM plan;";
@@ -384,7 +385,9 @@ public class FGDataSource extends SQLiteOpenHelper {
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    rtn.add( cursor.getString(0) );
+                    Calendar newDate = Calendar.getInstance();
+                    newDate.setTimeInMillis(cursor.getLong(0));
+                    rtn.add(newDate);
                 } while (cursor.moveToNext());
             }
             cursor.close();
@@ -396,10 +399,10 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     /** TODO: this is for calendar
      * searchProgressByDate(): get the total sets & complete sets of the specific date
-     * @param date (format: yyyy-MM-dd in String)
+     * @param date represented by a Calendar object
      * @return ArrayList< (int)total_sets, (int)complete_sets >
      */
-    public static ArrayList<Integer> searchProgressByDate (String date) {
+    public static ArrayList<Integer> searchProgressByDate (Calendar date) {
 
         ArrayList<Integer> rtn = new ArrayList<> ();
         int total_sets = 0;
@@ -412,7 +415,9 @@ public class FGDataSource extends SQLiteOpenHelper {
             + " WHERE p.date = ? "
             + " AND p.pid = e.pid; " ;
 
-        Cursor cursor = database.rawQuery(s, new String[]{date} );
+        String strDate = "" + date.getTimeInMillis();
+
+        Cursor cursor = database.rawQuery(s, new String[]{strDate} );
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
@@ -432,10 +437,10 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     /** TODO: this is for checklist/graph/history etc. And ExSets are already attached to Plan.
      * searchPlanByDate(): get Plan and ExSet of a specific date
-     * @param date (format: yyyy-MM-dd in String)
+     * @param date represented by a Calendar object
      * @return An arraylist of class Plan, each Plan object attached an array of ExSet
      */
-    public static ArrayList<Plan> searchPlanByDate(String date) {
+    public static ArrayList<Plan> searchPlanByDate(Calendar date) {
 
         ArrayList<Plan> rtn = new ArrayList<> ();
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
@@ -444,7 +449,10 @@ public class FGDataSource extends SQLiteOpenHelper {
         String s = " SELECT pid, eid, numofsets "
                 + " FROM plan"
                 + " WHERE date = ? ";
-        Cursor cursor = database.rawQuery(s, new String[]{date} );
+
+        String strDate = "" + date.getTimeInMillis();
+
+        Cursor cursor = database.rawQuery(s, new String[]{strDate} );
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
@@ -489,21 +497,22 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     /**
      * delete Plan and the attached ExSets of the specific date and eid,
-     * @param date
+     * @param date represented by a Calendar object
      * @param eid if eid== -1, delete all the plans of this date
      */
-    public static void deletePlan(String date, int eid){
+    public static void deletePlan(Calendar date, int eid){
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
         // first search all the pID
         ArrayList<Integer> pIDs = new ArrayList<>();
         String s;
+        String strDate = "" + date.getTimeInMillis();
         Cursor cursor;
         if (eid < 0) {
             s = "SELECT pid FROM plan WHERE date = ? ;";
-            cursor = database.rawQuery(s, new String[]{date});
+            cursor = database.rawQuery(s, new String[]{strDate});
         } else {
             s = "SELECT pid FROM plan WHERE date = ? AND eid = ? ;";
-            cursor = database.rawQuery(s, new String[]{date,Integer.toString(eid)});
+            cursor = database.rawQuery(s, new String[]{strDate,Integer.toString(eid)});
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
