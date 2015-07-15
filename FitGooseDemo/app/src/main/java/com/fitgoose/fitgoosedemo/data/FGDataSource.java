@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.fitgoose.fitgoosedemo.MyDate;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -289,7 +291,7 @@ public class FGDataSource extends SQLiteOpenHelper {
         SQLiteDatabase db = getInstance(mContext.getApplicationContext()).getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(PLAN_DATE, p.date.getTimeInMillis());
+        values.put(PLAN_DATE, p.date.getTimeStamp());
         values.put(PLAN_EID, p.eID);
         values.put(PLAN_SETS, p.numOfSets);
 
@@ -440,7 +442,7 @@ public class FGDataSource extends SQLiteOpenHelper {
      * @param date represented by a Calendar object
      * @return An arraylist of class Plan, each Plan object attached an array of ExSet
      */
-    public static ArrayList<Plan> searchPlanByDate(Calendar date) {
+    public static ArrayList<Plan> searchPlanByDate(MyDate date) {
 
         ArrayList<Plan> rtn = new ArrayList<> ();
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
@@ -450,9 +452,7 @@ public class FGDataSource extends SQLiteOpenHelper {
                 + " FROM plan"
                 + " WHERE date = ? ";
 
-        String strDate = "" + date.getTimeInMillis();
-
-        Cursor cursor = database.rawQuery(s, new String[]{strDate} );
+        Cursor cursor = database.rawQuery(s, new String[]{Integer.toString(date.getTimeStamp())} );
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
@@ -494,25 +494,102 @@ public class FGDataSource extends SQLiteOpenHelper {
         return rtn;
     }
 
+    public static ArrayList<Plan> searchPlanByExerciseAndTimeRange(int eid, MyDate before,
+                                                                MyDate after) {
+        ArrayList<Plan> planList = new ArrayList<>();
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
+
+        String s = " SELECT pid, date, eid, numofsets "
+                + " FROM plan"
+                + " WHERE eid = ? "
+                + " AND date >= ? "
+                + " AND date <= ? ";
+
+        Cursor cursor = database.rawQuery(s, new String[]{
+                Integer.toString(eid),
+                Integer.toString(before.getTimeStamp()),
+                Integer.toString(after.getTimeStamp()) });
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    int cPid = cursor.getInt(0);
+                    int cDate = cursor.getInt(1);
+                    int cEid = cursor.getInt(2);
+                    int cNum = cursor.getInt(3);
+
+                    Plan plan = new Plan(cPid, new MyDate(cDate),cEid,cNum);
+                    planList.add(plan);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+        //then use pid to get ExSet, and attach the ExSets to the Plan
+        for (Plan plan : planList) {
+            ArrayList<ExSet> exSetList = new ArrayList<>();
+            int pid = plan.pID;
+            s = " SELECT setid, quantity, numofreps, complete "
+                    + " FROM exset "
+                    + " WHERE pid = ? ";
+            cursor = database.rawQuery(s, new String[]{ Integer.toString(pid)} );
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    do {
+                        int setid = cursor.getInt(0);
+                        int quantity = cursor.getInt(1);
+                        int numofreps = cursor.getInt(2);
+                        int complete = cursor.getInt(3);
+                        ExSet exSet = new ExSet(setid,pid,quantity,numofreps,complete);
+                        exSetList.add(exSet);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+            }
+            plan.attachExSets(exSetList);
+        }
+
+        database.close();
+
+        return planList;
+    }
+
+    public static MyDate searchEarliestPlanDate() {
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
+
+        String s = " SELECT MIN(date) "
+                + " FROM plan ";
+        Cursor cursor = database.rawQuery(s, null);
+        int earliest = -1;
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                earliest = cursor.getInt(0);
+            }
+            cursor.close();
+        }
+
+        database.close();
+        return new MyDate(earliest);
+    }
 
     /**
      * delete Plan and the attached ExSets of the specific date and eid,
      * @param date represented by a Calendar object
      * @param eid if eid== -1, delete all the plans of this date
      */
-    public static void deletePlan(Calendar date, int eid){
+    public static void deletePlan(MyDate date, int eid){
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
         // first search all the pID
         ArrayList<Integer> pIDs = new ArrayList<>();
         String s;
-        String strDate = "" + date.getTimeInMillis();
         Cursor cursor;
         if (eid < 0) {
             s = "SELECT pid FROM plan WHERE date = ? ;";
-            cursor = database.rawQuery(s, new String[]{strDate});
+            cursor = database.rawQuery(s, new String[]{Integer.toString(date.getTimeStamp())});
         } else {
             s = "SELECT pid FROM plan WHERE date = ? AND eid = ? ;";
-            cursor = database.rawQuery(s, new String[]{strDate,Integer.toString(eid)});
+            cursor = database.rawQuery(s, new String[]{Integer.toString(date.getTimeStamp()),
+                    Integer.toString(eid)});
         }
         if (cursor != null) {
             if (cursor.moveToFirst()) {
