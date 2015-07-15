@@ -41,18 +41,18 @@ public class WorkoutPlansFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_plans_workout, container, false);
         //prepare data
-        ArrayList<Calendar> dates = new ArrayList<>();// = FGDataSource.searchAllDates();
+        ArrayList<MyDate> dates = new ArrayList<>();// = FGDataSource.searchAllDates();
         ArrayList<Card> cards = new ArrayList<>();
 
         // a week
-        Calendar c = CalendarHelper.getCurrentDate();
+        MyDate c = MyDate.getToday();
         for (int i=0;i<7;i++) {
-            dates.add((Calendar) c.clone());
+            dates.add(c.clone());
             c.add(Calendar.DATE,1);
         }
 
 
-        for (Calendar date: dates) {
+        for (MyDate date: dates) {
             DailyNativeCard card = new DailyNativeCard(context,date);
             card.init();
             cards.add(card);

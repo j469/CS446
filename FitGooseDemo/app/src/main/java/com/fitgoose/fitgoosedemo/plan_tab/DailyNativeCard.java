@@ -14,6 +14,7 @@ import java.util.Calendar;
 import java.util.List;
 
 
+import com.fitgoose.fitgoosedemo.MyDate;
 import com.fitgoose.fitgoosedemo.R;
 import com.fitgoose.fitgoosedemo.data.ExSet;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
@@ -28,10 +29,10 @@ import it.gmariotti.cardslib.library.prototypes.LinearListView;
 
 
 public class DailyNativeCard extends CardWithList{
-    private Calendar date;
+    private MyDate date;
     private String strDate;
 
-    public DailyNativeCard(Context context, Calendar date) {
+    public DailyNativeCard(Context context, MyDate date) {
         super(context, R.layout.daily_card_inner_main);
         this.date = date;
     }
@@ -43,7 +44,7 @@ public class DailyNativeCard extends CardWithList{
         CardHeader header = new CardHeader(getContext(),R.layout.daily_card_inner_header);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        strDate = sdf.format(date.getTime());
+        strDate = date.format(sdf);
 
         //Add a popup menu. This method set OverFlow button to visible
         header.setPopupMenu(R.menu.daily, new CardHeader.OnClickCardHeaderPopupMenuListener() {
