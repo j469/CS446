@@ -79,6 +79,9 @@ public class MainActivity extends ActionBarActivity
                 contentFragment = new StatisticsFragment();
                 break;
             case 5:
+                contentFragment = new ExercisesFragment();
+                break;
+            case 6:
                 contentFragment = new SettingsFragment();
         }
 
