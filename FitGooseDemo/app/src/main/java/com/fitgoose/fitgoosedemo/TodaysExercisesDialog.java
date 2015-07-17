@@ -13,21 +13,25 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Button;
 
 /**
  * Created by selway on 15-06-13.
  */
-public class DialogFragmentChest extends DialogFragment{
+public class TodaysExercisesDialog extends DialogFragment{
 
+    String[] shoulder_exercises = new String[] {"Standing Alternating Dumbbell Press", "Clean and Press", "Single Dumbbell Raise", "Single-Arm Linear Jammer"};
     String[] chest_exercises = new String[] {"Dumbell Bench Press", "Incline Dumbbell Press", "Push ups", "Barbell Bench Press - Medium Grip"};
+    String[] upper_arm_exercises = new String[] {};
+    String[] forearm_exercises = new String[] {};
     String[] abs_exercises = new String[] {"Bottoms Up", "Spell Caster", "Spider Crawl"};
     String[] quads_exercises = new String[] {"Barbell Full Squat", "Barbell Walking Lunge"};
-    String[] shoulder_exercises = new String[] {"Standing Alternating Dumbbell Press", "Clean and Press", "Single Dumbbell Raise", "Single-Arm Linear Jammer"};
+    String[] calves_exercises = new String[] {};
     String muscleArea;
 
-    public DialogFragmentChest() {
+    public TodaysExercisesDialog() {
 
     }
 
@@ -37,43 +41,71 @@ public class DialogFragmentChest extends DialogFragment{
         muscleArea = getArguments().getString("muscleArea");
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-
 
         // List for exercises
         View view = inflater.inflate(R.layout.dialog_body_chart, container);
         ListView exercisesList = (ListView) view.findViewById(R.id.exercises_list);
 
-        if (muscleArea == "chest") {
+        if (muscleArea == "shoulder") {
+            getDialog().setTitle("Shoulder Area");
+            ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, shoulder_exercises);
+            exercisesList.setAdapter(exercisesAdapter);
+            View emptyView = (TextView) view.findViewById(R.id.empty_view);
+            exercisesList.setEmptyView(emptyView);
+        }
+
+        else if (muscleArea == "chest") {
             getDialog().setTitle("Chest Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, chest_exercises);
             exercisesList.setAdapter(exercisesAdapter);
+            View emptyView = (TextView) view.findViewById(R.id.empty_view);
+            exercisesList.setEmptyView(emptyView);
+        }
+        else if (muscleArea == "upper_arm") {
+            getDialog().setTitle("Upper Arm Area");
+            ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, upper_arm_exercises);
+            exercisesList.setAdapter(exercisesAdapter);
+            View emptyView = (TextView) view.findViewById(R.id.empty_view);
+            exercisesList.setEmptyView(emptyView);
+        }
+        else if (muscleArea == "forearm") {
+            getDialog().setTitle("Forearm Area");
+            ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
+                    android.R.layout.simple_list_item_1, forearm_exercises);
+            exercisesList.setAdapter(exercisesAdapter);
+            View emptyView = (TextView) view.findViewById(R.id.empty_view);
+            exercisesList.setEmptyView(emptyView);
         }
         else if (muscleArea == "abs") {
             getDialog().setTitle("Abs Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, abs_exercises);
             exercisesList.setAdapter(exercisesAdapter);
+            View emptyView = (TextView) view.findViewById(R.id.empty_view);
+            exercisesList.setEmptyView(emptyView);
         }
         else if (muscleArea == "quads") {
             getDialog().setTitle("Quads Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, quads_exercises);
             exercisesList.setAdapter(exercisesAdapter);
+            View emptyView = (TextView) view.findViewById(R.id.empty_view);
+            exercisesList.setEmptyView(emptyView);
         }
-        else if (muscleArea == "shoulder") {
-            getDialog().setTitle("Shoulder Area");
+        else if (muscleArea == "calves") {
+            getDialog().setTitle("Calves Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
-                    android.R.layout.simple_list_item_1, shoulder_exercises);
+                    android.R.layout.simple_list_item_1, calves_exercises);
             exercisesList.setAdapter(exercisesAdapter);
+            View emptyView = (TextView) view.findViewById(R.id.empty_view);
+            exercisesList.setEmptyView(emptyView);
         }
-
 
 
         exercisesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

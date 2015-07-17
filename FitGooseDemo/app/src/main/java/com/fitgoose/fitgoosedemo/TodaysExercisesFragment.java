@@ -10,6 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.fitgoose.fitgoosedemo.data.FGDataSource;
+import com.fitgoose.fitgoosedemo.data.GlobalVariables;
+import com.fitgoose.fitgoosedemo.data.Plan;
+
+import java.util.ArrayList;
+
 public class TodaysExercisesFragment extends Fragment implements View.OnClickListener{
 
     public TodaysExercisesFragment() {
@@ -25,6 +31,14 @@ public class TodaysExercisesFragment extends Fragment implements View.OnClickLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_exercise_today, container, false);
+
+        MyDate today = MyDate.getToday();
+        ArrayList<Plan> todayData = FGDataSource.searchPlanByDate(today);
+
+        for (int i = 0; i < todayData.size(); i++) {
+            Toast.makeText(getActivity(), GlobalVariables.searchENameByEid(todayData.get(i).eID), Toast.LENGTH_SHORT).show();
+        }
+
 
         // Body Part Button
         Button chestButton = (Button) rootView.findViewById(R.id.chest_btn);
@@ -61,7 +75,7 @@ public class TodaysExercisesFragment extends Fragment implements View.OnClickLis
     @Override
     public void onClick(View view) {
         // Create new dialog to show exercises
-        DialogFragment newDialog = new DialogFragmentChest();
+        DialogFragment newDialog = new TodaysExercisesDialog();
         // Send the value of muscle area which user clicked
         Bundle args = new Bundle();
         switch (view.getId()) {
@@ -78,11 +92,15 @@ public class TodaysExercisesFragment extends Fragment implements View.OnClickLis
                 break;
             case R.id.upper_arm1_btn:
             case R.id.upper_arm2_btn:
-                Toast.makeText(getActivity(), "No exercise for Upper Arm today! :D", Toast.LENGTH_SHORT).show();
+                args.putString("muscleArea", "upper_arm");
+                newDialog.setArguments(args);
+                newDialog.show(getActivity().getFragmentManager(), "theDialog");
                 break;
             case R.id.forearm1_btn:
             case R.id.forearm2_btn:
-                Toast.makeText(getActivity(), "No exercise for Forearm today! :D", Toast.LENGTH_SHORT).show();
+                args.putString("muscleArea", "forearm");
+                newDialog.setArguments(args);
+                newDialog.show(getActivity().getFragmentManager(), "theDialog");
                 break;
             case R.id.abs_btn:
                 args.putString("muscleArea", "abs");
@@ -95,7 +113,9 @@ public class TodaysExercisesFragment extends Fragment implements View.OnClickLis
                 newDialog.show(getActivity().getFragmentManager(), "theDialog");
                 break;
             case R.id.calves_btn:
-                Toast.makeText(getActivity(), "No exercise for Calves today! :D", Toast.LENGTH_SHORT).show();
+                args.putString("muscleArea", "calves");
+                newDialog.setArguments(args);
+                newDialog.show(getActivity().getFragmentManager(), "theDialog");
                 break;
         }
 

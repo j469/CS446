@@ -15,8 +15,8 @@ public class GlobalVariables {
     /** TODO: (Selway) add more exercises here
      * TODO: save to database
      *  Stored exercises:
-     *  Format: ( int eid, false , String name, String unit, boolean shoulder, boolean arms,
-     *       boolean back, boolean chest, boolean abs, boolean legs, boolean oxy,
+     *  Format: ( int eid, false , String name, String unit, boolean shoulder, boolean upper_arm,
+     *       boolean back, boolean chest, boolean abs, boolean quads, boolean forearm,
      *       boolean cardio, boolean secondUnit)
      */
     public static ArrayList<Exercise> storedExercises = new ArrayList<>();
@@ -88,22 +88,22 @@ public class GlobalVariables {
         return rtn;
     }
 
-    public static String searchUnitByEid (int eid) {
-        String rtn = "";
+    public static int searchUnitByEid (int eid) {
+        int rtn = 0;
         for (Exercise e: storedExercises) {
             if ( eid == e.getID()) {
-                rtn = e.unit;
+                rtn = e.unit1;
                 break;
             }
         }
         return rtn;
     }
 
-    public static Boolean searchSecondUnitByEid (int eid) {
-        Boolean rtn = false;
+    public static int searchSecondUnitByEid (int eid) {
+        int rtn = 0;
         for (Exercise e: storedExercises) {
             if ( eid == e.getID()) {
-                rtn = e.secondUnit;
+                rtn = e.unit2;
                 break;
             }
         }

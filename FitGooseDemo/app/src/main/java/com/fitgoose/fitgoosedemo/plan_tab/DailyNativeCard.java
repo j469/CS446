@@ -108,10 +108,7 @@ public class DailyNativeCard extends CardWithList{
             complete = 0;
             dailyObject.exercise = GlobalVariables.searchENameByEid(d.eID);
             dailyObject.total = d.numOfSets;
-            for (ExSet e: d.exSets) {
-                if (e.complete) complete++;
-            }
-            dailyObject.complete = complete;
+
             dailyObject.setObjectId(dailyObject.exercise);
             dailyObject.setSwipeable(true);
 

@@ -29,7 +29,7 @@ public class CustomExerciseDialog extends Dialog {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_custom_exercise);
+       /* setContentView(R.layout.setting_custom_exercise);
 
         Button buttonDone = (Button) findViewById(R.id.setting_add_exercise_done);
         Button buttonCancel = (Button) findViewById(R.id.setting_add_exercise_cancel);
@@ -62,6 +62,6 @@ public class CustomExerciseDialog extends Dialog {
             public void onClick(View v) {
                 CustomExerciseDialog.this.dismiss();
             }
-        });
+        });*/
     }
 }
