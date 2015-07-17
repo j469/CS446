@@ -47,16 +47,18 @@ public class FGDataSource extends SQLiteOpenHelper {
             + "eid INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "type INTEGER NOT NULL, "
             + "name TEXT NOT NULL UNIQUE, "
-            + "unit TEXT NOT NULL, "
+            + "secondUnit INTEGER NOT NULL, "
+            + "unit1 TEXT NOT NULL, "
+            + "unit2 TEXT NOT NULL, "
             + "shoulder INTEGER NOT NULL, "
-            + "arms INTEGER NOT NULL, "
-            + "back INTEGER NOT NULL, "
             + "chest INTEGER NOT NULL, "
             + "abs INTEGER NOT NULL, "
-            + "legs INTEGER NOT NULL, "
-            + "oxy INTEGER NOT NULL, "
+            + "upper_arm INTEGER NOT NULL, "
+            + "forearm INTEGER NOT NULL, "
+            + "quads INTEGER NOT NULL, "
+            + "calves INTEGER NOT NULL, "
+            + "back INTEGER NOT NULL, "
             + "cardio INTEGER NOT NULL, "
-            + "secondUnit INTEGER NOT NULL, "
             + "youtube TEXT NOT NULL "
             + "); " ;
 
@@ -83,9 +85,8 @@ public class FGDataSource extends SQLiteOpenHelper {
     private static final String EXSET_CREATE = "CREATE TABLE IF NOT EXISTS exset ( "
             + "setid INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "pid INTEGER NOT NULL, "
-            + "quantity INTEGER NOT NULL, "
-            + "numofreps INTEGER NOT NULL, "
-            + "complete INTEGER NOT NULL "
+            + "quantity1 INTEGER NOT NULL, "
+            + "quantity2 INTEGER NOT NULL "
             + ");" ;
 
     private static final String REGIMEN_CREATE = "CREATE TABLE IF NOT EXISTS regimen ( "
@@ -171,22 +172,23 @@ public class FGDataSource extends SQLiteOpenHelper {
     private static final String PLAN_SETS = "numofsets";
     private static final String EXSET__SETID = "setid";
     private static final String EXSET__PID = "pid";
-    private static final String EXSET__QUANTITY = "quantity";
-    private static final String EXSET__REPS = "numofreps";
-    private static final String EXSET__COMPLETE = "complete";
+    private static final String EXSET__QUANTITY1 = "quantity1";
+    private static final String EXSET__QUANTITY2 = "quantity2";
     private static final String EXERCISE_EID = "eid";
     private static final String EXERCISE_TYPE = "type";
     private static final String EXERCISE_NAME = "name";
-    private static final String EXERCISE_UNIT = "unit";
+    private static final String EXERCISE_SU = "secondUnit";
+    private static final String EXERCISE_UNIT1 = "unit1";
+    private static final String EXERCISE_UNIT2 = "unit2";
     private static final String EXERCISE_SHOULDER = "shoulder";
-    private static final String EXERCISE_ARMS = "arms";
-    private static final String EXERCISE_BACK = "back";
     private static final String EXERCISE_CHEST = "chest";
     private static final String EXERCISE_ABS = "abs";
-    private static final String EXERCISE_LEGS = "legs";
-    private static final String EXERCISE_OXY = "oxy";
+    private static final String EXERCISE_UPPER_ARM = "upper_arm";
+    private static final String EXERCISE_FOREARM = "forearm";
+    private static final String EXERCISE_QUADS = "quads";
+    private static final String EXERCISE_CALVES = "calves";
+    private static final String EXERCISE_BACK = "back";
     private static final String EXERCISE_CARDIO = "cardio";
-    private static final String EXERCISE_SU = "secondUnit";
     private static final String EXERCISE_YOUTUBE = "youtube";
     private static final String REGIMEN_RID = "rid";
     private static final String REGIMEN_RNAME = "rname";
@@ -201,7 +203,7 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     private static final String[] RP_COLUMNS = {RP_PID,RP_PNAME,RP_ACTIVE,RP_MON,RP_TUE,RP_WED,RP_THU,RP_FRI,RP_SAT,RP_SUN};
     private static final String[] PLAN_COLUMNS = {PLAN_PID,PLAN_DATE,PLAN_EID,PLAN_SETS};
-    private static final String[] EXSET_COLUMNS = {EXSET__SETID,EXSET__PID,EXSET__QUANTITY,EXSET__REPS,EXSET__COMPLETE};
+    private static final String[] EXSET_COLUMNS = {EXSET__SETID,EXSET__PID,EXSET__QUANTITY1,EXSET__QUANTITY2};
 
     /**
      * The methods storeDaily, storeExSet etc. are the methods to store records into database.
@@ -268,16 +270,18 @@ public class FGDataSource extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(EXERCISE_TYPE, 1);
         values.put(EXERCISE_NAME, e.name);
-        values.put(EXERCISE_UNIT, e.unit);
+        values.put(EXERCISE_SU, e.secondUnit);
+        values.put(EXERCISE_UNIT1, e.unit1);
+        values.put(EXERCISE_UNIT2, e.unit2);
         values.put(EXERCISE_SHOULDER, e.shoulder);
-        values.put(EXERCISE_ARMS, e.arms);
-        values.put(EXERCISE_BACK, e.back);
         values.put(EXERCISE_CHEST, e.chest);
         values.put(EXERCISE_ABS, e.abs);
-        values.put(EXERCISE_LEGS, e.legs);
-        values.put(EXERCISE_OXY, e.oxy);
+        values.put(EXERCISE_UPPER_ARM, e.upper_arm);
+        values.put(EXERCISE_FOREARM, e.forearm);
+        values.put(EXERCISE_QUADS, e.quads);
+        values.put(EXERCISE_CALVES, e.calves);
+        values.put(EXERCISE_BACK, e.back);
         values.put(EXERCISE_CARDIO, e.cardio);
-        values.put(EXERCISE_SU, e.secondUnit);
         values.put(EXERCISE_YOUTUBE, e.youtubeURL);
 
         db.insert(TABLE_EXERCISE,null,values);
@@ -306,9 +310,8 @@ public class FGDataSource extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(EXSET__PID, e.pID);
-        values.put(EXSET__QUANTITY, e.quantity);
-        values.put(EXSET__REPS, e.numOfReps);
-        values.put(EXSET__COMPLETE, e.complete);
+        values.put(EXSET__QUANTITY1, e.quantity1);
+        values.put(EXSET__QUANTITY2, e.quantity2);
 
         db.insert(TABLE_EXSET, null, values);
 
@@ -363,9 +366,10 @@ public class FGDataSource extends SQLiteOpenHelper {
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    Exercise e = new Exercise(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getString(3),
+                    Exercise e = new Exercise(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3),
                             cursor.getInt(4),cursor.getInt(5),cursor.getInt(6),cursor.getInt(7),cursor.getInt(8),
-                            cursor.getInt(9),cursor.getInt(10),cursor.getInt(11),cursor.getInt(12),cursor.getString(13));
+                            cursor.getInt(9),cursor.getInt(10),cursor.getInt(11),cursor.getInt(12),cursor.getInt(13),
+                            cursor.getInt(14),"");
                     GlobalVariables.storedExercises.add(e);
                 } while (cursor.moveToNext());
             }
@@ -399,7 +403,7 @@ public class FGDataSource extends SQLiteOpenHelper {
         return rtn;
     }
 
-    /** TODO: this is for calendar
+    /** TODO: this is for calendar  Need redo
      * searchProgressByDate(): get the total sets & complete sets of the specific date
      * @param date represented by a Calendar object
      * @return ArrayList< (int)total_sets, (int)complete_sets >
@@ -412,7 +416,7 @@ public class FGDataSource extends SQLiteOpenHelper {
 
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
 
-        String s = " SELECT e.complete "
+        String s = " SELECT COUNT(*)"
             + " FROM plan AS p, exset AS e "
             + " WHERE p.date = ? "
             + " AND p.pid = e.pid; " ;
@@ -470,7 +474,7 @@ public class FGDataSource extends SQLiteOpenHelper {
         for (Plan plan : rtn) {
             ArrayList<ExSet> exSets = new ArrayList<>();
             int pid = plan.pID;
-            s = " SELECT setid, quantity, numofreps, complete "
+            s = " SELECT setid, quantity1, quantity2"
                     + " FROM exset "
                     + " WHERE pid = ? ";
             cursor = database.rawQuery(s, new String[]{ Integer.toString(pid)} );
@@ -478,10 +482,9 @@ public class FGDataSource extends SQLiteOpenHelper {
                 if (cursor.moveToFirst()) {
                     do {
                         int setid = cursor.getInt(0);
-                        int quantity = cursor.getInt(1);
-                        int numofreps = cursor.getInt(2);
-                        int complete = cursor.getInt(3);
-                        ExSet exSet = new ExSet(setid,pid,quantity,numofreps,complete);
+                        int quantity1 = cursor.getInt(1);
+                        int quantity2 = cursor.getInt(2);
+                        ExSet exSet = new ExSet(setid,pid,quantity1,quantity2);
                         exSets.add(exSet);
                     } while (cursor.moveToNext());
                 }
@@ -529,7 +532,7 @@ public class FGDataSource extends SQLiteOpenHelper {
         for (Plan plan : planList) {
             ArrayList<ExSet> exSetList = new ArrayList<>();
             int pid = plan.pID;
-            s = " SELECT setid, quantity, numofreps, complete "
+            s = " SELECT setid, quantity1, quantity2 "
                     + " FROM exset "
                     + " WHERE pid = ? ";
             cursor = database.rawQuery(s, new String[]{ Integer.toString(pid)} );
@@ -537,10 +540,9 @@ public class FGDataSource extends SQLiteOpenHelper {
                 if (cursor.moveToFirst()) {
                     do {
                         int setid = cursor.getInt(0);
-                        int quantity = cursor.getInt(1);
-                        int numofreps = cursor.getInt(2);
-                        int complete = cursor.getInt(3);
-                        ExSet exSet = new ExSet(setid,pid,quantity,numofreps,complete);
+                        int quantity1 = cursor.getInt(1);
+                        int quantity2 = cursor.getInt(2);
+                        ExSet exSet = new ExSet(setid,pid,quantity1,quantity2);
                         exSetList.add(exSet);
                     } while (cursor.moveToNext());
                 }

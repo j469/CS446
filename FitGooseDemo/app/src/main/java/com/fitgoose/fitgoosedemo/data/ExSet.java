@@ -8,23 +8,20 @@ package com.fitgoose.fitgoosedemo.data;
 public class ExSet {
     public int setID = 0;
     public int pID;
-    public int quantity;
-    public int numOfReps;
-    public boolean complete;
+    public int quantity1;
+    public int quantity2;
 
-    public ExSet(int pID, int quantity, int numOfReps) {
+    public ExSet(int pID, int quantity1, int quantity2) {
         //setID ++;
         this.pID = pID;
-        this.quantity = quantity;
-        this.numOfReps = numOfReps;
-        this.complete = false;
+        this.quantity1 = quantity1;
+        this.quantity2 = quantity2;
     }
 
-    public ExSet(int setID,int pID,int quantity, int numOfReps, int complete) {
+    public ExSet(int setID,int pID,int quantity1, int quantity2) {
         this.setID = setID;
         this.pID = pID;
-        this.quantity = quantity;
-        this.numOfReps = numOfReps;
-        this.complete = (complete != 0);
+        this.quantity1 = quantity1;
+        this.quantity2 = quantity2;
     }
 }
