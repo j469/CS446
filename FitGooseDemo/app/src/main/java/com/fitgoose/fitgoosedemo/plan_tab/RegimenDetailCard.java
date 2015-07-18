@@ -156,20 +156,19 @@ public class RegimenDetailCard extends CardWithList {
         //Retrieve the values from the object
         DailyObject dailyObject = (DailyObject) object;
 
-        ename.setText( String.valueOf(dailyObject.ename));
-        sets.setText( String.valueOf(dailyObject.sets));
-        unitOne.setText(String.valueOf(dailyObject.unitOne));
+        ename.setText( dailyObject.ename);
+        sets.setText( String.valueOf(dailyObject.sets) + " ");
 
-        if (dailyObject.unitTwo != -1) {
-            unitTwo.setText(String.valueOf(dailyObject.unitTwo));
-        }
+        if (dailyObject.unitOne != -1) unitOne.setText(GlobalVariables.exerciseUnit.get(dailyObject.unitOne));
+
+        if (dailyObject.unitTwo != -1) unitTwo.setText(GlobalVariables.exerciseUnit.get(dailyObject.unitTwo));
 
         return  convertView;
     }
 
     @Override
     public int getChildLayoutId() {
-        return R.layout.daily_card_inner_main;
+        return R.layout.regimen_card_inner_main;
     }
 
     // -------------------------------------------------------------

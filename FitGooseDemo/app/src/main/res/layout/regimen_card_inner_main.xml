@@ -3,55 +3,61 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_inner_base_main_cardwithlist"
     android:orientation="vertical"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
-        android:minHeight="10dp">
+        android:weightSum="9">
 
         <TextView
             android:id="@+id/regimen_card_exercise_name"
             android:textSize="20sp"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"/>
+            android:gravity="center"
+            android:layout_weight="2.5"/>
 
         <TextView
             android:id="@+id/regimen_card_exercise_sets"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:textSize="20sp"
-            android:paddingLeft="15dp"
-            android:layout_toRightOf="@id/regimen_card_exercise_name" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1"/>
 
         <TextView
-            android:id="@+id/regimen_card_unit_two"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:text="sets"
             android:textSize="20sp"
-            android:layout_alignParentRight="true"/>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_weight="1.5"/>
 
         <TextView
             android:id="@+id/regimen_card_unit_one"
-            android:layout_width="wrap_content"
+            android:textSize="18sp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textSize="20sp"
-            android:paddingRight="15dp"
-            android:layout_toLeftOf="@id/regimen_card_unit_two"/>
+            android:gravity="center"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:id="@+id/regimen_card_unit_two"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="2"/>
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </it.gmariotti.cardslib.library.prototypes.LinearListView>
