@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.fitgoose.fitgoosedemo.data.Exercise;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 import com.fitgoose.fitgoosedemo.plan_tab.ExerciseDetailsCard;
+import com.fitgoose.fitgoosedemo.utilities.CustomExerciseDialog;
 
 import java.util.ArrayList;
 
@@ -86,7 +87,7 @@ public class ExercisesFragment extends Fragment {
         updateCardList(0);
     }
 
-    private void updateCardList (int type) {
+    public void updateCardList (int type) {
         //prepare data
         ArrayList<Card> cards = new ArrayList<>();
         ArrayList<Exercise> exercises = GlobalVariables.getExercisesByType(type);
@@ -103,12 +104,20 @@ public class ExercisesFragment extends Fragment {
                 public void onMenuItemClick(BaseCard card, MenuItem item) {
 
                     switch (item.getItemId()) {
-                        case R.id.exercise_card_header_action_save:
+                        case R.id.exercise_card_header_action_add: {
+                            CustomExerciseDialog customExerciseDialog = new CustomExerciseDialog(context, new CustomExerciseDialog.CustomExerciseDialogListener() {
+                                public void ready() {
+                                    updateCardList(0);
+                                }
+                            });
+                            customExerciseDialog.setTitle("New Exercise:");
+                            customExerciseDialog.show();
                             break;
-                        case R.id.exercise_card_header_action_edit:
+                        }
+                        case R.id.exercise_card_header_action_remove:{
+                            Toast.makeText(context, "TODO:deleteExercise()", Toast.LENGTH_SHORT).show();
                             break;
-                        case R.id.exercise_card_header_action_remove:
-                            break;
+                        }
                     }
 
                 }
@@ -121,13 +130,13 @@ public class ExercisesFragment extends Fragment {
             card.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
-                    Toast.makeText(context, "Display youtube video after click.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "TODO:Display youtube video after click.", Toast.LENGTH_LONG).show();
                 }
             });
             card.setOnSwipeListener(new Card.OnSwipeListener() {
                 @Override
                 public void onSwipe(Card card) {
-                    Toast.makeText(context, "On swipe.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "TODO:deleteExercise()", Toast.LENGTH_SHORT).show();
                     //FGDataSource.deleteExercise(date, -1);
                 }
             });

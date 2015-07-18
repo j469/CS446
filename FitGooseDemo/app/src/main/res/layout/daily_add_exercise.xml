@@ -10,7 +10,6 @@
         android:id="@+id/daily_add_choose_exercise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choose an exercise:"
         android:textSize="18sp"/>
 
     <Button

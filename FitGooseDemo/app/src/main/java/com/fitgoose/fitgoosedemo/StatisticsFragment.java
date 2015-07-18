@@ -203,7 +203,7 @@ public class StatisticsFragment extends Fragment {
     private DataPoint processAverage(Plan p) {
         int sum = 0;
         for(ExSet set : p.exSets) {
-            sum += set.quantity;
+            sum += set.quantity1;
         }
         double average = (double) sum / (double) p.exSets.size();
         double time = (double) p.date.toCalendar().getTimeInMillis();
@@ -212,10 +212,10 @@ public class StatisticsFragment extends Fragment {
     }
 
     private DataPoint processBest(Plan p) {
-        double max = p.exSets.get(0).quantity;
+        double max = p.exSets.get(0).quantity1;
         for(ExSet set : p.exSets) {
-            if (set.quantity > max) {
-                max = set.quantity;
+            if (set.quantity1 > max) {
+                max = set.quantity1;
             }
         }
         double time = (double) p.date.toCalendar().getTimeInMillis();
@@ -225,7 +225,7 @@ public class StatisticsFragment extends Fragment {
     private DataPoint processNumReps(Plan p) {
         double numReps = 0;
         for(ExSet set : p.exSets) {
-            numReps += set.numOfReps;
+            numReps += set.quantity2;
         }
         double time = (double) p.date.toCalendar().getTimeInMillis();
         return new DataPoint(time, numReps);

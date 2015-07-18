@@ -32,7 +32,7 @@ public class ExerciseDialog extends Dialog {
     protected CardRecyclerView mRecyclerView;
 
     public interface ExerciseDialogListener {
-        public void ready(int eid);
+        public void ready(int eid, String ename);
     }
     private ExerciseDialogListener mReadyListener;
 
@@ -86,7 +86,7 @@ public class ExerciseDialog extends Dialog {
 
             // card header
             CardHeader header = new CardHeader(context,R.layout.daily_card_inner_header);
-            header.setTitle(e.name); //should use R.string
+            header.setTitle(e.name);
             card.addCardHeader(header);
 
             card.setClickable(true);
@@ -94,7 +94,8 @@ public class ExerciseDialog extends Dialog {
             card.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
-                    mReadyListener.ready(e.eID);
+                    mReadyListener.ready(e.eID, e.name);
+                    dismiss();
                 }
             });
 

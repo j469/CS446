@@ -3,22 +3,18 @@ package com.fitgoose.fitgoosedemo.plan_tab;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.R;
-import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
-import com.fitgoose.fitgoosedemo.data.Plan;
 
 import java.util.ArrayList;
 
-public class SpinnerDialog extends Dialog {
+public class DailyAddPlanDialog extends Dialog {
     private ArrayList<String> mList;
     private Context mContext;
     private int localEID = -1;
@@ -30,7 +26,7 @@ public class SpinnerDialog extends Dialog {
 
     private DialogListener mReadyListener;
 
-    public SpinnerDialog(Context context, DialogListener readyListener) {
+    public DailyAddPlanDialog(Context context, DialogListener readyListener) {
         super(context);
         mReadyListener = readyListener;
         mContext = context;
@@ -41,12 +37,17 @@ public class SpinnerDialog extends Dialog {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daily_add_exercise);
-        Button button = (Button) findViewById (R.id.daily_add_button);
+
+        final TextView textView = (TextView)findViewById(R.id.daily_add_choose_exercise);
+        textView.setText("Choose an exercise:");
+
+        Button button = (Button) findViewById(R.id.daily_add_button);
         button.setOnClickListener(new android.view.View.OnClickListener() {
             public void onClick(View v) {
                 ExerciseDialog exerciseDialog = new ExerciseDialog(getContext(), new ExerciseDialog.ExerciseDialogListener() {
-                    public void ready(int eid) {
+                    public void ready(int eid, String ename) {
                         localEID = eid;
+                        textView.setText(ename+": ");
                     }
                 });
                 exerciseDialog.setTitle("Choose an exercise");
@@ -73,13 +74,13 @@ public class SpinnerDialog extends Dialog {
                     return;
                 }
                 mReadyListener.ready(localEID,sets);
-                SpinnerDialog.this.dismiss();
+                DailyAddPlanDialog.this.dismiss();
             }
         });
         buttonCancel.setOnClickListener(new android.view.View.OnClickListener(){
             public void onClick(View v) {
                 mReadyListener.cancelled();
-                SpinnerDialog.this.dismiss();
+                DailyAddPlanDialog.this.dismiss();
             }
         });
     }

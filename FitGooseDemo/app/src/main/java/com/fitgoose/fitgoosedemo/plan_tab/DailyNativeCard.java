@@ -10,16 +10,15 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 
 import com.fitgoose.fitgoosedemo.MyDate;
 import com.fitgoose.fitgoosedemo.R;
-import com.fitgoose.fitgoosedemo.data.ExSet;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.data.Plan;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
+import com.fitgoose.fitgoosedemo.utilities.CalendarDialog;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -53,7 +52,7 @@ public class DailyNativeCard extends CardWithList{
 
                 switch (item.getItemId()) {
                     case R.id.action_add:
-                        SpinnerDialog mSpinnerDialog = new SpinnerDialog(getContext(), new SpinnerDialog.DialogListener() {
+                        DailyAddPlanDialog dailyAddPlanDialog = new DailyAddPlanDialog(getContext(), new DailyAddPlanDialog.DialogListener() {
                             public void cancelled() {
                                 // do your code here
                             }
@@ -65,12 +64,16 @@ public class DailyNativeCard extends CardWithList{
                                 //WorkoutPlansFragment.mCardArrayAdapter.notifyDataSetChanged();
                             }
                         });
-                        mSpinnerDialog.setTitle(strDate);
-                        mSpinnerDialog.show();
+                        dailyAddPlanDialog.setTitle(strDate);
+                        dailyAddPlanDialog.show();
                         break;
                     case R.id.action_remove:
                         FGDataSource.deletePlan(date, -1);
                         deleteAllDaily();
+                        break;
+                    case R.id.action_save:
+                        CalendarDialog calendarDialog = new CalendarDialog(getContext(),date);
+                        calendarDialog.show();
                         break;
                 }
 
