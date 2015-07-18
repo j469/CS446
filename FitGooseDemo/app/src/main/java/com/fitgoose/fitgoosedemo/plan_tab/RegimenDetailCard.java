@@ -8,17 +8,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-
-
-import com.fitgoose.fitgoosedemo.MyDate;
 import com.fitgoose.fitgoosedemo.R;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
-import com.fitgoose.fitgoosedemo.data.Plan;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
+import com.fitgoose.fitgoosedemo.data.Plan;
+import com.fitgoose.fitgoosedemo.data.Regimen;
 import com.fitgoose.fitgoosedemo.utilities.CalendarDialog;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
@@ -26,14 +24,15 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.prototypes.CardWithList;
 import it.gmariotti.cardslib.library.prototypes.LinearListView;
 
+/**
+ * Created by Jiayi Wang on 2015-07-18.
+ */
+public class RegimenDetailCard extends CardWithList {
+    private Regimen mRegimen;
 
-public class DailyNativeCard extends CardWithList{
-    private MyDate date;
-    private String strDate;
-
-    public DailyNativeCard(Context context, MyDate date) {
+    public RegimenDetailCard(Context context, Regimen regimen) {
         super(context, R.layout.daily_card_inner_main);
-        this.date = date;
+        this.mRegimen = regimen;
     }
 
     @Override
@@ -42,9 +41,6 @@ public class DailyNativeCard extends CardWithList{
         //Add Header
         CardHeader header = new CardHeader(getContext(),R.layout.daily_card_inner_header);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        strDate = date.format(sdf);
-
         //Add a popup menu. This method set OverFlow button to visible
         header.setPopupMenu(R.menu.daily_card_header_menu, new CardHeader.OnClickCardHeaderPopupMenuListener() {
             @Override
@@ -52,7 +48,7 @@ public class DailyNativeCard extends CardWithList{
 
                 switch (item.getItemId()) {
                     case R.id.action_add:
-                        DailyAddPlanDialog dailyAddPlanDialog = new DailyAddPlanDialog(getContext(), new DailyAddPlanDialog.DialogListener() {
+                        /*DailyAddPlanDialog dailyAddPlanDialog = new DailyAddPlanDialog(getContext(), new DailyAddPlanDialog.DialogListener() {
                             public void cancelled() {
                                 // do your code here
                             }
@@ -65,21 +61,21 @@ public class DailyNativeCard extends CardWithList{
                             }
                         });
                         dailyAddPlanDialog.setTitle(strDate);
-                        dailyAddPlanDialog.show();
+                        dailyAddPlanDialog.show();*/
                         break;
                     case R.id.action_remove:
-                        FGDataSource.deletePlan(date, -1);
-                        deleteAllDaily();
+                        //FGDataSource.deletePlan(date, -1);
+                        //deleteAllDaily();
                         break;
                     case R.id.action_save:
-                        CalendarDialog calendarDialog = new CalendarDialog(getContext(),date);
-                        calendarDialog.show();
+                        //CalendarDialog calendarDialog = new CalendarDialog(getContext(),date);
+                        //calendarDialog.show();
                         break;
                 }
 
             }
         });
-        header.setTitle(strDate); //should use R.string.
+        header.setTitle(mRegimen.rname);
         return header;
     }
 
@@ -89,7 +85,7 @@ public class DailyNativeCard extends CardWithList{
         setOnSwipeListener(new OnSwipeListener() {
             @Override
             public void onSwipe(Card card) {
-                FGDataSource.deletePlan(date, -1);
+                //FGDataSource.deletePlan(date, -1);
             }
         });
         setUseEmptyView(true);
@@ -98,28 +94,26 @@ public class DailyNativeCard extends CardWithList{
 
     @Override
     protected List<ListObject> initChildren() {
-        //Search Plan arraylist by date
-        ArrayList<Plan> dailies = FGDataSource.searchPlanByDate(date);
-        //Init the object list
-        List<ListObject> mObjects = new ArrayList<ListObject>();
-        //Transfer Plan to DailyObject
-        int complete;
-        for (final Plan d: dailies) {
-            // set values
-            DailyObject dailyObject = new DailyObject(this);
-            complete = 0;
-            dailyObject.exercise = GlobalVariables.searchENameByEid(d.eID);
-            dailyObject.total = d.numOfSets;
 
-            dailyObject.setObjectId(dailyObject.exercise);
+        List<ListObject> mObjects = new ArrayList<ListObject>();
+
+        for (int i = 0; i< mRegimen.eIDs.size(); i++) {
+            DailyObject dailyObject = new DailyObject(this);
+
+            dailyObject.eID = mRegimen.eIDs.get(i);
+            dailyObject.sets = mRegimen.sets.get(i);
+            dailyObject.ename = GlobalVariables.searchENameByEid(dailyObject.eID);
+            dailyObject.unitOne = GlobalVariables.searchUnitByEid(dailyObject.eID);
+            dailyObject.unitTwo = GlobalVariables.searchSecondUnitByEid(dailyObject.eID);
+
+            dailyObject.setObjectId(dailyObject.ename);
             dailyObject.setSwipeable(true);
 
-            // set swipeable
             dailyObject.setSwipeable(true);
             dailyObject.setOnItemSwipeListener(new OnItemSwipeListener() {
                 @Override
                 public void onItemSwipe(ListObject object, boolean dismissRight) {
-                    FGDataSource.deletePlan(date, d.eID);
+                    //FGDataSource.deletePlan(date, d.eID);
                 }
             });
             mObjects.add(dailyObject);
@@ -127,7 +121,7 @@ public class DailyNativeCard extends CardWithList{
         return mObjects;
     }
 
-    public void updateItems(final Plan d) {
+    /*public void updateItems(final Plan d) {
         // set values
         DailyObject dailyObject = new DailyObject(this);
         dailyObject.exercise = GlobalVariables.searchENameByEid(d.eID);
@@ -144,7 +138,7 @@ public class DailyNativeCard extends CardWithList{
             }
         });
         getLinearListAdapter().add(dailyObject);
-    }
+    }*/
 
     public void deleteAllDaily() {
         getLinearListAdapter().clear();
@@ -154,31 +148,27 @@ public class DailyNativeCard extends CardWithList{
     public View setupChildView(int childPosition, ListObject object, View convertView, ViewGroup parent) {
 
         //Find the views
-        TextView exercise  = (TextView) convertView.findViewById(R.id.daily_card_exercise_name);
-        TextView complete  = (TextView) convertView.findViewById(R.id.daily_card_exercise_sets_complete);
-        TextView total  = (TextView) convertView.findViewById(R.id.daily_card_exercise_sets_total);
-        ImageView icon = (ImageView) convertView.findViewById(R.id.daily_card_exercise_sets_icon);
+        TextView ename  = (TextView) convertView.findViewById(R.id.regimen_card_exercise_name);
+        TextView sets  = (TextView) convertView.findViewById(R.id.regimen_card_exercise_sets);
+        TextView unitOne  = (TextView) convertView.findViewById(R.id.regimen_card_unit_one);
+        TextView unitTwo  = (TextView) convertView.findViewById(R.id.regimen_card_unit_two);
 
         //Retrieve the values from the object
         DailyObject dailyObject = (DailyObject) object;
-        exercise.setText( String.valueOf(dailyObject.exercise));
-        complete.setText( String.valueOf(dailyObject.complete));
-        total.setText(String.valueOf(dailyObject.total));
 
-        if (dailyObject.complete == dailyObject.total) {
-            icon.setImageResource(R.drawable.ic_done_black_24dp);
-        } else if (dailyObject.complete != 0) {
-            icon.setImageResource(R.drawable.ic_trending_flat_black_24dp);
-        } else {
-            icon.setImageResource(R.drawable.ic_query_builder_black_24dp);
-        }
+        ename.setText( dailyObject.ename);
+        sets.setText( String.valueOf(dailyObject.sets) + " ");
+
+        if (dailyObject.unitOne != -1) unitOne.setText(GlobalVariables.exerciseUnit.get(dailyObject.unitOne));
+
+        if (dailyObject.unitTwo != -1) unitTwo.setText(GlobalVariables.exerciseUnit.get(dailyObject.unitTwo));
 
         return  convertView;
     }
 
     @Override
     public int getChildLayoutId() {
-        return R.layout.daily_card_inner_main;
+        return R.layout.regimen_card_inner_main;
     }
 
     // -------------------------------------------------------------
@@ -187,9 +177,11 @@ public class DailyNativeCard extends CardWithList{
 
     public class DailyObject extends DefaultListObject{
 
-        public String exercise;
-        public int complete;
-        public int total;
+        public String ename;
+        public int eID;
+        public int sets;
+        public int unitOne;
+        public int unitTwo;
 
         public DailyObject(Card parentCard){
             super(parentCard);

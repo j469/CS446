@@ -12,5 +12,10 @@
         android:orderInCategory="102"
         app:showAsAction="always" />
 
+    <item android:id="@+id/exercise_card_header_action_edit"
+        android:title="Add new exercise"
+        android:orderInCategory="103"
+        app:showAsAction="always" />
+
 
 </menu>

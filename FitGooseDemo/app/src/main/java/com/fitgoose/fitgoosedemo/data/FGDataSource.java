@@ -574,6 +574,53 @@ public class FGDataSource extends SQLiteOpenHelper {
         return new MyDate(earliest);
     }
 
+    public static ArrayList<Regimen> searchAllRegimen() {
+        ArrayList<Regimen> regimenArrayList = new ArrayList<>();
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
+
+        String s = " SELECT rid, rname "
+                + " FROM regimen";
+
+        Cursor cursor = database.rawQuery(s, new String[]{});
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    int rid = cursor.getInt(0);
+                    String rname = cursor.getString(1);
+
+                    Regimen regimen = new Regimen(rid,rname);
+                    regimenArrayList.add(regimen);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+        //then use pid to get ExSet, and attach the ExSets to the Plan
+        for (Regimen regimen : regimenArrayList) {
+            int rid = regimen.rID;
+            s = " SELECT eid, numofreps "
+                    + " FROM rexref "
+                    + " WHERE rid = ? ";
+            cursor = database.rawQuery(s, new String[]{ Integer.toString(rid)} );
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    do {
+                        int eid = cursor.getInt(0);
+                        int numofreps = cursor.getInt(1);
+                        regimen.attachEID(eid);
+                        regimen.attachNumOfSet(numofreps);
+                    } while (cursor.moveToNext());
+                }
+                cursor.close();
+            }
+        }
+
+        database.close();
+
+        return regimenArrayList;
+    }
+
     /**
      * delete Plan and the attached ExSets of the specific date and eid,
      * @param date represented by a Calendar object
@@ -613,7 +660,7 @@ public class FGDataSource extends SQLiteOpenHelper {
 
     /** TODO: focus on the format of each parameter, and PLEASE use String.valueOf( someString ) instead of just someString
      * dbDelte(): delete a specific row with your arguments
-     * @param table_name "plan" or "daily" or "exset" (LOWER CASE!!!)
+     * @param table_name "plan" or "daily_card_header_menu" or "exset" (LOWER CASE!!!)
      * @param whereClause such as "pid" "pname" "date" etc
      * @param whereArgs String[] { String.valueOf(date) } or String[]{ Integer.toString(setID) }
      */
