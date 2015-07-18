@@ -121,8 +121,7 @@ public class StatisticsFragment extends Fragment {
         }
 
         plans = FGDataSource.searchPlanByExerciseAndTimeRange(eid, firstDate, current);
-
-        testPrintout();
+        // testPrintout();
 
         LineGraphSeries<DataPoint> dataPoints = processData(propertySpinner.getSelectedItemPosition());
         if(dataPoints == null) return;
@@ -132,7 +131,7 @@ public class StatisticsFragment extends Fragment {
         graph.getViewport().setMaxX(current.toCalendar().getTimeInMillis());
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMinY(0);
-        double ceiling = 4*(Math.ceil( (int) dataPoints.getHighestValueY() / 4));
+        double ceiling = 4*(Math.ceil( dataPoints.getHighestValueY() / 4));
         graph.getViewport().setMaxY(ceiling);
 
         graph.getGridLabelRenderer().setNumHorizontalLabels(4);
@@ -144,7 +143,6 @@ public class StatisticsFragment extends Fragment {
                     Calendar cal = Calendar.getInstance();
                     long millis = (long) value;
                     cal.setTimeInMillis(millis);
-                    Log.d("WTF", Long.toString(millis));
                     int month = cal.get(Calendar.MONTH);
                     int day = cal.get(Calendar.DATE);
                     return String.format("%02d", month) + "/" + String.format("%02d", day);
@@ -238,20 +236,6 @@ public class StatisticsFragment extends Fragment {
         return new DataPoint(time, numSets);
     }
 
-
-    // Test method for generating a random series
-    private LineGraphSeries<DataPoint> getRandomSeries(int numDataPts, int min, int max) {
-        if (max <= min) return null;
-
-        Random rng = new Random();
-        DataPoint[] dpts = new DataPoint[numDataPts];
-
-        for (int i = 0; i < numDataPts; i++) {
-            dpts[i] = new DataPoint(i, min + rng.nextInt(max - min));
-        }
-
-        return new LineGraphSeries<DataPoint>(dpts);
-    }
 
     private void testPrintout() {
         for(Plan p : plans) {
