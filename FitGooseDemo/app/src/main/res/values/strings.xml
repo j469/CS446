@@ -9,6 +9,7 @@
     <string name="title_statistics">Statistics</string>
     <string name="title_settings">Settings</string>
 
+<!-- Navigation Drawer -->
     <string-array name="menu_items">
         <item>@string/title_todays_exercises</item>
         <item>@string/title_workout_plans</item>
@@ -24,6 +25,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_example">Example</string>
 
+<!-- Statistics -->
     <string-array name="graph_time_ranges">
         <item>Past Week</item>
         <item>Past Month</item>
@@ -33,7 +35,9 @@
 
     <string-array name="graph_properties">
         <item>Average</item>
-        <item>Best Set</item>
+        <item>Best</item>
+        <item>Number of Reps</item>
+        <item>Number of Sets</item>
     </string-array>
 
     <color name="red">#FF0000</color>
