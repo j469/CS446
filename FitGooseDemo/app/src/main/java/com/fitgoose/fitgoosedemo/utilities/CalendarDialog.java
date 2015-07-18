@@ -41,9 +41,8 @@ public class CalendarDialog extends Dialog {
         setContentView(R.layout.calendar_daily_card);
 
         //card view
-        CardViewNative cardView = (CardViewNative) findViewById(R.id.calendar_daily_card);
+        final CardViewNative cardView = (CardViewNative) findViewById(R.id.calendar_daily_card);
         cardView.setCard(mCard);
-        final Bitmap bitmap = cardView.createBitmap();
 
         //button return
         Button buttonReturn = (Button) findViewById(R.id.calendar_daily_card_return);
@@ -57,14 +56,16 @@ public class CalendarDialog extends Dialog {
         Button buttonSave = (Button) findViewById(R.id.calendar_daily_card_save);
         buttonSave.setOnClickListener(new android.view.View.OnClickListener(){
             public void onClick(View v) {
+                // get bitmap from card view
+                Bitmap bitmap = cardView.createBitmap();
 
+                // save bitmap as picture
                 File photoFile=null;
-
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
                 File photoStorage = mContext.getFilesDir();
                 if (photoStorage!=null){
-                    photoFile = new File(photoStorage, (System.currentTimeMillis()) + ".jpg");
+                    photoFile = new File(photoStorage,"Workout details"+ (System.currentTimeMillis()) + ".jpg");
                     try {
                         //f.createNewFile();
                         FileOutputStream fo = new FileOutputStream(photoFile);

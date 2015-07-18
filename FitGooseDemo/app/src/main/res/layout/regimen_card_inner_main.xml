@@ -18,45 +18,38 @@
         android:minHeight="10dp">
 
         <TextView
-            android:id="@+id/daily_card_exercise_name"
+            android:id="@+id/regimen_card_exercise_name"
             android:textSize="20sp"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"/>
 
-        <ImageView
-            android:id="@+id/daily_card_exercise_sets_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_alignParentRight="true" />
-
         <TextView
-            android:id="@+id/daily_card_exercise_sets_total"
+            android:id="@+id/regimen_card_exercise_sets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textSize="20sp"
-            android:paddingRight="25dp"
-            android:layout_toLeftOf="@id/daily_card_exercise_sets_icon" />
+            android:paddingLeft="15dp"
+            android:layout_toRightOf="@id/regimen_card_exercise_name" />
 
         <TextView
-            android:id="@+id/daily_card_exercise_sets_slash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="/"
-            android:textSize="20sp"
-            android:layout_toLeftOf="@id/daily_card_exercise_sets_total"/>
-
-        <TextView
-            android:id="@+id/daily_card_exercise_sets_complete"
+            android:id="@+id/regimen_card_unit_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textSize="20sp"
-            android:layout_toLeftOf="@id/daily_card_exercise_sets_slash"/>
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/regimen_card_unit_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:paddingRight="15dp"
+            android:layout_toLeftOf="@id/regimen_card_unit_two"/>
 
 
     </RelativeLayout>

@@ -24,7 +24,6 @@ import java.util.List;
 
 public class CustomExerciseDialog extends Dialog {
     private Context mContext;
-    private List<String> spinner_dropdown_string = Arrays.asList("None", "lbs", "Repeats", "Minutes", "Meters");
     private int unit_one_int = -1;
     private int unit_two_int = -1;
 
@@ -48,7 +47,7 @@ public class CustomExerciseDialog extends Dialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_custom_exercise);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String> (mContext, android.R.layout.simple_spinner_dropdown_item, spinner_dropdown_string);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String> (mContext, android.R.layout.simple_spinner_dropdown_item, GlobalVariables.exerciseUnit);
 
         Spinner unit_one = (Spinner) findViewById(R.id.custom_unit_one);
         unit_one.setAdapter(adapter);

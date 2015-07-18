@@ -15,10 +15,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.data.Exercise;
+import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
+import com.fitgoose.fitgoosedemo.data.Regimen;
 import com.fitgoose.fitgoosedemo.plan_tab.ExerciseDetailsCard;
+import com.fitgoose.fitgoosedemo.plan_tab.RegimenDetailCard;
 import com.fitgoose.fitgoosedemo.utilities.CustomExerciseDialog;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.internal.Card;
@@ -90,59 +94,76 @@ public class ExercisesFragment extends Fragment {
     public void updateCardList (int type) {
         //prepare data
         ArrayList<Card> cards = new ArrayList<>();
-        ArrayList<Exercise> exercises = GlobalVariables.getExercisesByType(type);
 
-        for (Exercise e: exercises) {
-            // card constructor
-            ExerciseDetailsCard card = new ExerciseDetailsCard(context,e);
+        if (type == 10) { // regimen
+            ArrayList<Regimen> regimens = FGDataSource.searchAllRegimen();
 
-            // card header
-            CardHeader header = new CardHeader(context,R.layout.daily_card_inner_header);
-            // popup menu. This method set OverFlow button to visible
-            header.setPopupMenu(R.menu.exercise_card_header_menu, new CardHeader.OnClickCardHeaderPopupMenuListener() {
-                @Override
-                public void onMenuItemClick(BaseCard card, MenuItem item) {
+            for (Regimen regimen: regimens) {
+                RegimenDetailCard card = new RegimenDetailCard(context,regimen);
+                card.init();
+                cards.add(card);
+            }
 
-                    switch (item.getItemId()) {
-                        case R.id.exercise_card_header_action_add: {
-                            CustomExerciseDialog customExerciseDialog = new CustomExerciseDialog(context, new CustomExerciseDialog.CustomExerciseDialogListener() {
-                                public void ready() {
-                                    updateCardList(0);
-                                }
-                            });
-                            customExerciseDialog.setTitle("New Exercise:");
-                            customExerciseDialog.show();
-                            break;
+        } else { // exercise
+
+            ArrayList<Exercise> exercises = GlobalVariables.getExercisesByType(type);
+
+            for (Exercise e : exercises) {
+                // card constructor
+                ExerciseDetailsCard card = new ExerciseDetailsCard(context, e);
+
+                // card header
+                CardHeader header = new CardHeader(context, R.layout.daily_card_inner_header);
+                // popup menu. This method set OverFlow button to visible
+                header.setPopupMenu(R.menu.exercise_card_header_menu, new CardHeader.OnClickCardHeaderPopupMenuListener() {
+                    @Override
+                    public void onMenuItemClick(BaseCard card, MenuItem item) {
+
+                        switch (item.getItemId()) {
+                            case R.id.exercise_card_header_action_add: {
+                                CustomExerciseDialog customExerciseDialog = new CustomExerciseDialog(context, new CustomExerciseDialog.CustomExerciseDialogListener() {
+                                    public void ready() {
+                                        updateCardList(0);
+                                    }
+                                });
+                                customExerciseDialog.setTitle("New Exercise:");
+                                customExerciseDialog.show();
+                                break;
+                            }
+                            case R.id.exercise_card_header_action_remove: {
+                                Toast.makeText(context, "TODO:deleteExercise()", Toast.LENGTH_SHORT).show();
+                                break;
+                            }
+                            case R.id.exercise_card_header_action_edit: {
+                                Toast.makeText(context, "TODO:edit exercise", Toast.LENGTH_SHORT).show();
+                                break;
+                            }
                         }
-                        case R.id.exercise_card_header_action_remove:{
-                            Toast.makeText(context, "TODO:deleteExercise()", Toast.LENGTH_SHORT).show();
-                            break;
-                        }
+
                     }
+                });
+                header.setTitle(e.name); //should use R.string
+                card.addCardHeader(header);
 
-                }
-            });
-            header.setTitle(e.name); //should use R.string
-            card.addCardHeader(header);
+                card.setClickable(true);
+                card.setSwipeable(true);
+                card.setOnClickListener(new Card.OnCardClickListener() {
+                    @Override
+                    public void onClick(Card card, View view) {
+                        Toast.makeText(context, "TODO:Display youtube video after click.", Toast.LENGTH_LONG).show();
+                    }
+                });
+                card.setOnSwipeListener(new Card.OnSwipeListener() {
+                    @Override
+                    public void onSwipe(Card card) {
+                        Toast.makeText(context, "TODO:deleteExercise()", Toast.LENGTH_SHORT).show();
+                        //FGDataSource.deleteExercise(date, -1);
+                    }
+                });
 
-            card.setClickable(true);
-            card.setSwipeable(true);
-            card.setOnClickListener(new Card.OnCardClickListener() {
-                @Override
-                public void onClick(Card card, View view) {
-                    Toast.makeText(context, "TODO:Display youtube video after click.", Toast.LENGTH_LONG).show();
-                }
-            });
-            card.setOnSwipeListener(new Card.OnSwipeListener() {
-                @Override
-                public void onSwipe(Card card) {
-                    Toast.makeText(context, "TODO:deleteExercise()", Toast.LENGTH_SHORT).show();
-                    //FGDataSource.deleteExercise(date, -1);
-                }
-            });
-
-            // add card to the list
-            cards.add(card);
+                // add card to the list
+                cards.add(card);
+            }
         }
 
         // set adapter
