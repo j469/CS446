@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
+import com.fitgoose.fitgoosedemo.drive.DriveAuthorization;
 import com.fitgoose.fitgoosedemo.plan_tab.BaseFragment;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -24,6 +25,7 @@ public class MainActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private FGDataSource mFGDataSource;
+    private DriveAuthorization driveAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class MainActivity extends ActionBarActivity
                 }
             }
         });
+
+        driveAdapter = DriveAuthorization.initialize(this);
 
         setContentView(R.layout.activity_main);
 
@@ -127,4 +131,21 @@ public class MainActivity extends ActionBarActivity
         return super.onOptionsItemSelected(item);
     }
 
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        driveAdapter.connect();
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        driveAdapter.connect();
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        driveAdapter.disconnect();
+//        super.onPause();
+//    }
 }
