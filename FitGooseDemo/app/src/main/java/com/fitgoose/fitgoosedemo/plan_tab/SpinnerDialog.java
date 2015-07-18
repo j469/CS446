@@ -12,17 +12,19 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.R;
+import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
+import com.fitgoose.fitgoosedemo.data.Plan;
 
 import java.util.ArrayList;
 
 public class SpinnerDialog extends Dialog {
     private ArrayList<String> mList;
     private Context mContext;
-    private Spinner mSpinner;
+    private int localEID = -1;
 
     public interface DialogListener {
-        public void ready(int position, int number_of_sets);
+        public void ready(int eid, int number_of_sets);
         public void cancelled();
     }
 
@@ -39,9 +41,18 @@ public class SpinnerDialog extends Dialog {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daily_add_exercise);
-        mSpinner = (Spinner) findViewById (R.id.daily_add_spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String> (mContext, android.R.layout.simple_spinner_dropdown_item, mList);
-        mSpinner.setAdapter(adapter);
+        Button button = (Button) findViewById (R.id.daily_add_button);
+        button.setOnClickListener(new android.view.View.OnClickListener() {
+            public void onClick(View v) {
+                ExerciseDialog exerciseDialog = new ExerciseDialog(getContext(), new ExerciseDialog.ExerciseDialogListener() {
+                    public void ready(int eid) {
+                        localEID = eid;
+                    }
+                });
+                exerciseDialog.setTitle("Choose an exercise");
+                exerciseDialog.show();
+            }
+        });
 
         Button buttonOK = (Button) findViewById(R.id.daily_add_dialogOK);
         Button buttonCancel = (Button) findViewById(R.id.daily_add_dialogCancel);
@@ -56,9 +67,12 @@ public class SpinnerDialog extends Dialog {
                     Toast.makeText(mContext, "Needs the number of sets.",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // exercise
-                int n = mSpinner.getSelectedItemPosition();
-                mReadyListener.ready(n,sets);
+                // eid
+                if (localEID == -1) {
+                    Toast.makeText(mContext, "You need to choose an exercise.",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                mReadyListener.ready(localEID,sets);
                 SpinnerDialog.this.dismiss();
             }
         });

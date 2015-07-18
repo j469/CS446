@@ -12,19 +12,18 @@ import java.util.List;
 
 public class GlobalVariables {
 
-    /** TODO: (Selway) add more exercises here
-     * TODO: save to database
+    /**
      *  Stored exercises:
-     *  Format: ( int eid, false , String name, String unit, boolean shoulder, boolean upper_arm,
-     *       boolean back, boolean chest, boolean abs, boolean quads, boolean forearm,
-     *       boolean cardio, boolean secondUnit)
+     *  Format: (int eid, boolean type, String name, boolean secondUnit, int unit1, int unit2, boolean shoulder, boolean chest,
+     boolean abs, boolean upper_arm, boolean forearm, boolean quads, boolean calves, boolean back, boolean cardio,
+     String youtubeURL)
      */
     public static ArrayList<Exercise> storedExercises = new ArrayList<>();
 
-    public static List<String> bodyPartName = Arrays.asList("all","shoulder", "arms", "back", "chest", "abs","legs", "oxy", "cardio");
+    public static List<String> bodyPartName = Arrays.asList("all","shoulder","chest","abs","upper arm","fore arm", "quads","calves","back","cardio");
 
     public static ArrayList<Exercise> getExercisesByType( int type) {
-        if (type<1 || type>8) return storedExercises;
+        if (type<1 || type>9) return storedExercises;
 
         ArrayList<Exercise> rtn = new ArrayList<>();
         for (Exercise e: storedExercises) {
@@ -34,30 +33,34 @@ public class GlobalVariables {
                     break;
                 }
                 case 2: {
-                    if (e.arms) rtn.add(e);
-                    break;
-                }
-                case 3: {
-                    if (e.back) rtn.add(e);
-                    break;
-                }
-                case 4: {
                     if (e.chest) rtn.add(e);
                     break;
                 }
-                case 5: {
+                case 3: {
                     if (e.abs) rtn.add(e);
                     break;
                 }
+                case 4: {
+                    if (e.upper_arm) rtn.add(e);
+                    break;
+                }
+                case 5: {
+                    if (e.forearm) rtn.add(e);
+                    break;
+                }
                 case 6: {
-                    if (e.legs) rtn.add(e);
+                    if (e.quads) rtn.add(e);
                     break;
                 }
                 case 7: {
-                    if (e.oxy) rtn.add(e);
+                    if (e.calves) rtn.add(e);
                     break;
                 }
                 case 8: {
+                    if (e.back) rtn.add(e);
+                    break;
+                }
+                case 9: {
                     if (e.cardio) rtn.add(e);
                     break;
                 }

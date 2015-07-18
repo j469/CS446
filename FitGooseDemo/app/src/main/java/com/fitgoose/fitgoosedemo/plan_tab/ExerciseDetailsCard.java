@@ -43,7 +43,7 @@ public class ExerciseDetailsCard extends Card{
 
 
         if (unit != null)
-            unit.setText(exercise.unit);
+            unit.setText("test.");
 
     }
 

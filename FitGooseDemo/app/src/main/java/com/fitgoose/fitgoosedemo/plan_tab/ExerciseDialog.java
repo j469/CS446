@@ -31,13 +31,12 @@ public class ExerciseDialog extends Dialog {
     protected Spinner mSpinner;
     protected CardRecyclerView mRecyclerView;
 
-    public interface DialogListener {
-        public void ready(int position, int number_of_sets);
-        public void cancelled();
+    public interface ExerciseDialogListener {
+        public void ready(int eid);
     }
-    private DialogListener mReadyListener;
+    private ExerciseDialogListener mReadyListener;
 
-    public ExerciseDialog(Context context, DialogListener readyListener) {
+    public ExerciseDialog(Context context, ExerciseDialogListener readyListener) {
         super(context);
         this.mReadyListener = readyListener;
         this.context = context;
@@ -81,44 +80,21 @@ public class ExerciseDialog extends Dialog {
         ArrayList<Card> cards = new ArrayList<>();
         ArrayList<Exercise> exercises = GlobalVariables.getExercisesByType(type);
 
-        for (Exercise e: exercises) {
+        for (final Exercise e: exercises) {
             // card constructor
             ExerciseDetailsCard card = new ExerciseDetailsCard(context,e);
 
             // card header
             CardHeader header = new CardHeader(context,R.layout.daily_card_inner_header);
-            // popup menu. This method set OverFlow button to visible
-            header.setPopupMenu(R.menu.exercise_card_header_menu, new CardHeader.OnClickCardHeaderPopupMenuListener() {
-                @Override
-                public void onMenuItemClick(BaseCard card, MenuItem item) {
-
-                    switch (item.getItemId()) {
-                        case R.id.exercise_card_header_action_save:
-                            break;
-                        case R.id.exercise_card_header_action_edit:
-                            break;
-                        case R.id.exercise_card_header_action_remove:
-                            break;
-                    }
-
-                }
-            });
             header.setTitle(e.name); //should use R.string
             card.addCardHeader(header);
 
             card.setClickable(true);
-            card.setSwipeable(true);
+            card.setSwipeable(false);
             card.setOnClickListener(new Card.OnCardClickListener() {
                 @Override
                 public void onClick(Card card, View view) {
-                    Toast.makeText(context, "Display youtube video after click.", Toast.LENGTH_LONG).show();
-                }
-            });
-            card.setOnSwipeListener(new Card.OnSwipeListener() {
-                @Override
-                public void onSwipe(Card card) {
-                    Toast.makeText(context, "On swipe.", Toast.LENGTH_SHORT).show();
-                    //FGDataSource.deleteExercise(date, -1);
+                    mReadyListener.ready(e.eID);
                 }
             });
 
