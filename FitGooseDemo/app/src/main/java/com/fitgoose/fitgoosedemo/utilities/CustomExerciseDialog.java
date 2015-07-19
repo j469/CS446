@@ -103,7 +103,8 @@ public class CustomExerciseDialog extends Dialog {
                                     checkBox_quads, checkBox_calves, checkBox_back, checkBox_cardio,"");
                     FGDataSource.storeExercise(e);
                     FGDataSource.cacheExercise();
-                    mReadyListener.ready();
+                    if(mReadyListener != null)
+                        mReadyListener.ready();
                     CustomExerciseDialog.this.dismiss();
                 }
             }
