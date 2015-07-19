@@ -88,6 +88,8 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         mDrawerListView = (ListView) inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -96,6 +98,10 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
+
+        View listHeaderView = inflater.inflate(R.layout.drawer_header,null, false);
+
+        mDrawerListView.addHeaderView(listHeaderView, "Totomo", false);
         mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1,
