@@ -67,21 +67,24 @@ public class MainActivity extends ActionBarActivity
                 contentFragment = new TodaysExercisesFragment();
                 break;
             case 1:
-                contentFragment = new WorkoutPlansFragment();
+                contentFragment = new TodaysExercisesFragment();
                 break;
             case 2:
-                contentFragment = new CalendarFragment();
+                contentFragment = new WorkoutPlansFragment();
                 break;
             case 3:
-                contentFragment = new CameraFragment();
-                break;
-            case 4:
-                contentFragment = new StatisticsFragment();
-                break;
-            case 5:
                 contentFragment = new ExercisesFragment();
                 break;
+            case 4:
+                contentFragment = new CalendarFragment();
+                break;
+            case 5:
+                contentFragment = new StatisticsFragment();
+                break;
             case 6:
+                contentFragment = new CameraFragment();
+                break;
+            case 7:
                 contentFragment = new SettingsFragment();
         }
 
