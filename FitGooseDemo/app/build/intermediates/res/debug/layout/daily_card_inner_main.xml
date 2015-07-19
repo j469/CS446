@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<it.gmariotti.cardslib.library.prototypes.LinearListView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_inner_base_main_cardwithlist"
+    android:orientation="vertical"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:minHeight="55dp">
+
+        <TextView
+            android:id="@+id/daily_card_exercise_name"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"/>
+
+        <ImageView
+            android:id="@+id/daily_card_exercise_sets_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/daily_card_exercise_sets_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:paddingRight="25dp"
+            android:layout_toLeftOf="@id/daily_card_exercise_sets_icon" />
+
+        <TextView
+            android:id="@+id/daily_card_exercise_sets_slash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="/"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@id/daily_card_exercise_sets_total"/>
+
+        <TextView
+            android:id="@+id/daily_card_exercise_sets_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@id/daily_card_exercise_sets_slash"/>
+
+
+    </RelativeLayout>
+
+</it.gmariotti.cardslib.library.prototypes.LinearListView><!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/layout/daily_card_inner_main.xml -->

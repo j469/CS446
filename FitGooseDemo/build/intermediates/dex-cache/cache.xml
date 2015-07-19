@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-70f40448eb18bf0ffbf8d2f437cbb158c1735e46.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="22886d910315028a2b34b1ba068c265534ade87a">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-768b7034c2aa92a7074b340d69b6b0f033c5e3ee.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-recyclerview/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c187f5fc4f47d1abb8839d124591502ece9b7a37">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-b5b0e324f78b5e04054821625ceddeeae9d303e3.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8190861e323934dad89d5e6b830ea66878c11970">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-28648ead398110f0c9b5625730240243ad216c9b.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9ec1d846000db2b979dac2159584f027195a8174">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-aaacfd98aba197374391e37bdaa0ea49d4afbda9.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-193599ca2d3e29412554f5f883ce7d58e30065d2.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-90d2717e5ecd0f396d5e6b2567d05901eb303938.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3965ef9b385194df898456d234f141279747a5c4">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-760dd2b87dfcff91631524c4554424ee2c7895ff.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.jjoe64/graphview/4.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="37bf8de5b4f9e7e93006db783b9b3168e32e38e9">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-489346614f34f1ad68828b7684ed5eb4895b00a7.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/.gradle/caches/modules-2/files-2.1/com.darwinsys/hirondelle-date4j/1.5.1/7b52de513f87ae4d9ff5d17518def0a1e9bc3df0/hirondelle-date4j-1.5.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7b52de513f87ae4d9ff5d17518def0a1e9bc3df0">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/hirondelle-date4j-1.5.1-704c00f7353eb17b0802bc2d7b8aded744d0f39e.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/libs/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-a9857b94ddcb500c35c9494bce65df9ab9394291.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/libs/Parse-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="35921ead63f6cafd9f84ff178c60fe474c4b17a6">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/Parse-1.9.3-b651338cccb0729dd8176be89cfe0f9b65d8920f.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e0b0c35d02308b270015a74cada4887e2e49b889">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-d4a9407e189105c1b255778d0881171cd64b5d47.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-f81852ec09abd4fa0e9565f377cb43e4eb6a89bb.jar" />
+    </item>
+    <item
+        jar="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/libs/ParseCrashReporting-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b2fc26f71157545cc214e36008dae494adeda93">
+        <dex dex="/Users/Kris/Google Drive/CS446local/FitGooseDemo/app/build/intermediates/pre-dexed/debug/ParseCrashReporting-1.9.3-7c5429b750a3d75ce1d91eb247faa349da40dfe3.jar" />
+    </item>
+
+</items>

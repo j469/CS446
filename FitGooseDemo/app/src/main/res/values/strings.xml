@@ -8,6 +8,8 @@
     <string name="title_camera">Camera</string>
     <string name="title_statistics">Statistics</string>
     <string name="title_settings">Settings</string>
+    <string name="title_gallery">Gallery</string>
+
 
     <string-array name="menu_items">
         <item>@string/title_todays_exercises</item>
@@ -16,6 +18,7 @@
         <item>@string/title_camera</item>
         <item>@string/title_statistics</item>
         <item>@string/title_settings</item>
+        <item>@string/title_gallery</item>
     </string-array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -36,7 +39,7 @@
         <item>Best Set</item>
     </string-array>
 
-    <color name="red">#FF0000</color>
+
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -46,5 +49,20 @@
     <string name="plan_title">Workout Plan</string>
     <string name="plan_add_button">Add a plan</string>
     <string name="card_empty_cardwithlist_text">No exercise today!</string>
+
+
+
+    <!--  colors, YYF -->
+    <color name="green">#8FCC85</color>
+    <color name="blue">#ff33b5e5</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#FF0000</color>
+    <color name="grey">#BBBBBB</color>
+
+    <!-- calendar stuff, YYF -->
+
+    <string name="customize">Customize</string>
+    <string name="show_dialog">Show Dialog</string>
+    <string name="undo">Undo</string>
 
 </resources>
