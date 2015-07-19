@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FitGoose</string>
+    <string name="app_name">FitGooseDemo</string>
 
     <string name="title_todays_exercises">Today\'s Exercises</string>
     <string name="title_workout_plans">Workout Plans</string>
