@@ -12,10 +12,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Button;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by selway on 15-06-13.
@@ -29,11 +34,11 @@ public class TodaysExercisesDialog extends DialogFragment{
     String[] abs_exercises = new String[] {"Bottoms Up", "Spell Caster", "Spider Crawl"};
     String[] quads_exercises = new String[] {"Barbell Full Squat", "Barbell Walking Lunge"};
     String[] calves_exercises = new String[] {};
+    ArrayList<String> exset_list = new ArrayList<String>();
+
     String muscleArea;
 
-    public TodaysExercisesDialog() {
-
-    }
+    public TodaysExercisesDialog() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,10 +47,10 @@ public class TodaysExercisesDialog extends DialogFragment{
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // List for exercises
+        // List exercises for different part of body
         View view = inflater.inflate(R.layout.dialog_body_chart, container);
         ListView exercisesList = (ListView) view.findViewById(R.id.exercises_list);
 
@@ -54,66 +59,64 @@ public class TodaysExercisesDialog extends DialogFragment{
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, shoulder_exercises);
             exercisesList.setAdapter(exercisesAdapter);
-            View emptyView = (TextView) view.findViewById(R.id.empty_view);
-            exercisesList.setEmptyView(emptyView);
         }
-
         else if (muscleArea == "chest") {
             getDialog().setTitle("Chest Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, chest_exercises);
             exercisesList.setAdapter(exercisesAdapter);
-            View emptyView = (TextView) view.findViewById(R.id.empty_view);
-            exercisesList.setEmptyView(emptyView);
         }
         else if (muscleArea == "upper_arm") {
             getDialog().setTitle("Upper Arm Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, upper_arm_exercises);
             exercisesList.setAdapter(exercisesAdapter);
-            View emptyView = (TextView) view.findViewById(R.id.empty_view);
-            exercisesList.setEmptyView(emptyView);
         }
         else if (muscleArea == "forearm") {
             getDialog().setTitle("Forearm Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, forearm_exercises);
             exercisesList.setAdapter(exercisesAdapter);
-            View emptyView = (TextView) view.findViewById(R.id.empty_view);
-            exercisesList.setEmptyView(emptyView);
         }
         else if (muscleArea == "abs") {
             getDialog().setTitle("Abs Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, abs_exercises);
             exercisesList.setAdapter(exercisesAdapter);
-            View emptyView = (TextView) view.findViewById(R.id.empty_view);
-            exercisesList.setEmptyView(emptyView);
         }
         else if (muscleArea == "quads") {
             getDialog().setTitle("Quads Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, quads_exercises);
             exercisesList.setAdapter(exercisesAdapter);
-            View emptyView = (TextView) view.findViewById(R.id.empty_view);
-            exercisesList.setEmptyView(emptyView);
         }
         else if (muscleArea == "calves") {
             getDialog().setTitle("Calves Area");
             ArrayAdapter<String> exercisesAdapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, calves_exercises);
             exercisesList.setAdapter(exercisesAdapter);
-            View emptyView = (TextView) view.findViewById(R.id.empty_view);
-            exercisesList.setEmptyView(emptyView);
         }
+        // If no exercises for today, set empty view.
+        View emptyView = (TextView) view.findViewById(R.id.empty_view);
+        exercisesList.setEmptyView(emptyView);
 
-
+        // When user click on a specific exercise.
         exercisesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                getDialog().setContentView(R.layout.dialog_body_chart_next);
+                ListView exsetList = (ListView) getDialog().findViewById(R.id.exset_list);
+                final ArrayAdapter<String> exsetAdapter = new ArrayAdapter<String>(getActivity(),
+                        android.R.layout.simple_list_item_1, exset_list);
+                exsetList.setAdapter(exsetAdapter);
+
+
+
                 switch ((int) l) {
                     case 0:
-                        getDialog().setContentView(R.layout.dialog_body_chart_next);
+
+
 
                         final EditText num_lbs = (EditText) getDialog().findViewById(R.id.num_lbs);
                         final EditText num_set = (EditText) getDialog().findViewById(R.id.num_set);
@@ -122,8 +125,6 @@ public class TodaysExercisesDialog extends DialogFragment{
                         sub_lbs.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                //Toast.makeText(getActivity(), "Sub lbs", Toast.LENGTH_SHORT).show();
-                                //num_lbs.setText("@/"current_lbs);
                                 String tempNum = num_lbs.getText().toString();
                                 int tempLbs = Integer.parseInt(tempNum) - 5;
                                 tempNum = String.valueOf(tempLbs);
@@ -168,13 +169,23 @@ public class TodaysExercisesDialog extends DialogFragment{
                             }
                         });
 
-                        Button done_btn = (Button) getDialog().findViewById(R.id.done_btn);
-                        done_btn.setOnClickListener(new View.OnClickListener() {
+                        Button add_btn = (Button) getDialog().findViewById(R.id.add_btn);
+                        add_btn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Button chestBtn = (Button) getActivity().findViewById(R.id.chest_btn);
-                                chestBtn.setBackgroundResource(R.drawable.chest_done);
-                                getDialog().dismiss();
+
+                                exset_list.add("New Set");
+                                exsetAdapter.notifyDataSetChanged();
+
+                                if (muscleArea == "chest") {
+                                    Button chestBtn = (Button) getActivity().findViewById(R.id.chest_btn);
+                                    chestBtn.setBackgroundResource(R.drawable.chest_done);
+                                }
+                                else if (muscleArea == "abs") {
+                                    Button absBtn = (Button) getActivity().findViewById(R.id.abs_btn);
+                                    absBtn.setBackgroundResource(R.drawable.abs_done);
+                                }
+                                //getDialog().dismiss();
                             }
                         });
 

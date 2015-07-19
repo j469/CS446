@@ -20,10 +20,10 @@ public class GlobalVariables {
      */
     public static ArrayList<Exercise> storedExercises = new ArrayList<>();
 
-    public static List<String> bodyPartName = Arrays.asList("all","shoulder","chest","abs",
-            "upper arm","fore arm", "quads","calves","back","cardio","regimen");
+    public static List<String> bodyPartName = Arrays.asList("All","Shoulder","Chest","Abs",
+            "Upper Arm","Forearm", "Quads","Calves","Back","Cardio","Regimen");
 
-    public static List<String> exerciseUnit = Arrays.asList("None", "lbs", "Repeats", "Minutes", "Meters");
+    public static List<String> exerciseUnit = Arrays.asList("None", "lbs", "Reps", "Mins", "Meters");
 
     public static ArrayList<Exercise> getExercisesByType( int type) {
         if (type<1 || type>9) return storedExercises;

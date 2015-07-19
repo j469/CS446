@@ -36,5 +36,6 @@ dependencies {
     // Parse server
     compile 'com.parse.bolts:bolts-android:1.+'
     compile fileTree(dir: 'libs/Parse-1.9.3', include: 'Parse-*.jar')
+    // YouTube API
     compile files('libs/YouTubeAndroidPlayerApi.jar')
 }

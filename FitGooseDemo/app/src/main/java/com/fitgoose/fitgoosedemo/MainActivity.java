@@ -67,21 +67,24 @@ public class MainActivity extends ActionBarActivity
                 contentFragment = new TodaysExercisesFragment();
                 break;
             case 1:
-                contentFragment = new WorkoutPlansFragment();
+                contentFragment = new TodaysExercisesFragment();
                 break;
             case 2:
-                contentFragment = new CalendarFragment();
+                contentFragment = new WorkoutPlansFragment();
                 break;
             case 3:
-                contentFragment = new CameraFragment();
-                break;
-            case 4:
-                contentFragment = new StatisticsFragment();
-                break;
-            case 5:
                 contentFragment = new ExercisesFragment();
                 break;
+            case 4:
+                contentFragment = new CalendarFragment();
+                break;
+            case 5:
+                contentFragment = new StatisticsFragment();
+                break;
             case 6:
+                contentFragment = new CameraFragment();
+                break;
+            case 7:
                 contentFragment = new SettingsFragment();
         }
 
@@ -99,18 +102,18 @@ public class MainActivity extends ActionBarActivity
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-//            // Only show items in the action bar relevant to this screen
-//            // if the drawer is not showing. Otherwise, let the drawer
-//            // decide what to show in the action bar.
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (!mNavigationDrawerFragment.isDrawerOpen()) {
+            // Only show items in the action bar relevant to this screen
+            // if the drawer is not showing. Otherwise, let the drawer
+            // decide what to show in the action bar.
 //            getMenuInflater().inflate(R.menu.main, menu);
-//
-//            return true;
-//        }
-//        return super.onCreateOptionsMenu(menu);
-//    }
+
+            return true;
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
