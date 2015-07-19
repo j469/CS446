@@ -2,7 +2,6 @@ package com.fitgoose.fitgoosedemo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,12 +13,14 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.Random;
 
 import com.fitgoose.fitgoosedemo.data.ExSet;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 import com.fitgoose.fitgoosedemo.data.Plan;
+import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -95,11 +96,10 @@ public class StatisticsFragment extends Fragment {
     }
 
     private void evaluatePlot() {
-        int numDataPts = 0;
         graph.removeAllSeries();
 
         MyDate current = MyDate.getToday();
-        MyDate before = MyDate.getToday();
+        MyDate firstDate = MyDate.getToday();
 
         int exPos = exerciseSpinner.getSelectedItemPosition();
         if(exPos == 0) return;
@@ -107,31 +107,53 @@ public class StatisticsFragment extends Fragment {
 
         switch (timeRangeSpinner.getSelectedItemPosition()) {
             case 0: // Past Week
-                before.add(MyDate.DATE, -7);
+                firstDate.add(MyDate.DATE, -7);
                 break;
             case 1: // Past Month
-                before.add(MyDate.MONTH, -1);
+                firstDate.add(MyDate.MONTH, -1);
                 break;
             case 2: // Past Year
-                before.add(MyDate.YEAR, -1);
+                firstDate.add(MyDate.YEAR, -1);
                 break;
             case 3: // All time
-                before = FGDataSource.searchEarliestPlanDate();
+                firstDate = FGDataSource.searchEarliestPlanDate();
                 break;
         }
 
-        plans = FGDataSource.searchPlanByExerciseAndTimeRange(eid, before, current);
-        testPrintout();
+        plans = FGDataSource.searchPlanByExerciseAndTimeRange(eid, firstDate, current);
+        // testPrintout();
 
+        LineGraphSeries<DataPoint> dataPoints = processData(propertySpinner.getSelectedItemPosition());
+        if(dataPoints == null) return;
 
-//        graph.getViewport().setXAxisBoundsManual(true);
-//        graph.getViewport().setMinX(0);
-//        graph.getViewport().setMaxX(numDataPts - 1);
-//        graph.getViewport().setYAxisBoundsManual(true);
-//        graph.getViewport().setMinY(0);
-//        graph.getViewport().setMaxY(max);
-//        graph.addSeries();
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(firstDate.toCalendar().getTimeInMillis());
+        graph.getViewport().setMaxX(current.toCalendar().getTimeInMillis());
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(0);
+        double ceiling = 4*(Math.ceil( dataPoints.getHighestValueY() / 4));
+        graph.getViewport().setMaxY(ceiling);
 
+        graph.getGridLabelRenderer().setNumHorizontalLabels(4);
+        graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
+            @Override
+            public String formatLabel(double value, boolean isValueX) {
+                if (isValueX) {
+                    // show normal x values
+                    Calendar cal = Calendar.getInstance();
+                    long millis = (long) value;
+                    cal.setTimeInMillis(millis);
+                    int month = cal.get(Calendar.MONTH);
+                    int day = cal.get(Calendar.DATE);
+                    return String.format("%02d", month) + "/" + String.format("%02d", day);
+                } else {
+                    // show normal y values
+                    return super.formatLabel(value, isValueX);
+                }
+            }
+        });
+
+        graph.addSeries(dataPoints);
     }
 
     private class SpinnerListener implements AdapterView.OnItemSelectedListener {
@@ -146,19 +168,74 @@ public class StatisticsFragment extends Fragment {
         }
     }
 
-    // Test method for generating a random series
-    private LineGraphSeries<DataPoint> getRandomSeries(int numDataPts, int min, int max) {
-        if (max <= min) return null;
+    private LineGraphSeries<DataPoint> processData(int pos) {
+        LinkedList<Plan> validPlans = new LinkedList<>();
+        for(Plan p : plans) {
+            if (!p.exSets.isEmpty()) {
+                validPlans.add(p);
+            }
+        }
+        if(validPlans.size() <= 0) return null;
 
-        Random rng = new Random();
-        DataPoint[] dpts = new DataPoint[numDataPts];
-
-        for (int i = 0; i < numDataPts; i++) {
-            dpts[i] = new DataPoint(i, min + rng.nextInt(max - min));
+        DataPoint[] dpts = new DataPoint[validPlans.size()];
+        int index = 0;
+        for(Plan p : validPlans) {
+            switch (pos) {
+                case 0: // Average
+                    dpts[index] = processAverage(p);
+                    break;
+                case 1: // Best
+                    dpts[index] = processBest(p);
+                    break;
+                case 2: // Number of Reps
+                    dpts[index] = processNumReps(p);
+                    break;
+                case 3: // Number of Sets
+                    dpts[index] = processNumSets(p);
+                    break;
+            }
+            index++;
         }
 
-        return new LineGraphSeries<DataPoint>(dpts);
+        return new LineGraphSeries<>(dpts);
     }
+
+    private DataPoint processAverage(Plan p) {
+        int sum = 0;
+        for(ExSet set : p.exSets) {
+            sum += set.quantity1;
+        }
+        double average = (double) sum / (double) p.exSets.size();
+        double time = (double) p.date.toCalendar().getTimeInMillis();
+
+        return new DataPoint(time, average);
+    }
+
+    private DataPoint processBest(Plan p) {
+        double max = p.exSets.get(0).quantity1;
+        for(ExSet set : p.exSets) {
+            if (set.quantity1 > max) {
+                max = set.quantity1;
+            }
+        }
+        double time = (double) p.date.toCalendar().getTimeInMillis();
+        return new DataPoint(time, max);
+    }
+
+    private DataPoint processNumReps(Plan p) {
+        double numReps = 0;
+        for(ExSet set : p.exSets) {
+            numReps += set.quantity2;
+        }
+        double time = (double) p.date.toCalendar().getTimeInMillis();
+        return new DataPoint(time, numReps);
+    }
+    private DataPoint processNumSets(Plan p) {
+        double numSets = p.exSets.size();
+        double time = (double) p.date.toCalendar().getTimeInMillis();
+        return new DataPoint(time, numSets);
+    }
+
 
     private void testPrintout() {
         for(Plan p : plans) {

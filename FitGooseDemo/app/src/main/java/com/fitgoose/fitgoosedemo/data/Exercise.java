@@ -10,52 +10,65 @@ public final class Exercise {
     public int eID;
     public boolean type; // false means default, true means user's modification
     public String name;
-    public String unit;
+
+    // unit
+    public boolean secondUnit; // weight exercise is true here
+    public int unit1; // 0 = null, 1 = lbs, 2 = reps, 3 = mins, 4 = m
+    public int unit2;
+
+    // body parts
     public boolean shoulder;
-    public boolean arms;
-    public boolean back;
     public boolean chest;
     public boolean abs;
-    public boolean legs;
-    public boolean oxy;
+    public boolean upper_arm;
+    public boolean forearm;
+    public boolean quads;
+    public boolean calves;
+    public boolean back;
     public boolean cardio;
-    public boolean secondUnit; // weight exercise is true here
+
+    // Youtube video
     public String youtubeURL;
 
     // Constructors
-    public Exercise (int eid, boolean type, String name, String unit, boolean shoulder, boolean arms,
-                 boolean back, boolean chest, boolean abs, boolean legs, boolean oxy, boolean cardio, boolean secondUnit,String youtubeURL) {
+    public Exercise (int eid, boolean type, String name, boolean secondUnit, int unit1, int unit2, boolean shoulder, boolean chest,
+                     boolean abs, boolean upper_arm, boolean forearm, boolean quads, boolean calves, boolean back, boolean cardio,
+                     String youtubeURL) {
         this.eID = eid;
         this.type = type;
         this.name = name;
-        this.unit = unit;
+        this.secondUnit = secondUnit;
+        this.unit1 = unit1;
+        this.unit2 = unit2;
         this.shoulder = shoulder;
-        this.arms = arms;
-        this.back = back;
         this.chest = chest;
         this.abs = abs;
-        this.legs = legs;
-        this.oxy = oxy;
+        this.upper_arm = upper_arm;
+        this.forearm = forearm;
+        this.quads = quads;
+        this.calves = calves;
+        this.back = back;
         this.cardio = cardio;
-        this.secondUnit = secondUnit;
         this.youtubeURL = youtubeURL;
     }
 
-    public Exercise (int eid, int type, String name, String unit, int shoulder, int arms,
-                     int back, int chest, int abs, int legs, int oxy, int cardio, int secondUnit,String youtubeURL) {
+    public Exercise (int eid, int type, String name, int secondUnit, int unit1, int unit2, int shoulder, int chest, int abs,
+                     int upper_arm, int forearm, int quads, int calves, int back, int cardio, String youtubeURL) {
         this.eID = eid;
         this.type = (type>=1) ;
         this.name = name;
-        this.unit = unit;
+        this.secondUnit = (secondUnit>=1) ;
+        this.unit1 = unit1;
+        this.unit2 = unit2;
         this.shoulder = (shoulder>=1) ;
-        this.arms = (arms>=1) ;
-        this.back = (back>=1) ;
         this.chest = (chest>=1) ;
         this.abs = (abs>=1) ;
-        this.legs = (legs>=1) ;
-        this.oxy = (oxy>=1) ;
+        this.upper_arm = (upper_arm >=1) ;
+        this.forearm = (forearm >=1) ;
+        this.quads = (quads >=1) ;
+        this.calves = (calves >=1);
+        this.back = (back>=1) ;
         this.cardio = (cardio>=1) ;
-        this.secondUnit = (secondUnit>=1) ;
         this.youtubeURL = youtubeURL;
     }
 

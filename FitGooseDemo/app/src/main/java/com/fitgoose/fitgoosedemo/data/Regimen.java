@@ -15,7 +15,8 @@ public class Regimen {
         this.sets = sets;
     }
 
-    public Regimen(String rname) {
+    public Regimen(int rID, String rname) {
+        this.rID = rID;
         this.rname = rname;
         eIDs = new ArrayList<>();
         sets = new ArrayList<>();

@@ -69,13 +69,13 @@ public class MyDate {
     Note: The following two methods are created because in Calendar January = 0, February = 1
         and so on. So 1 must be offset when converting between MyDate and Calendar.
      */
-    private Calendar toCalendar() {
+    public Calendar toCalendar() {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month - 1, day);
         return cal;
     }
 
-    private void setFromCalendar(Calendar cal) {
+    public void setFromCalendar(Calendar cal) {
         year = cal.get(YEAR);
         month = cal.get(MONTH) + 1;
         day = cal.get(DATE);

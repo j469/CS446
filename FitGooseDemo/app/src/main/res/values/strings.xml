@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FitGooseDemo</string>
+    <string name="app_name">FitGoose</string>
 
     <string name="title_todays_exercises">Today\'s Exercises</string>
     <string name="title_workout_plans">Workout Plans</string>
+    <string name="title_exercises">Manage Exercises</string>
     <string name="title_calendar">Calendar</string>
     <string name="title_camera">Camera</string>
     <string name="title_statistics">Statistics</string>
@@ -11,12 +12,14 @@
     <string name="title_gallery">Gallery</string>
 
 
+<!-- Navigation Drawer -->
     <string-array name="menu_items">
         <item>@string/title_todays_exercises</item>
         <item>@string/title_workout_plans</item>
+        <item>@string/title_exercises</item>
         <item>@string/title_calendar</item>
-        <item>@string/title_camera</item>
         <item>@string/title_statistics</item>
+        <item>@string/title_camera</item>
         <item>@string/title_settings</item>
         <item>@string/title_gallery</item>
     </string-array>
@@ -27,6 +30,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_example">Example</string>
 
+<!-- Statistics -->
     <string-array name="graph_time_ranges">
         <item>Past Week</item>
         <item>Past Month</item>
@@ -36,10 +40,21 @@
 
     <string-array name="graph_properties">
         <item>Average</item>
-        <item>Best Set</item>
+        <item>Best</item>
+        <item>Number of Reps</item>
+        <item>Number of Sets</item>
     </string-array>
 
+<<<<<<< HEAD
 
+=======
+    <color name="red">#FF0000</color>
+    <color name="maincolor">#31CCCC</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="green">#00FF00</color>
+    <color name="yellow">#FFFF00</color>
+>>>>>>> master
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

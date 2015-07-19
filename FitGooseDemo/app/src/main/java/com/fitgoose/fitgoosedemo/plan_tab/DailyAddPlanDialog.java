@@ -3,12 +3,10 @@ package com.fitgoose.fitgoosedemo.plan_tab;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.R;
@@ -16,19 +14,19 @@ import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 
 import java.util.ArrayList;
 
-public class SpinnerDialog extends Dialog {
+public class DailyAddPlanDialog extends Dialog {
     private ArrayList<String> mList;
     private Context mContext;
-    private Spinner mSpinner;
+    private int localEID = -1;
 
     public interface DialogListener {
-        public void ready(int position, int number_of_sets);
+        public void ready(int eid, int number_of_sets);
         public void cancelled();
     }
 
     private DialogListener mReadyListener;
 
-    public SpinnerDialog(Context context, DialogListener readyListener) {
+    public DailyAddPlanDialog(Context context, DialogListener readyListener) {
         super(context);
         mReadyListener = readyListener;
         mContext = context;
@@ -39,9 +37,23 @@ public class SpinnerDialog extends Dialog {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daily_add_exercise);
-        mSpinner = (Spinner) findViewById (R.id.daily_add_spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String> (mContext, android.R.layout.simple_spinner_dropdown_item, mList);
-        mSpinner.setAdapter(adapter);
+
+        final TextView textView = (TextView)findViewById(R.id.daily_add_choose_exercise);
+        textView.setText("Choose an exercise:");
+
+        Button button = (Button) findViewById(R.id.daily_add_button);
+        button.setOnClickListener(new android.view.View.OnClickListener() {
+            public void onClick(View v) {
+                ExerciseDialog exerciseDialog = new ExerciseDialog(getContext(), new ExerciseDialog.ExerciseDialogListener() {
+                    public void ready(int eid, String ename) {
+                        localEID = eid;
+                        textView.setText(ename+": ");
+                    }
+                });
+                exerciseDialog.setTitle("Choose an exercise");
+                exerciseDialog.show();
+            }
+        });
 
         Button buttonOK = (Button) findViewById(R.id.daily_add_dialogOK);
         Button buttonCancel = (Button) findViewById(R.id.daily_add_dialogCancel);
@@ -56,16 +68,19 @@ public class SpinnerDialog extends Dialog {
                     Toast.makeText(mContext, "Needs the number of sets.",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // exercise
-                int n = mSpinner.getSelectedItemPosition();
-                mReadyListener.ready(n,sets);
-                SpinnerDialog.this.dismiss();
+                // eid
+                if (localEID == -1) {
+                    Toast.makeText(mContext, "You need to choose an exercise.",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                mReadyListener.ready(localEID,sets);
+                DailyAddPlanDialog.this.dismiss();
             }
         });
         buttonCancel.setOnClickListener(new android.view.View.OnClickListener(){
             public void onClick(View v) {
                 mReadyListener.cancelled();
-                SpinnerDialog.this.dismiss();
+                DailyAddPlanDialog.this.dismiss();
             }
         });
     }

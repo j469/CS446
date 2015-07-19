@@ -15,7 +15,7 @@
         android:layout_marginRight="12dp"
         android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
-        android:minHeight="55dp">
+        android:minHeight="10dp">
 
         <TextView
             android:id="@+id/daily_card_exercise_name"
