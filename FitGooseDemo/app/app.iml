@@ -94,6 +94,21 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
+    <orderEntry type="library" exported="" name="recyclerview-v7-22.1.1" level="project" />
+    <orderEntry type="library" exported="" name="ParseCrashReporting-1.9.3" level="project" />
+    <orderEntry type="library" exported="" name="YouTubeAndroidPlayerApi" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-22.2.0" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-22.2.0" level="project" />
+    <orderEntry type="library" exported="" name="graphview-4.0.1" level="project" />
+    <orderEntry type="library" exported="" name="cardslib-cards-2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="appcompat-v7-22.2.0" level="project" />
+    <orderEntry type="library" exported="" name="Parse-1.9.3" level="project" />
+    <orderEntry type="library" exported="" name="cardslib-core-2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="cardslib-recyclerview-2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="bolts-android-1.2.0" level="project" />
+    <orderEntry type="library" exported="" name="1_bolts-android-1.2.0" level="project" />
+=======
     <orderEntry type="library" exported="" name="cardslib-recyclerview-2.1.0" level="project" />
     <orderEntry type="library" exported="" name="cardslib-core-2.1.0" level="project" />
     <orderEntry type="library" exported="" name="graphview-4.0.1" level="project" />
@@ -106,6 +121,7 @@
     <orderEntry type="library" exported="" name="appcompat-v7-22.2.0" level="project" />
     <orderEntry type="library" exported="" name="ParseCrashReporting-1.9.3" level="project" />
     <orderEntry type="library" exported="" name="cardslib-cards-2.1.0" level="project" />
+>>>>>>> 3abb1d2b071f38bacc465c41a728bc5a3cc7ba88
     <orderEntry type="library" exported="" name="cardview-v7-22.1.1" level="project" />
   </component>
 </module>
