@@ -21,6 +21,7 @@ import com.fitgoose.fitgoosedemo.data.Regimen;
 import com.fitgoose.fitgoosedemo.plan_tab.ExerciseDetailsCard;
 import com.fitgoose.fitgoosedemo.plan_tab.RegimenDetailCard;
 import com.fitgoose.fitgoosedemo.utilities.CustomExerciseDialog;
+import com.fitgoose.fitgoosedemo.utilities.YouTubeDialog;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -150,7 +151,8 @@ public class ExercisesFragment extends Fragment {
                 card.setOnClickListener(new Card.OnCardClickListener() {
                     @Override
                     public void onClick(Card card, View view) {
-                        Toast.makeText(context, "TODO:Display youtube video after click.", Toast.LENGTH_LONG).show();
+                        YouTubeDialog videoDialog = YouTubeDialog.newInstance(card.getCardHeader().getTitle(), "MDuXuUg15mk");
+                        videoDialog.show(getActivity().getFragmentManager(), card.getCardHeader().getTitle());
                     }
                 });
                 card.setOnSwipeListener(new Card.OnSwipeListener() {
