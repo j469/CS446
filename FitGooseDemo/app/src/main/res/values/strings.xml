@@ -45,16 +45,14 @@
         <item>Number of Sets</item>
     </string-array>
 
-<<<<<<< HEAD
-
-=======
     <color name="red">#FF0000</color>
     <color name="maincolor">#31CCCC</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <color name="green">#00FF00</color>
     <color name="yellow">#FFFF00</color>
->>>>>>> master
+    <color name="blue">#ff33b5e5</color>
+    <color name="grey">#BBBBBB</color>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -65,14 +63,6 @@
     <string name="plan_add_button">Add a plan</string>
     <string name="card_empty_cardwithlist_text">No exercise today!</string>
 
-
-
-    <!--  colors, YYF -->
-    <color name="green">#8FCC85</color>
-    <color name="blue">#ff33b5e5</color>
-    <color name="white">#ffffff</color>
-    <color name="red">#FF0000</color>
-    <color name="grey">#BBBBBB</color>
 
     <!-- calendar stuff, YYF -->
 
