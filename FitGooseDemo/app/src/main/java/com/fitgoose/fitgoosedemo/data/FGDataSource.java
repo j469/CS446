@@ -5,12 +5,23 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.fitgoose.fitgoosedemo.MyDate;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 /** FGDataSource:
  * This class maintains the database connection and supports adding, fetching
@@ -361,6 +372,7 @@ public class FGDataSource extends SQLiteOpenHelper {
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
         GlobalVariables.storedExercises.clear();
 
+        // read custom exercise
         String s = " SELECT * FROM exercise;";
         Cursor cursor = database.rawQuery(s, null);
         if (cursor != null) {
@@ -374,6 +386,54 @@ public class FGDataSource extends SQLiteOpenHelper {
                 } while (cursor.moveToNext());
             }
             cursor.close();
+        }
+
+        // read default exercise
+        try {
+            File yourFile = new File(mContext.getFilesDir(), "/default.json");
+            FileInputStream stream = new FileInputStream(yourFile);
+            String jsonStr = null;
+            try {
+                FileChannel fc = stream.getChannel();
+                MappedByteBuffer bb = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size());
+
+                jsonStr = Charset.defaultCharset().decode(bb).toString();
+            }
+            finally {
+                stream.close();
+            }
+
+            JSONObject jsonObj = new JSONObject(jsonStr);
+
+            // Getting data JSON Array nodes
+            JSONArray data  = jsonObj.getJSONArray("exercise");
+
+            // looping through All nodes
+            for (int i = 0; i < data.length(); i++) {
+                JSONObject c = data.getJSONObject(i);
+
+                String name = c.getString("name");
+                boolean secondUnit = c.getBoolean("secondUnit");
+                int unit1 = c.getInt("unit1");
+                int unit2 = c.getInt("unit2");
+                boolean shoulder = c.getBoolean("shoulder");
+                boolean chest = c.getBoolean("chest");
+                boolean abs = c.getBoolean("abs");
+                boolean uarm = c.getBoolean("uarm");
+                boolean farm = c.getBoolean("farm");
+                boolean quads = c.getBoolean("quads");
+                boolean calves = c.getBoolean("calves");
+                boolean back = c.getBoolean("back");
+                boolean cardio = c.getBoolean("cardio");
+                String url = c.getString("url");
+
+                Exercise e = new Exercise(10000+i,false,name,secondUnit,unit1,unit2,shoulder,chest,
+                        abs,uarm,farm,quads,calves,back,cardio,url);
+                GlobalVariables.storedExercises.add(e);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         database.close();

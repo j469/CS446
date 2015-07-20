@@ -92,7 +92,7 @@ public class DailyNativeCard extends CardWithList{
                 FGDataSource.deletePlan(date, -1);
             }
         });
-        setUseEmptyView(true);
+        setUseEmptyView(false);
     }
 
 

@@ -13,7 +13,7 @@
         app:showAsAction="always" />
 
     <item android:id="@+id/action_save"
-        android:title="Save"
+        android:title="Share"
         android:orderInCategory="102"
         app:showAsAction="always" />
 

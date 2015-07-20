@@ -13,8 +13,12 @@ import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.plan_tab.BaseFragment;
 import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -35,9 +39,22 @@ public class MainActivity extends ActionBarActivity
         query.getInBackground("UUulziCovR", new GetCallback<ParseObject>() {
             public void done(ParseObject object, ParseException e) {
                 if (e == null) {
-                    Toast.makeText(getApplicationContext(),"Download DB from server success.", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),"Download DB from server failed.", Toast.LENGTH_LONG).show();
+                    try {
+                        File file = new File(getApplicationContext().getFilesDir(), "/default.json");
+
+                        if (! file.exists()) {
+                            ParseFile json_file =  object.getParseFile("json");
+                            byte[] content = json_file.getData();
+                            FileOutputStream outputStream = new FileOutputStream(file);
+                            outputStream.write(content);
+                            outputStream.close();
+
+                            Toast.makeText(getApplicationContext(),
+                                    "Download DB from server success.", Toast.LENGTH_LONG).show();
+                        }
+                    } catch (Exception exception) {
+                        //
+                    }
                 }
             }
         });
