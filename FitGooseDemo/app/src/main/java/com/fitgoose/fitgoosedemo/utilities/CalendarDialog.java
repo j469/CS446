@@ -1,10 +1,14 @@
 package com.fitgoose.fitgoosedemo.utilities;
 
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Calendar;
 
 import it.gmariotti.cardslib.library.utils.BitmapUtils;
@@ -59,13 +64,13 @@ public class CalendarDialog extends Dialog {
                 // get bitmap from card view
                 Bitmap bitmap = cardView.createBitmap();
 
-                // save bitmap as picture
+    /*            // save bitmap as picture
                 File photoFile=null;
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
                 File photoStorage = mContext.getFilesDir();
                 if (photoStorage!=null){
-                    photoFile = new File(photoStorage,"Workout details"+ (System.currentTimeMillis()) + ".jpg");
+                    photoFile = new File(photoStorage,"Workout Plan "+ (System.currentTimeMillis()) + ".jpg");
                     try {
                         //f.createNewFile();
                         FileOutputStream fo = new FileOutputStream(photoFile);
@@ -76,9 +81,32 @@ public class CalendarDialog extends Dialog {
                         Log.e("FG Save File", "Error saving image ", e);
                     }
                 }
+*/
+
+                //share
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("image/jpeg");
+
+                ContentValues values = new ContentValues();
+                values.put(MediaStore.Images.Media.TITLE, "workout plan");
+                values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+                Uri uri = mContext.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        values);
+
+
+                OutputStream outstream;
+                try {
+                    outstream = mContext.getContentResolver().openOutputStream(uri);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outstream);
+                    outstream.close();
+                } catch (Exception e) {
+                    System.err.println(e.toString());
+                }
+
+                share.putExtra(Intent.EXTRA_STREAM, uri);
+                mContext.startActivity(Intent.createChooser(share, "Share Image"));
 
                 //BitmapUtils.createFileFromBitmap(bitmap);
-                Toast.makeText(mContext, "Save image success.", Toast.LENGTH_SHORT).show();
                 CalendarDialog.this.dismiss();
             }
         });
