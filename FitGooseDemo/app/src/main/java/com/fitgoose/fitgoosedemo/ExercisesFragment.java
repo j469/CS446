@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +25,6 @@ import com.fitgoose.fitgoosedemo.plan_tab.RegimenDetailCard;
 import com.fitgoose.fitgoosedemo.utilities.CustomExerciseDialog;
 import com.fitgoose.fitgoosedemo.utilities.YouTubeDialog;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.internal.Card;
@@ -57,6 +58,7 @@ public class ExercisesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_exercises, container, false);
     }
 
@@ -90,6 +92,30 @@ public class ExercisesFragment extends Fragment {
         }
 
         updateCardList(0);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.add_icon_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.add_menu_option) {
+            CustomExerciseDialog customExerciseDialog = new CustomExerciseDialog(context,
+                    new CustomExerciseDialog.CustomExerciseDialogListener() {
+                        public void ready() {
+                            updateCardList(0);
+                        }
+                    });
+            customExerciseDialog.setTitle("New Exercise:");
+            customExerciseDialog.show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void updateCardList (int type) {

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.R;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -22,7 +23,7 @@ import com.google.android.youtube.player.YouTubePlayer.OnInitializedListener;
  */
 public class YouTubeDialog extends DialogFragment implements OnInitializedListener{
     private String videoID;
-    private String title;
+    private static String title;
     private YouTubePlayerFragment youtubeFragment;
     private static final String API_KEY = "AIzaSyAYPtJyvEFBlH6XT8b3pDp4nGrR73S8Ivw";
 
@@ -33,7 +34,7 @@ public class YouTubeDialog extends DialogFragment implements OnInitializedListen
     public static YouTubeDialog newInstance(String title, String videoID) {
         YouTubeDialog newDialog = new YouTubeDialog();
         newDialog.videoID = videoID;
-        newDialog.title = title;
+        YouTubeDialog.title = title;
 
         return  newDialog;
     }
