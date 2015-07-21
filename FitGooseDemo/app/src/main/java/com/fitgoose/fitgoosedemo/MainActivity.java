@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.plan_tab.BaseFragment;
 import com.fitgoose.fitgoosedemo.camera_utilities.CameraActivity;
+import com.fitgoose.fitgoosedemo.utilities.CalendarDialog;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -156,13 +157,17 @@ public class MainActivity extends CameraActivity
 
             //add listener
             final CaldroidListener listener = new CaldroidListener() {
-                final SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
+                final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 //@TODO: add listener and call function
                 @Override
                 public void onSelectDate(Date date, View view) {
-                    Toast.makeText(getApplicationContext(), formatter.format(date),
-                            Toast.LENGTH_SHORT).show();
-
+                    //Toast.makeText(getApplicationContext(), formatter.format(date), Toast.LENGTH_SHORT).show();
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(date);
+                    MyDate myDate = new MyDate();
+                    myDate.setFromCalendar(calendar);
+                    CalendarDialog calendarDialog = new CalendarDialog(getApplicationContext(),myDate);
+                    calendarDialog.show();
                 }
             };
             caldroidFragment.setCaldroidListener(listener);
@@ -225,7 +230,7 @@ public class MainActivity extends CameraActivity
 
 
     private void addlistener(){
-        final SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
+        final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         final CaldroidListener listener = new CaldroidListener(){
 
             @Override
