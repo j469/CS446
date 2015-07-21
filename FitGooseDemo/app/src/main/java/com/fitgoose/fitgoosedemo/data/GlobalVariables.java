@@ -120,6 +120,17 @@ public class GlobalVariables {
         return rtn;
     }
 
+    public static void updateExercise(Exercise exercise) {
+        int count = 0;
+        for (Exercise e: storedExercises) {
+            if ( e.getID() == exercise.getID()) {
+                storedExercises.set(count,exercise);
+                break;
+            }
+            count++;
+        }
+    }
+
     public Exercise getExerciseByEid (int eid) {
         Exercise rtn = null;
         for (Exercise e: storedExercises) {

@@ -40,7 +40,7 @@ public class DailyNativeCard extends CardWithList{
     protected CardHeader initCardHeader() {
 
         //Add Header
-        CardHeader header = new CardHeader(getContext(),R.layout.daily_card_inner_header);
+        CardHeader header = new CardHeader(getContext());
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         strDate = date.format(sdf);

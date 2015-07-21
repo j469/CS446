@@ -31,43 +31,13 @@ import it.gmariotti.cardslib.library.internal.Card;
  * Created by Jiayi Wang on 2015-07-16.
  */
 public class ExerciseDetailsCard extends Card{
-    private Exercise exercise;
 
-    public ExerciseDetailsCard(Context context, Exercise exercise) {
-        super(context, R.layout.exercise_card_inner);
-        this.exercise = exercise;
+    public ExerciseDetailsCard(Context context) {
+        super(context, R.layout.empty_layout);
     }
 
     @Override
     public void setupInnerViewElements(ViewGroup parent, View view) {
-
-        //Retrieve elements
-        TextView unit_one = (TextView) parent.findViewById(R.id.exercise_card_unit_one);
-        unit_one.setText(GlobalVariables.exerciseUnit.get(exercise.unit1));
-
-        TextView unit_two = (TextView) parent.findViewById(R.id.exercise_card_unit_two);
-        TextView unit_two_name = (TextView) parent.findViewById(R.id.exercise_card_unit_two_name);
-        if (! exercise.secondUnit) {
-            unit_two_name.setVisibility(View.INVISIBLE);
-            unit_two.setVisibility(View.INVISIBLE);
-        } else {
-            unit_two_name.setVisibility(View.VISIBLE);
-            unit_two_name.setText("Unit 2:");
-            unit_two.setVisibility(View.VISIBLE);
-            unit_two.setText(GlobalVariables.exerciseUnit.get(exercise.unit2));
-        }
-
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_shoulder)).setChecked(exercise.shoulder);
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_chest)).setChecked(exercise.chest);
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_farm)).setChecked(exercise.forearm);
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_uarm)).setChecked(exercise.upper_arm);
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_abs)).setChecked(exercise.abs);
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_quads)).setChecked(exercise.quads);
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_back)).setChecked(exercise.back);
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_cardio)).setChecked(exercise.cardio);
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_calves)).setChecked(exercise.calves);
-        ((CheckBox) parent.findViewById(R.id.checkBox_exercise_secondUnit)).setChecked(exercise.secondUnit);
-
     }
 
 }

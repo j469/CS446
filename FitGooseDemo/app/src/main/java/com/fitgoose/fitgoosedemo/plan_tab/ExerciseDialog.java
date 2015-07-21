@@ -82,10 +82,10 @@ public class ExerciseDialog extends Dialog {
 
         for (final Exercise e: exercises) {
             // card constructor
-            ExerciseDetailsCard card = new ExerciseDetailsCard(context,e);
+            ExerciseDetailsCard card = new ExerciseDetailsCard(context);
 
             // card header
-            CardHeader header = new CardHeader(context,R.layout.daily_card_inner_header);
+            CardHeader header = new CardHeader(context);
             header.setTitle(e.name);
             card.addCardHeader(header);
 
