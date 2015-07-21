@@ -463,32 +463,43 @@ public class FGDataSource extends SQLiteOpenHelper {
         return rtn;
     }
 
-    /** TODO: this is for calendar  Need redo
+    /** TODO: this is for calendar
      * searchProgressByDate(): get the total sets & complete sets of the specific date
      * @param date represented by a Calendar object
      * @return ArrayList< (int)total_sets, (int)complete_sets >
      */
-    public static ArrayList<Integer> searchProgressByDate (Calendar date) {
+    public static ArrayList<Integer> searchProgressByDate (String date) {
 
         ArrayList<Integer> rtn = new ArrayList<> ();
+        ArrayList<Integer> pIDs = new ArrayList<> ();
         int total_sets = 0;
         int complete_sets = 0;
 
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
 
-        String s = " SELECT COUNT(*)"
-            + " FROM plan AS p, exset AS e "
-            + " WHERE p.date = ? "
-            + " AND p.pid = e.pid; " ;
+        String s = " SELECT numofsets "
+            + " FROM plan "
+            + " WHERE date = ? ";
 
-        String strDate = "" + date.getTimeInMillis();
-
-        Cursor cursor = database.rawQuery(s, new String[]{strDate} );
+        Cursor cursor = database.rawQuery(s, new String[]{date} );
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    if (cursor.getInt(0) == 1) {complete_sets+=1 ;}
-                    total_sets +=1;
+                    total_sets += cursor.getInt(0);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+        s = " SELECT COUNT(*) FROM plan AS p, exset AS e "
+                + " WHERE p.date = ? "
+                + " AND p.pid = e.pid; " ;
+
+        cursor = database.rawQuery(s, new String[]{date} );
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    complete_sets += cursor.getInt(0);
                 } while (cursor.moveToNext());
             }
             cursor.close();
