@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/exercise_card_header_action_video"
+        android:title="YouTube video"
+        android:orderInCategory="101"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/exercise_card_header_action_remove"
+        android:title="Remove exercise"
+        android:orderInCategory="102"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/exercise_card_header_action_edit"
+        android:title="Edit exercise"
+        android:orderInCategory="103"
+        app:showAsAction="always" />
+
+
+</menu><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/menu/exercise_card_header_menu.xml -->
