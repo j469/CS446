@@ -35,8 +35,8 @@ public final class R {
 		public static final int caldroid_sky_blue = 0x7f0d001d;
 		public static final int caldroid_transparent = 0x7f0d001e;
 		public static final int caldroid_white = 0x7f0d001f;
-		public static final int cell_text_color = 0x7f0d006f;
-		public static final int cell_text_color_dark = 0x7f0d0070;
+		public static final int cell_text_color = 0x7f0d006e;
+		public static final int cell_text_color_dark = 0x7f0d006f;
 	}
 	public static final class drawable {
 		public static final int calendar_next_arrow = 0x7f020044;

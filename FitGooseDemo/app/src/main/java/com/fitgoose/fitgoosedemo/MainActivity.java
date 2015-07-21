@@ -166,7 +166,7 @@ public class MainActivity extends CameraActivity
                     calendar.setTime(date);
                     MyDate myDate = new MyDate();
                     myDate.setFromCalendar(calendar);
-                    CalendarDialog calendarDialog = new CalendarDialog(getApplicationContext(),myDate);
+                    CalendarDialog calendarDialog = new CalendarDialog(MainActivity.this,myDate);
                     calendarDialog.show();
                 }
             };
@@ -255,165 +255,35 @@ public class MainActivity extends CameraActivity
         };
     }
 
+    private int getColorOfDate(Date date) {
+        final SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+        ArrayList<Integer> sets = FGDataSource.searchProgressByDate(formatter.format(date));
+        int total_sets = sets.get(0);
+        int complete_sets = sets.get(1);
+
+        if (total_sets == 0) {
+            return R.color.no_percent_done;
+        } else if (complete_sets >= (total_sets * 0.7) ) {
+            return R.color.seventy_percent_done;
+        } else if (complete_sets >= (total_sets * 0.3) ) {
+            return R.color.thirty_percent_done;
+        } else {
+            return R.color.zero_percent_done;
+        }
+    }
+
 
     private void setColorForDates() {
         Calendar cal;
-        /*
-        /** TODO: check database to decide what color to use for previous history
-         * >=70% dark green (256)  30%-70% light green (86) 0%-30% yellow(383)  no exercise (237)
-         * searchProgressByDate(): get the total sets & complete sets of the specific date
-         * @param date represented by a Calendar object
-         * @return ArrayList< (int)total_sets, (int)complete_sets >
-        */
 
-
-        Integer color=86;
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -5);
-        Date curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(R.color.yyf_blue,
-                curDate);
-
-
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -6);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(R.color.yyf_green,
-                curDate);
-
-
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -3);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(R.color.yyf_grey,
-                curDate);
-/*
-
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 0);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(color,
-                curDate);
-
-
-
-
-
-         color=383;
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -2);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(color,
-                curDate);
-
-
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -1);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(color,
-                curDate);
-
-
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -11);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(color,
-                curDate);
-
-
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -9);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(color,
-                curDate);
-
-
-
-
-
-        color=109;
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 3);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(color,
-                curDate);
-
-
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 7);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(color,
-                curDate);
-
-
-        cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 9);
-        curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(color,
-                curDate);
-*/
-
-
-
-/*
-        for(int i=-365; i<=0; i++) {
-            double ratio;
-            Integer color=0;
+        for(int i=-30; i<=30; i++) { // just colour 2 months to test
             cal = Calendar.getInstance();
             cal.add(Calendar.DATE, i);
             Date curDate = cal.getTime();
-            ArrayList<Integer> temp;
 
-            temp = searchProgressByDate(cal);
-
-            if(temp.get(0)==0){
-                ratio=-1; // not exercise this day
-            }
-            else {
-                ratio = temp.get(1) / temp.get(0);
-            }
-            if (ratio >= 0.7) {
-                caldroidFragment.setBackgroundResourceForDate(R.color.green,
-                        curDate);
-            }
-            else if (ratio < 0.7 && ratio >= 0.3) {
-                caldroidFragment.setBackgroundResourceForDate(R.color.blue,
-                        curDate);
-            }
-            else if (ratio < 0.3 && ratio >= 0){
-                caldroidFragment.setBackgroundResourceForDate(R.color.red,
-                        curDate);
-            }
-            else  {
-                color = 0;
-            }
-            //caldroidFragment.setBackgroundResourceForDate(color,
-            //        curDate);
-
+            int colour = getColorOfDate(curDate);
+            caldroidFragment.setBackgroundResourceForDate(colour, curDate);
         }
-
-        /** TODO: check database to decide what color to use
-         * if future day has exercise planed, label it light blue(109)
-         * searchProgressByDate(): get the total sets & complete sets of the specific date
-         * @param date represented by a Calendar object
-         * @return ArrayList< (int)total_sets, (int)complete_sets >
-
-
-        for(int i=1; i<=365; i++) {
-
-            Integer color=109;
-            cal = Calendar.getInstance();
-            cal.add(Calendar.DATE, i);
-            Date curDate = cal.getTime();
-            ArrayList<Integer> temp;
-            temp = searchProgressByDate(cal);
-            if( temp.get(0)!=0) {
-                caldroidFragment.setBackgroundResourceForDate(R.color.grey,
-                        curDate);
-            }
-        }
-
-*/
     }
 
 
