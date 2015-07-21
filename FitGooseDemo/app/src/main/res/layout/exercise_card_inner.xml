@@ -148,37 +148,36 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
-        android:weightSum="3">
+        android:gravity="center">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Video"
-            android:id="@+id/button_video"
-            android:gravity="center"/>
+            android:layout_alignParentTop="true"
+            android:id="@+id/button_video"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=" Save changes"
+            android:text="Save changes"
             android:id="@+id/button_edit"
-            android:gravity="center" />
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/button_video" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=" Remove"
+            android:text="Remove"
             android:id="@+id/button_remove"
-            android:gravity="center" />
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/button_edit" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>
