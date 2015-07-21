@@ -14,8 +14,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:layout_gravity="center_vertical"
-        android:layout_height="wrap_content"
-        android:minHeight="55dp">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/daily_card_exercise_name"
@@ -61,4 +60,4 @@
 
     </RelativeLayout>
 
-</it.gmariotti.cardslib.library.prototypes.LinearListView><!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/layout/daily_card_inner_main.xml -->
+</it.gmariotti.cardslib.library.prototypes.LinearListView><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/daily_card_inner_main.xml -->

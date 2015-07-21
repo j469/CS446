@@ -113,24 +113,27 @@ public class MainActivity extends CameraActivity
                 contentFragment = new TodaysExercisesFragment();
                 break;
             case 1:
-                contentFragment = new WorkoutPlansFragment();
+                contentFragment = new TodaysExercisesFragment();
                 break;
             case 2:
+                contentFragment = new WorkoutPlansFragment();
+                break;
+            case 3:
                 contentFragment = new ExercisesFragment();
                 break;
-            case 3:    
-                caldroidFragment = new CaldroidFragment();
-                break;
             case 4:
-                contentFragment = new SimpleCameraIntentFragment();
+                caldroidFragment = new CaldroidFragment();
                 break;
             case 5:
                 contentFragment = new StatisticsFragment();
                 break;
+            case 6:
+                contentFragment = new SimpleCameraIntentFragment();
+                break;
             case 7:
                 contentFragment = new SettingsFragment();
                 break;
-            case 6:
+            case 8:
                 contentFragment = new SimplePhotoGalleryListFragment();
 
         }
@@ -263,21 +266,21 @@ public class MainActivity extends CameraActivity
         cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -5);
         Date curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(R.color.blue,
+        caldroidFragment.setBackgroundResourceForDate(R.color.yyf_blue,
                 curDate);
 
 
         cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -6);
         curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(R.color.green,
+        caldroidFragment.setBackgroundResourceForDate(R.color.yyf_green,
                 curDate);
 
 
         cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -3);
         curDate = cal.getTime();
-        caldroidFragment.setBackgroundResourceForDate(R.color.grey,
+        caldroidFragment.setBackgroundResourceForDate(R.color.yyf_grey,
                 curDate);
 /*
 

@@ -10,15 +10,16 @@
         android:id="@+id/daily_add_choose_exercise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choose an exercise:"
         android:textSize="18sp"/>
 
-    <Spinner
-        android:id="@+id/daily_add_spinner"
+    <Button
+        android:id="@+id/daily_add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_below="@id/daily_add_choose_exercise"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="Select" />
 
     <TextView
         android:id="@+id/daily_add_choose_sets"
@@ -26,7 +27,8 @@
         android:layout_height="wrap_content"
         android:text="How many sets?"
         android:textSize="18sp"
-        android:layout_below="@id/daily_add_spinner"
+        android:layout_below="@id/daily_add_button"
+        android:layout_marginTop="10dp"
         android:layout_alignParentStart="true"/>
 
     <EditText
@@ -35,7 +37,8 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:layout_below="@id/daily_add_spinner"
+        android:layout_below="@id/daily_add_button"
+        android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/daily_add_choose_sets"/>
 
     <Button
@@ -53,4 +56,4 @@
         android:layout_below="@+id/daily_add_set_number"
         android:layout_toRightOf="@id/daily_add_dialogOK"/>
 
-</RelativeLayout><!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/layout/daily_add_exercise.xml -->
+</RelativeLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/daily_add_exercise.xml -->

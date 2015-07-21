@@ -3,4 +3,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>
-<!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/menu/global.xml -->
+<!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/menu/global.xml -->

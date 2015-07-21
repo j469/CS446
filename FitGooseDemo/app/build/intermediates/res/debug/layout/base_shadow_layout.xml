@@ -24,4 +24,4 @@
         android:id="@+id/card_shadow_view"
         style="@style/card.shadow_image"
         />
-<!-- From: file:/home/gabriele/Lavoro/Android/AndroidStudioProjects/wrks/cardslib/library-core/src/main/res/layout/base_shadow_layout.xml --><!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/layout/base_shadow_layout.xml -->
+<!-- From: file:/home/gabriele/Lavoro/Android/AndroidStudioProjects/wrks/cardslib/library-core/src/main/res/layout/base_shadow_layout.xml --><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/layout/base_shadow_layout.xml -->

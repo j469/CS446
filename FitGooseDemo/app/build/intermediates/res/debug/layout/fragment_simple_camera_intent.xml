@@ -33,13 +33,7 @@
         android:layout_gravity="center_horizontal"
         android:src="@drawable/bodybuilder" />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/imageViewThumbnail"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/bodybuilder" />
+
 
     <Button
         android:layout_width="fill_parent"
@@ -50,4 +44,4 @@
         android:layout_marginBottom="10dp"
         android:layout_margin="10dp" />
 
-</FrameLayout><!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/layout/fragment_simple_camera_intent.xml -->
+</FrameLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/fragment_simple_camera_intent.xml -->

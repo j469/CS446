@@ -7,8 +7,7 @@
 
     <HorizontalScrollView
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        >
+        android:layout_width="wrap_content">
         <LinearLayout
             android:orientation="horizontal"
             android:layout_height="wrap_content"
@@ -124,4 +123,4 @@
     </HorizontalScrollView>
 
 </LinearLayout>
-<!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/layout/fragment_exercise_today.xml -->
+<!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/fragment_exercise_today.xml -->

@@ -1,180 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="12dp"
-    android:layout_marginRight="12dp"
+    android:layout_height="315dp"
     android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:weightSum="3">
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Name:"
+        android:layout_weight="1"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:text="Name:"
-            android:layout_weight="1"/>
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:inputType="textCapWords"
-            android:id="@+id/custom_exercise_name" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <EditText
         android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_weight="2"
+        android:layout_marginLeft="70dp"
+        android:inputType="textCapWords"
+        android:id="@+id/custom_exercise_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:weightSum="3">
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="14sp"
+        android:text="Unit 1:"
+        android:layout_weight="1"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:text="Unit:"
-            android:layout_weight="1"/>
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:inputType="textCapWords"
-            android:id="@+id/custom_exercise_unit" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Spinner
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:weightSum="2">
+        android:layout_marginLeft="63dp"
+        android:layout_marginTop="41dp"
+        android:layout_weight="2"
+        android:id="@+id/custom_unit_one" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="145dp"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:text="Unit 2:"
+        android:layout_weight="1"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="198dp"
+        android:layout_marginTop="41dp"
+        android:layout_weight="2"
+        android:id="@+id/custom_unit_two" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:layout_marginLeft="10dp">
 
         <CheckBox
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="Shoulder"
             android:id="@+id/checkBox_shoulder" />
 
         <CheckBox
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Arms"
-            android:id="@+id/checkBox_arm" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:weightSum="2">
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Back"
-            android:id="@+id/checkBox_back" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="Chest"
             android:id="@+id/checkBox_chest" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:weightSum="2">
 
         <CheckBox
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:text="Upper arm"
+            android:id="@+id/checkBox_uarm" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:text="Forearm"
+            android:id="@+id/checkBox_farm" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="70dp"
             android:layout_weight="1"
             android:text="Abs"
             android:id="@+id/checkBox_abs" />
 
         <CheckBox
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="70dp"
             android:layout_weight="1"
-            android:text="Legs"
-            android:id="@+id/checkBox_legs" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:weightSum="2">
+            android:text="Quads"
+            android:id="@+id/checkBox_quads" />
 
         <CheckBox
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="100dp"
             android:layout_weight="1"
-            android:text="Oxy"
-            android:id="@+id/checkBox_oxy" />
+            android:text="Calves"
+            android:id="@+id/checkBox_calves" />
 
         <CheckBox
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="100dp"
+            android:layout_weight="1"
+            android:text="back"
+            android:id="@+id/checkBox_back" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="130dp"
             android:layout_weight="1"
             android:text="Cardio"
             android:id="@+id/checkBox_cardio" />
 
-    </LinearLayout>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="130dp"
+            android:layout_weight="1"
+            android:text="Two units?"
+            android:id="@+id/checkBox_secondUnit" />
 
+    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:weightSum="1">
-    <CheckBox
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/setting_add_exercise_done"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="260dp"
+        android:layout_gravity="center"
         android:layout_weight="1"
-        android:text="Second Unit"
-        android:id="@+id/checkBox_secondUnit" />
-    </LinearLayout>
+        android:text="Done" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:weightSum="2">
+    <Button
+        android:id="@+id/setting_add_exercise_cancel"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="260dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="Cancel"/>
 
-        <Button
-            android:id="@+id/setting_add_exercise_done"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="Done"/>
 
-        <Button
-            android:id="@+id/setting_add_exercise_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="Cancel"/>
 
-    </LinearLayout>
 
-</LinearLayout><!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/layout/setting_custom_exercise.xml -->
+</RelativeLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/setting_custom_exercise.xml -->

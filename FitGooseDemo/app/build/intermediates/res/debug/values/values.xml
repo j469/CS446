@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="graph_properties">
         <item>Average</item>
-        <item>Best Set</item>
+        <item>Best</item>
+        <item>Number of Reps</item>
+        <item>Number of Sets</item>
     </string-array>
     <string-array name="graph_time_ranges">
         <item>Past Week</item>
@@ -15,18 +17,19 @@
     <string-array name="menu_items">
         <item>@string/title_todays_exercises</item>
         <item>@string/title_workout_plans</item>
+        <item>@string/title_exercises</item>
         <item>@string/title_calendar</item>
-        <item>@string/title_camera</item>
         <item>@string/title_statistics</item>
+        <item>@string/title_camera</item>
         <item>@string/title_settings</item>
         <item>@string/title_gallery</item>
     </string-array>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="styleCaldroidGridView"/>
     <attr format="reference" name="styleCaldroidLeftArrow"/>
@@ -36,7 +39,7 @@
     <attr format="reference" name="styleCaldroidSquareCell"/>
     <attr format="reference" name="styleCaldroidViewLayout"/>
     <attr format="reference" name="styleCaldroidWeekdayView"/>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
@@ -56,10 +59,10 @@
     <color name="background_floating_material_light">#ffeeeeee</color>
     <color name="background_material_dark">#ff303030</color>
     <color name="background_material_light">#ffeeeeee</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <color name="blue">#ff33b5e5</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <color name="black">#000000</color>
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
@@ -69,7 +72,7 @@
     <color name="bright_foreground_material_light">@android:color/black</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <color name="caldroid_333">#333</color>
     <color name="caldroid_555">#555</color>
@@ -84,12 +87,16 @@
     <color name="caldroid_sky_blue">#FFA3E8F7</color>
     <color name="caldroid_transparent">#00000000</color>
     <color name="caldroid_white">#FFFFFF</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <color name="card_activated">#CFE9F3</color>
     <color name="card_activated_kitkat">#ADE1F4</color>
     <color name="card_background">#FFF</color>
-    <color name="card_backgroundExpand">#515254</color>
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <color name="card_backgroundExpand">#ffffff</color>
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="card_background_header">#FFF</color>
     <color name="card_base_cardwithlist_background_list_color">#10000000</color>
     <color name="card_base_cardwithlist_divider_color">#E5E5E5</color>
@@ -104,31 +111,31 @@
     <color name="card_section_container_color">#10000000</color>
     <color name="card_section_title_color">@android:color/black</color>
     <color name="card_text_color_header">#000</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <color name="card_thumbnail_image_text_over_textcolor">#FFF</color>
     <color name="card_topcolored_subtitle_textcolor">#80FFFFFF</color>
     <color name="card_topcolored_title_textcolor">#FFF</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <color name="card_undobar_material_background_color">#323232</color>
     <color name="card_undobar_material_text_color">#4CAF50</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="cardview_dark_background">#FF202020</color>
     <color name="cardview_light_background">#FFFAFAFA</color>
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <color name="green">#8FCC85</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <color name="green">#00FF00</color>
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
@@ -136,6 +143,11 @@
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
     <color name="link_text_material_dark">@color/material_deep_teal_200</color>
     <color name="link_text_material_light">@color/material_deep_teal_500</color>
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <color name="maincolor">#31CCCC</color>
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
@@ -149,10 +161,10 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <color name="red">#FF0000</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <color name="ripple_material_dark">#4dffffff</color>
     <color name="ripple_material_light">#1f000000</color>
@@ -164,9 +176,15 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <color name="white">#ffffff</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="yyf_blue">#ff33b5e5</color>
+    <color name="yyf_green">#8FCC85</color>
+    <color name="yyf_grey">#BBBBBB</color>
+    <color name="yyf_red">#FF0000</color>
+    <color name="yyf_white">#ffffff</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -199,7 +217,7 @@
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
     <declare-styleable name="card_listItem"><attr format="dimension" name="card_list_item_dividerHeight"/></declare-styleable>
     <declare-styleable name="card_options"><attr format="reference" name="card_layout_resourceID"/><attr format="reference" name="card_shadow_layout_resourceID"/><attr format="reference" name="card_header_layout_resourceID"/><attr format="reference" name="card_thumbnail_layout_resourceID"/><attr format="reference" name="list_card_layout_resourceID"/><attr format="reference" name="list_card_layout_resourceIDs"/></declare-styleable>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -261,18 +279,18 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="actions_icon_height">54dp</dimen>
     <dimen name="actions_icon_width">54dp</dimen>
     <dimen name="actions_padding">16dp</dimen>
     <dimen name="actions_padding_left">8dp</dimen>
     <dimen name="actions_textsize">14sp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="card_background_default_radius">2dp</dimen>
     <dimen name="card_base_cardwithlist_dividerHeight">1dp</dimen>
@@ -280,7 +298,11 @@
     <dimen name="card_base_cardwithlist_layout_rightmargin">0dp</dimen>
     <dimen name="card_base_cardwithlist_list_margin_left">0dp</dimen>
     <dimen name="card_base_cardwithlist_list_margin_top">10dp</dimen>
-    <dimen name="card_base_empty_height">96dp</dimen>
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="card_base_empty_height">0dp</dimen>
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <eat-comment/>
     <dimen name="card_content_outer_view_margin_bottom">0dp</dimen>
     <dimen name="card_content_outer_view_margin_left">0dp</dimen>
     <dimen name="card_content_outer_view_margin_right">0dp</dimen>
@@ -338,13 +360,13 @@
     <dimen name="card_main_content_native_default_paddingLeft">12dp</dimen>
     <dimen name="card_main_content_native_default_paddingRight">12dp</dimen>
     <dimen name="card_main_content_native_default_paddingTop">12dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="card_main_content_native_material_large_image_paddingBottom">16dp</dimen>
     <dimen name="card_main_content_native_material_large_image_paddingLeft">16dp</dimen>
     <dimen name="card_main_content_native_material_large_image_paddingRight">16dp</dimen>
     <dimen name="card_main_content_native_material_large_image_paddingTop">16dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="card_main_content_native_simple_title_text_size">16sp</dimen>
     <dimen name="card_main_layout_native_view_margin_bottom">0dp</dimen>
@@ -361,10 +383,10 @@
     <dimen name="card_main_simple_title_margin_left">5dp</dimen>
     <dimen name="card_main_simple_title_margin_right">0dp</dimen>
     <dimen name="card_main_simple_title_margin_top">0dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="card_material_largeimage_height">200dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="card_section_container_padding_left">15dp</dimen>
     <dimen name="card_section_container_padding_right">15dp</dimen>
@@ -376,29 +398,29 @@
     <dimen name="card_shadow_view_margin_right">@dimen/card_background_default_radius</dimen>
     <dimen name="card_shadow_view_margin_top">0dp</dimen>
     <dimen name="card_thumbnail_height">72dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="card_thumbnail_image_text_over_padding_bottom">16dp</dimen>
     <dimen name="card_thumbnail_image_text_over_padding_left">16dp</dimen>
     <dimen name="card_thumbnail_image_text_over_padding_right">16dp</dimen>
     <dimen name="card_thumbnail_image_text_over_padding_top">16dp</dimen>
     <dimen name="card_thumbnail_image_text_over_textsize">24sp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="card_thumbnail_width">72dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="card_topcolored_layout_minHeigth">72dp</dimen>
     <dimen name="card_topcolored_layout_padding">16dp</dimen>
     <dimen name="card_topcolored_subtitle_paddingtop">18dp</dimen>
     <dimen name="card_topcolored_subtitle_textsize">14dp</dimen>
     <dimen name="card_topcolored_title_textsize">22dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <item name="dialog_fixed_height_major" type="dimen">80%</item>
     <item name="dialog_fixed_height_minor" type="dimen">100%</item>
@@ -406,7 +428,7 @@
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="grid_card_padding_bottom">2dp</dimen>
     <dimen name="grid_card_padding_left">2dp</dimen>
@@ -424,22 +446,22 @@
     <dimen name="native_recyclerview_card_margin_left">0dp</dimen>
     <dimen name="native_recyclerview_card_margin_right">0dp</dimen>
     <dimen name="native_recyclerview_card_margin_top">6dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="navigation_drawer_width">240dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="photo_height">120dp</dimen>
     <dimen name="photo_width">120dp</dimen>
     <dimen name="spinner_label_text_size">16dp</dimen>
     <dimen name="spinner_label_width">100dp</dimen>
     <dimen name="spinner_width">150dp</dimen>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
@@ -455,14 +477,14 @@
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
     <integer name="cancel_button_image_alpha">127</integer>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <integer name="list_card_swipe_distance_divisor">2</integer>
     <integer name="list_card_undobar_hide_delay">5000</integer>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <plurals name="card_selected_items">
         <item quantity="one">1 item selected</item>
@@ -472,7 +494,7 @@
         <item quantity="one">1 card removed</item>
         <item quantity="other">%d cards removed</item>
     </plurals>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -491,64 +513,65 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_example">Example</string>
     <string name="action_settings">Settings</string>
-    <string name="app_name">FitGooseDemo</string>
+    <string name="app_name">FitGoose</string>
     <string name="card_empty_cardwithlist_text">No exercise today!</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <string name="card_native_font_fontFamily_top_colored">sans-serif</string>
     <string name="card_native_progressbar_text">Loading...</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <string name="card_progressbar_cardwithlist_text">Loading data...</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="customize">Customize</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <string name="font_fontFamily_medium">sans-serif</string>
     <string name="font_fontFamily_regular">sans-serif</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <string name="list_card_undo_title">Undo</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="plan_add_button">Add a plan</string>
     <string name="plan_title">Workout Plan</string>
     <string name="show_dialog">Show Dialog</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="title_calendar">Calendar</string>
     <string name="title_camera">Camera</string>
+    <string name="title_exercises">Manage Exercises</string>
     <string name="title_gallery">Gallery</string>
     <string name="title_settings">Settings</string>
     <string name="title_statistics">Statistics</string>
     <string name="title_todays_exercises">Today\'s Exercises</string>
     <string name="title_workout_plans">Workout Plans</string>
     <string name="undo">Undo</string>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
@@ -1464,7 +1487,7 @@
         <item name="android:scaleType">center</item>
         <item name="android:background">?attr/selectableItemBackground</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="CaldroidDefault">
         <item name="styleCaldroidViewLayout">@style/CaldroidDefaultCalendarViewLayout</item>
@@ -1550,7 +1573,7 @@
         <item name="android:paddingTop">6dp</item>
         <item name="android:paddingBottom">5dp</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="CardView">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
@@ -1566,7 +1589,7 @@
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="GridView.PhotoGallery" parent="android:Widget.GridView">
         <item name="android:verticalSpacing">10dp</item>
@@ -1580,7 +1603,7 @@
         <item name="android:stretchMode">columnWidth</item>
         <item name="android:choiceMode">none</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
@@ -1908,7 +1931,7 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="RtlOverlay.Widget.AppCompat.Toolbar.Button.Navigation"/>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="card">
         <!-- this style should be empty -->
@@ -2007,7 +2030,7 @@
     <style name="card.native">
         <!-- this style should be empty -->
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="card.native.actions">
         <item name="android:textSize">@dimen/actions_textsize</item>
@@ -2016,7 +2039,7 @@
         <item name="android:layout_height">@dimen/actions_icon_height</item>
         <item name="android:layout_width">@dimen/actions_icon_width</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="card.native.base_simple_title">
         <item name="android:textStyle">bold</item>
@@ -2135,7 +2158,7 @@
         <item name="android:layout_marginLeft">@dimen/card_main_layout_native_view_margin_left</item>
         <item name="android:layout_marginRight">@dimen/card_main_layout_native_view_margin_right</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="card.native.material_large_image_content_outer_layout" parent="card.native.content_outer_layout">
         <item name="android:paddingLeft">@dimen/card_main_content_native_material_large_image_paddingLeft</item>
@@ -2143,12 +2166,12 @@
         <item name="android:paddingTop">@dimen/card_main_content_native_material_large_image_paddingTop</item>
         <item name="android:paddingBottom">@dimen/card_main_content_native_material_large_image_paddingBottom</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="card.native.thumbnail_compound_view">
 
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="card.native.top_colored_layout">
         <item name="android:minHeight">@dimen/card_topcolored_layout_minHeigth</item>
@@ -2173,7 +2196,7 @@
         <item name="android:textColor">@color/card_topcolored_title_textcolor</item>
         <item name="android:layout_gravity">left|center_vertical</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="card.shadow_image">
         <item name="android:layout_width">match_parent</item>
@@ -2220,13 +2243,13 @@
         <item name="android:gravity">center</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="card_thumbnail_image_text_over_textstyle">
         <item name="android:textColor">@color/card_thumbnail_image_text_over_textcolor</item>
         <item name="android:textSize">@dimen/card_thumbnail_image_text_over_textsize</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="card_thumbnail_outer_layout">
         <item name="android:layout_width">wrap_content</item>
@@ -2409,7 +2432,7 @@
         <item name="android:clipToPadding">false</item>
         <item name="android:scrollbarStyle">outsideOverlay</item>
     </style>
-    <!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-recyclerview/2.1.0/res/values/values.xml -->
+    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-recyclerview/2.1.0/res/values/values.xml -->
     <eat-comment/>
     <style name="native_recyclerview_card">
         <item name="android:layout_marginLeft">@dimen/native_recyclerview_card_margin_left</item>

@@ -9,11 +9,10 @@
 
 
     <TextView
-        tools:text="Weather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/card_header_inner_simple_title"
         style="@style/card.native.header_simple_title"
         />
 
-</LinearLayout><!-- From: file:/Users/Kris/Google%20Drive/CS446local/FitGooseDemo/app/src/main/res/layout/daily_card_inner_header.xml -->
+</LinearLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/daily_card_inner_header.xml -->
