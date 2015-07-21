@@ -58,6 +58,7 @@ public class MainActivity extends CameraActivity
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private FGDataSource mFGDataSource;
     private CaldroidFragment caldroidFragment = null;
+    boolean caldroidFragmentExist = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,34 +144,38 @@ public class MainActivity extends CameraActivity
 
         if(caldroidFragment != null) {
 
-            // put in argument
-            Bundle args = new Bundle();
-            Calendar cal = Calendar.getInstance();
-            args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
-            args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
-            args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
-            args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
-            caldroidFragment.setArguments(args);
+            if (! caldroidFragmentExist) {
+                caldroidFragmentExist = true;
+                // put in argument
+                Bundle args = new Bundle();
+                Calendar cal = Calendar.getInstance();
+                args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
+                args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
+                args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
+                args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
+                caldroidFragment.setArguments(args);
+            }
+                // set color based on store data;
+                setColorForDates();
 
-            // set color based on store data;
-            setColorForDates();
+                //add listener
+                final CaldroidListener listener = new CaldroidListener() {
+                    final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-            //add listener
-            final CaldroidListener listener = new CaldroidListener() {
-                final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-                //@TODO: add listener and call function
-                @Override
-                public void onSelectDate(Date date, View view) {
-                    //Toast.makeText(getApplicationContext(), formatter.format(date), Toast.LENGTH_SHORT).show();
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setTime(date);
-                    MyDate myDate = new MyDate();
-                    myDate.setFromCalendar(calendar);
-                    CalendarDialog calendarDialog = new CalendarDialog(MainActivity.this,myDate);
-                    calendarDialog.show();
-                }
-            };
-            caldroidFragment.setCaldroidListener(listener);
+                    //@TODO: add listener and call function
+                    @Override
+                    public void onSelectDate(Date date, View view) {
+                        //Toast.makeText(getApplicationContext(), formatter.format(date), Toast.LENGTH_SHORT).show();
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.setTime(date);
+                        MyDate myDate = new MyDate();
+                        myDate.setFromCalendar(calendar);
+                        CalendarDialog calendarDialog = new CalendarDialog(MainActivity.this, myDate);
+                        calendarDialog.show();
+                    }
+                };
+                caldroidFragment.setCaldroidListener(listener);
+            //}
 
             // commit and transfer to fragment
             FragmentManager fragmentManager = getSupportFragmentManager();

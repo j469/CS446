@@ -65,10 +65,10 @@
 
 
     <!--  colors, YYF -->
-    <color name="seventy_percent_done">#8FCC85</color>
-    <color name="thirty_percent_done">#ff33b5e5</color>
-    <color name="zero_percent_done">#FF0000</color>
-    <color name="no_percent_done">#BBBBBB</color>
+    <color name="seventy_percent_done">#CCFF99</color>
+    <color name="thirty_percent_done">#99CCFF</color>
+    <color name="zero_percent_done">#FF9966</color>
+    <color name="no_percent_done">#ffffff</color>
 
     <!-- calendar stuff, YYF -->
 
