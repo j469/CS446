@@ -193,46 +193,11 @@ public class ExercisesFragment extends Fragment {
                 // card header
                 CardHeader header = new CardHeader(context);
                 header.setButtonExpandVisible(true);
-                /*// popup menu. This method set OverFlow button to visible
-                header.setPopupMenu(R.menu.exercise_card_header_menu, new CardHeader.OnClickCardHeaderPopupMenuListener() {
-                    @Override
-                    public void onMenuItemClick(BaseCard card, MenuItem item) {
-
-                        switch (item.getItemId()) {
-                            case R.id.exercise_card_header_action_video: {
-                                YouTubeDialog videoDialog = YouTubeDialog.newInstance(e.name, "MDuXuUg15mk");
-                                videoDialog.show(getActivity().getFragmentManager(), e.name);
-                                break;
-                            }
-                            case R.id.exercise_card_header_action_remove: {
-                                if (FGDataSource.deleteExercise(e.getID()) == 1) {
-                                    Toast.makeText(context, "Delete exercise done.", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(context, "Cannot delete default exercise.", Toast.LENGTH_SHORT).show();
-                                }
-                                updateCardList(0);
-                                break;
-                            }
-                            case R.id.exercise_card_header_action_edit: {
-                                Toast.makeText(context, "TODO:edit exercise", Toast.LENGTH_SHORT).show();
-                                break;
-                            }
-                        }
-
-                    }
-                });*/
-                header.setTitle(e.name); //should use R.string
+                header.setTitle(e.name);
                 card.addCardHeader(header);
 
-                card.setClickable(true);
+                card.setClickable(false);
                 card.setSwipeable(false);
-                card.setOnClickListener(new Card.OnCardClickListener() {
-                    @Override
-                    public void onClick(Card card, View view) {
-                        //ViewToClickToExpand viewToClickToExpand = ViewToClickToExpand.builder().setupView(view);
-                        //card.setViewToClickToExpand(viewToClickToExpand);
-                    }
-                });
 
                 // add card to the list
                 cards.add(card);

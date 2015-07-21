@@ -159,21 +159,24 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Video"
-            android:id="@+id/button_video" />
+            android:id="@+id/button_video"
+            android:gravity="center"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Save changes"
-            android:id="@+id/button_edit" />
+            android:text=" Save changes"
+            android:id="@+id/button_edit"
+            android:gravity="center" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Remove"
-            android:id="@+id/button_remove" />
+            android:text=" Remove"
+            android:id="@+id/button_remove"
+            android:gravity="center" />
 
     </LinearLayout>
 
