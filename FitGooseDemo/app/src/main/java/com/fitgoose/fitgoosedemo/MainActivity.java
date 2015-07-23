@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
@@ -59,6 +60,7 @@ public class MainActivity extends CameraActivity
     private FGDataSource mFGDataSource;
     private CaldroidFragment caldroidFragment = null;
     boolean caldroidFragmentExist = false;
+    public static String appPath = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,7 @@ public class MainActivity extends CameraActivity
         });
 
         setContentView(R.layout.activity_main);
+        appPath = getApplicationContext().getFilesDir().getAbsolutePath();
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -153,6 +156,7 @@ public class MainActivity extends CameraActivity
                 args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
                 args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
                 args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
+                args.putBoolean(CaldroidFragment.SQUARE_TEXT_VIEW_CELL, false);
                 caldroidFragment.setArguments(args);
             }
                 // set color based on store data;
@@ -171,6 +175,7 @@ public class MainActivity extends CameraActivity
                         MyDate myDate = new MyDate();
                         myDate.setFromCalendar(calendar);
                         CalendarDialog calendarDialog = new CalendarDialog(MainActivity.this, myDate);
+                        calendarDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                         calendarDialog.show();
                     }
                 };
