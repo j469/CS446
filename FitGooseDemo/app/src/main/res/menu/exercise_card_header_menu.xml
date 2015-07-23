@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/exercise_card_header_action_add"
-        android:title="Add new exercise"
+    <item android:id="@+id/exercise_card_header_action_video"
+        android:title="YouTube video"
         android:orderInCategory="101"
         app:showAsAction="always" />
 

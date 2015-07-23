@@ -20,6 +20,16 @@ public class GlobalVariables {
      */
     public static ArrayList<Exercise> storedExercises = new ArrayList<>();
 
+    public static ArrayList<Plan> shoulderPlan = new ArrayList<>();
+    public static ArrayList<Plan> chestPlan = new ArrayList<>();
+    public static ArrayList<Plan> absPlan = new ArrayList<>();
+    public static ArrayList<Plan> upperarmPlan = new ArrayList<>();
+    public static ArrayList<Plan> forearmPlan = new ArrayList<>();
+    public static ArrayList<Plan> quadsPlan = new ArrayList<>();
+    public static ArrayList<Plan> calvesPlan = new ArrayList<>();
+    public static ArrayList<Plan> backPlan = new ArrayList<>();
+
+
     public static List<String> bodyPartName = Arrays.asList("All","Shoulder","Chest","Abs",
             "Upper Arm","Forearm", "Quads","Calves","Back","Cardio","Regimen");
 
@@ -120,7 +130,18 @@ public class GlobalVariables {
         return rtn;
     }
 
-    public Exercise getExerciseByEid (int eid) {
+    public static void updateExercise(Exercise exercise) {
+        int count = 0;
+        for (Exercise e: storedExercises) {
+            if ( e.getID() == exercise.getID()) {
+                storedExercises.set(count,exercise);
+                break;
+            }
+            count++;
+        }
+    }
+
+    public static Exercise getExerciseByEid (int eid) {
         Exercise rtn = null;
         for (Exercise e: storedExercises) {
             if ( eid == e.getID()) {

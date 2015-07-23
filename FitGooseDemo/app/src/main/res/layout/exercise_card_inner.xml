@@ -5,45 +5,39 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:weightSum="6">
+        android:paddingTop="10dp">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:gravity="center"
-            android:text="Unit 1:"
-            android:layout_weight="1"/>
+            android:text=" Unit 1: "/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:id="@+id/exercise_card_unit_one"/>
+
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:gravity="center"
-            android:id="@+id/exercise_card_unit_one"
-            android:layout_weight="2"/>
+            android:text=" Unit 2: "/>
 
-        <TextView
-            android:layout_width="0dp"
+        <Spinner
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:gravity="center"
-            android:id="@+id/exercise_card_unit_two_name"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:id="@+id/exercise_card_unit_two"
-            android:layout_weight="2"/>
+            android:id="@+id/exercise_card_unit_two"/>
 
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -151,6 +145,35 @@
             android:layout_weight="1"
             android:text="Two units?"
             android:id="@+id/checkBox_exercise_secondUnit" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:weightSum="3">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Video"
+            android:id="@+id/button_video" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save changes"
+            android:id="@+id/button_edit" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Remove"
+            android:id="@+id/button_remove" />
 
     </LinearLayout>
 

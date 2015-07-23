@@ -1,6 +1,7 @@
 package com.fitgoose.fitgoosedemo;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 import com.fitgoose.fitgoosedemo.data.Regimen;
 import com.fitgoose.fitgoosedemo.plan_tab.ExerciseDetailsCard;
+import com.fitgoose.fitgoosedemo.plan_tab.ExerciseDetailsCardExpand;
 import com.fitgoose.fitgoosedemo.plan_tab.RegimenDetailCard;
 import com.fitgoose.fitgoosedemo.utilities.CustomExerciseDialog;
 import com.fitgoose.fitgoosedemo.utilities.YouTubeDialog;
@@ -29,6 +32,7 @@ import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
+import it.gmariotti.cardslib.library.internal.ViewToClickToExpand;
 import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.recyclerview.internal.CardArrayRecyclerViewAdapter;
 import it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView;
@@ -133,32 +137,80 @@ public class ExercisesFragment extends Fragment {
 
         } else { // exercise
 
-            ArrayList<Exercise> exercises = GlobalVariables.getExercisesByType(type);
+            final ArrayList<Exercise> exercises = GlobalVariables.getExercisesByType(type);
 
-            for (Exercise e : exercises) {
+            for (final Exercise e : exercises) {
                 // card constructor
-                ExerciseDetailsCard card = new ExerciseDetailsCard(context, e);
+                ExerciseDetailsCard card = new ExerciseDetailsCard(context);
+
+                // card expand
+                ExerciseDetailsCardExpand expand = new ExerciseDetailsCardExpand(context,e, new ExerciseDetailsCardExpand.CardExpandListener(){
+
+                    public void remove(int rtnEID) {
+                        if (FGDataSource.deleteExercise(rtnEID) == 1) {
+                            Toast.makeText(context, "Delete exercise done.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(context, "Cannot delete default exercise.", Toast.LENGTH_SHORT).show();
+                        }
+                        updateCardList(0);
+                    }
+
+                    public void show_youtube(String rtnEName) {
+                        YouTubeDialog videoDialog = YouTubeDialog.newInstance(rtnEName, "MDuXuUg15mk");
+                        videoDialog.show(getActivity().getFragmentManager(), rtnEName);
+                    }
+
+                    public void edit(Exercise rtnExercise) {
+                        if (! rtnExercise.type) {
+                            Toast.makeText(context, "Cannot edit default exercise.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        ContentValues values = new ContentValues();
+                        values.put("secondUnit", (rtnExercise.secondUnit ? 1: 0) );
+                        values.put("unit1", rtnExercise.unit1 );
+                        values.put("unit2", rtnExercise.unit2 );
+                        values.put("shoulder", (rtnExercise.shoulder ? 1: 0) );
+                        values.put("chest", (rtnExercise.chest ? 1: 0) );
+                        values.put("abs", (rtnExercise.abs ? 1: 0) );
+                        values.put("upper_arm", (rtnExercise.upper_arm ? 1: 0) );
+                        values.put("forearm", (rtnExercise.forearm ? 1: 0) );
+                        values.put("quads", (rtnExercise.quads ? 1: 0) );
+                        values.put("calves", (rtnExercise.calves ? 1: 0) );
+                        values.put("back", (rtnExercise.back ? 1: 0) );
+                        values.put("cardio", (rtnExercise.cardio ? 1: 0) );
+                        FGDataSource.dbUpdate("exercise", values, "name", new String[]{rtnExercise.name});
+
+                        GlobalVariables.updateExercise(rtnExercise);
+
+                        Toast.makeText(context, "Changes on "+rtnExercise.name+" are done.", Toast.LENGTH_LONG).show();
+                        updateCardList(0);
+                    }
+                });
+                expand.setTitle("Details:");
+                card.addCardExpand(expand);
 
                 // card header
-                CardHeader header = new CardHeader(context, R.layout.daily_card_inner_header);
-                // popup menu. This method set OverFlow button to visible
+                CardHeader header = new CardHeader(context);
+                header.setButtonExpandVisible(true);
+                /*// popup menu. This method set OverFlow button to visible
                 header.setPopupMenu(R.menu.exercise_card_header_menu, new CardHeader.OnClickCardHeaderPopupMenuListener() {
                     @Override
                     public void onMenuItemClick(BaseCard card, MenuItem item) {
 
                         switch (item.getItemId()) {
-                            case R.id.exercise_card_header_action_add: {
-                                CustomExerciseDialog customExerciseDialog = new CustomExerciseDialog(context, new CustomExerciseDialog.CustomExerciseDialogListener() {
-                                    public void ready() {
-                                        updateCardList(0);
-                                    }
-                                });
-                                customExerciseDialog.setTitle("New Exercise:");
-                                customExerciseDialog.show();
+                            case R.id.exercise_card_header_action_video: {
+                                YouTubeDialog videoDialog = YouTubeDialog.newInstance(e.name, "MDuXuUg15mk");
+                                videoDialog.show(getActivity().getFragmentManager(), e.name);
                                 break;
                             }
                             case R.id.exercise_card_header_action_remove: {
-                                Toast.makeText(context, "TODO:deleteExercise()", Toast.LENGTH_SHORT).show();
+                                if (FGDataSource.deleteExercise(e.getID()) == 1) {
+                                    Toast.makeText(context, "Delete exercise done.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(context, "Cannot delete default exercise.", Toast.LENGTH_SHORT).show();
+                                }
+                                updateCardList(0);
                                 break;
                             }
                             case R.id.exercise_card_header_action_edit: {
@@ -168,24 +220,17 @@ public class ExercisesFragment extends Fragment {
                         }
 
                     }
-                });
+                });*/
                 header.setTitle(e.name); //should use R.string
                 card.addCardHeader(header);
 
                 card.setClickable(true);
-                card.setSwipeable(true);
+                card.setSwipeable(false);
                 card.setOnClickListener(new Card.OnCardClickListener() {
                     @Override
                     public void onClick(Card card, View view) {
-                        YouTubeDialog videoDialog = YouTubeDialog.newInstance(card.getCardHeader().getTitle(), "MDuXuUg15mk");
-                        videoDialog.show(getActivity().getFragmentManager(), card.getCardHeader().getTitle());
-                    }
-                });
-                card.setOnSwipeListener(new Card.OnSwipeListener() {
-                    @Override
-                    public void onSwipe(Card card) {
-                        Toast.makeText(context, "TODO:deleteExercise()", Toast.LENGTH_SHORT).show();
-                        //FGDataSource.deleteExercise(date, -1);
+                        //ViewToClickToExpand viewToClickToExpand = ViewToClickToExpand.builder().setupView(view);
+                        //card.setViewToClickToExpand(viewToClickToExpand);
                     }
                 });
 

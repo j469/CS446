@@ -681,6 +681,19 @@ public class FGDataSource extends SQLiteOpenHelper {
         return regimenArrayList;
     }
 
+    public static int deleteExercise(int eid){
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
+        if (eid < 10000) {
+            database.delete(TABLE_EXERCISE, EXERCISE_EID + "=?", new String[]{ Integer.toString(eid)} );
+            database.close();
+            cacheExercise();
+            return 1;
+        }
+        database.close();
+        return 0;
+    }
+
+
     /**
      * delete Plan and the attached ExSets of the specific date and eid,
      * @param date represented by a Calendar object

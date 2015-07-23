@@ -49,6 +49,8 @@
     <color name="green">#00FF00</color>
     <color name="yellow">#FFFF00</color>
 
+    <color name="card_backgroundExpand">#ffffff</color>
+
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
