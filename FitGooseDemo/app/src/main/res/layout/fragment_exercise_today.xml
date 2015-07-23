@@ -31,7 +31,7 @@
                     android:text=""
                     android:layout_marginTop="125dp"
                     android:layout_marginLeft="140dp"
-                    android:background="@drawable/chest_in_process"/>
+                    android:background="@android:color/transparent"/>
 
                 <Button
                     android:id="@+id/shoulder1_btn"
@@ -40,7 +40,7 @@
                     android:text=""
                     android:layout_marginTop="97dp"
                     android:layout_marginLeft="145dp"
-                    android:background="@drawable/shoulder1_undo"/>
+                    android:background="@android:color/transparent"/>
 
                 <Button
                     android:id="@+id/shoulder2_btn"
@@ -49,7 +49,7 @@
                     android:text=""
                     android:layout_marginTop="127dp"
                     android:layout_marginLeft="116dp"
-                    android:background="@drawable/shoulder2_undo"/>
+                    android:background="@android:color/transparent"/>
 
                 <Button
                     android:id="@+id/upper_arm1_btn"
@@ -94,7 +94,7 @@
                     android:text=""
                     android:layout_marginTop="186dp"
                     android:layout_marginLeft="142dp"
-                    android:background="@drawable/abs_in_process"/>
+                    android:background="@android:color/transparent"/>
 
                 <Button
                     android:id="@+id/quads_btn"
@@ -103,7 +103,7 @@
                     android:text=""
                     android:layout_marginTop="260dp"
                     android:layout_marginLeft="130dp"
-                    android:background="@drawable/quads_done"/>
+                    android:background="@android:color/transparent"/>
 
                 <Button
                     android:id="@+id/calves_btn"
