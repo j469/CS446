@@ -156,8 +156,28 @@ public class ExercisesFragment extends Fragment {
                     }
 
                     public void show_youtube(String rtnEName) {
-                        YouTubeDialog videoDialog = YouTubeDialog.newInstance(rtnEName, "MDuXuUg15mk");
-                        videoDialog.show(getActivity().getFragmentManager(), rtnEName);
+                        String videoID = e.youtubeURL;
+                        // Testing Script:
+//                        String videoID = null;
+//                        int choice = e.getID() % 3;
+//                        switch(choice) {
+//                            case 0:
+//                                videoID = "MDuXuUg15mk";
+//                                break;
+//                            case 1:
+//                                videoID = "GkLqraq4m6U";
+//                                break;
+//                            case 2:
+//                                videoID = "eh7lp9umG2I";
+//                        }
+
+                        if(videoID != null && !videoID.equalsIgnoreCase("")) {
+                            YouTubeDialog videoDialog = YouTubeDialog.newInstance(rtnEName, videoID);
+                            videoDialog.show(getActivity().getFragmentManager(), rtnEName);
+                        }
+                        else {
+                            Toast.makeText(context, "No video for this exercise", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     public void edit(Exercise rtnExercise) {
