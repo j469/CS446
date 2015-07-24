@@ -23,20 +23,31 @@ import com.google.android.youtube.player.YouTubePlayer.OnInitializedListener;
  */
 public class YouTubeDialog extends DialogFragment implements OnInitializedListener{
     private String videoID;
-    private static String title;
-    private YouTubePlayerFragment youtubeFragment;
+    private String title;
     private static final String API_KEY = "AIzaSyAYPtJyvEFBlH6XT8b3pDp4nGrR73S8Ivw";
+    private static YouTubePlayer player;
 
     private static View rootView;
-
-    public YouTubeDialog() {}
+    private boolean firstInit = false;
 
     public static YouTubeDialog newInstance(String title, String videoID) {
         YouTubeDialog newDialog = new YouTubeDialog();
-        newDialog.videoID = videoID;
-        YouTubeDialog.title = title;
+
+        Bundle args = new Bundle();
+        args.putString("title", title);
+        args.putString("videoID", videoID);
+
+        newDialog.setArguments(args);
+        newDialog.firstInit = true;
 
         return  newDialog;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        title = getArguments().getString("title");
+        videoID = getArguments().getString("videoID");
     }
 
     @Override
@@ -53,7 +64,7 @@ public class YouTubeDialog extends DialogFragment implements OnInitializedListen
         try {
             rootView = inflater.inflate(R.layout.dialog_youtube, container);
         } catch (InflateException e) {
-
+            e.printStackTrace();
         }
 
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -61,7 +72,15 @@ public class YouTubeDialog extends DialogFragment implements OnInitializedListen
         TextView titleView = (TextView) rootView.findViewById(R.id.title_view);
         titleView.setText(title);
 
-        youtubeFragment =(YouTubePlayerFragment) getFragmentManager()
+        // firstInit is only set to true when onCreate is called during the dialog's first creation
+        // firstInit will be false for onCreateView call caused by by rotating and returning from full screen
+        if(firstInit && player != null) {
+            // When the dialog is first created, it needs to release the previous player so
+            // the YouTubePlayerFragment can initialize
+            player.release();
+        }
+
+        YouTubePlayerFragment youtubeFragment =(YouTubePlayerFragment) getFragmentManager()
                 .findFragmentById(R.id.youtubeplayerfragment);
         youtubeFragment.initialize(API_KEY, this);
 
@@ -82,13 +101,14 @@ public class YouTubeDialog extends DialogFragment implements OnInitializedListen
 
     @Override
     public void onInitializationSuccess(Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
+        player = youTubePlayer;
         if (!wasRestored) {
-            youTubePlayer.cueVideo(videoID);
+            player.loadVideo(videoID);
         }
     }
 
     @Override
     public void onInitializationFailure(Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-
+        Toast.makeText(getActivity(), "FAIL", Toast.LENGTH_SHORT).show();
     }
 }
