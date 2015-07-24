@@ -188,14 +188,12 @@ public class SimpleCameraIntentFragment extends BaseFragment implements Button.O
      */
     protected File createImageFile() throws IOException {
         // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES);
+        String timeStamp = new SimpleDateFormat("MMddmmss").format(new Date());
+        String imageFileName = "FGpic_" + timeStamp;
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
-                storageDir      /* directory */
+                MainActivity.picture_folder      /* directory */
         );
 
         // Save a file: path for use with ACTION_VIEW intents

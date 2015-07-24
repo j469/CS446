@@ -1,5 +1,6 @@
 package com.fitgoose.fitgoosedemo;
 
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -60,7 +61,7 @@ public class MainActivity extends CameraActivity
     private FGDataSource mFGDataSource;
     private CaldroidFragment caldroidFragment = null;
     boolean caldroidFragmentExist = false;
-    public static String appPath = null;
+    public static File picture_folder = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +76,8 @@ public class MainActivity extends CameraActivity
                     try {
                         File file = new File(getApplicationContext().getFilesDir(), "/default.json");
 
-                        if (! file.exists()) {
-                            ParseFile json_file =  object.getParseFile("json");
+                        if (!file.exists()) {
+                            ParseFile json_file = object.getParseFile("json");
                             byte[] content = json_file.getData();
                             FileOutputStream outputStream = new FileOutputStream(file);
                             outputStream.write(content);
@@ -93,7 +94,10 @@ public class MainActivity extends CameraActivity
         });
 
         setContentView(R.layout.activity_main);
-        appPath = getApplicationContext().getFilesDir().getAbsolutePath();
+
+        File sdCard = Environment.getExternalStorageDirectory();
+        picture_folder = new File (sdCard.getAbsolutePath() + "/FitGoose");
+        if (! picture_folder.exists()) picture_folder.mkdirs();
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);

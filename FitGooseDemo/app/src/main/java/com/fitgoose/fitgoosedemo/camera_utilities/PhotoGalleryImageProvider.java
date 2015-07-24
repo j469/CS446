@@ -34,6 +34,8 @@ import android.provider.MediaStore;
 
 //import com.ultimate.camera.adapters.items.PhotoItem;
 
+import com.fitgoose.fitgoosedemo.MainActivity;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +51,7 @@ public class PhotoGalleryImageProvider {
     public static final int IMAGE_RESOLUTION = 15;
 
     // Buckets where we are fetching images from.
-    public static final String CAMERA_IMAGE_BUCKET_NAME =
-            Environment.getExternalStorageDirectory().toString()
-                    + "/DCIM/Camera";
+    public static final String CAMERA_IMAGE_BUCKET_NAME =  Environment.getExternalStorageDirectory().toString();
     public static final String CAMERA_IMAGE_BUCKET_ID =
             getBucketId(CAMERA_IMAGE_BUCKET_NAME);
 
@@ -67,8 +67,8 @@ public class PhotoGalleryImageProvider {
 
         Cursor thumbnailsCursor = context.getContentResolver().query( MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,
                 projection, // Which columns to return
-                null,       // Return all rows
-                null,
+                null,//MediaStore.Images.Thumbnails.DATA + " like ? ",
+                null,//new String[] {"%/FitGoose/%"},
                 null);
 
         // Extract the proper column thumbnails
