@@ -36,4 +36,4 @@
             android:gravity="center"
             android:scaleType="centerCrop"/>
     </FrameLayout>
-</RelativeLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/photo_item.xml -->
+</RelativeLayout><!-- From: file:/Users/selway/CS446/FitGooseDemo/app/src/main/res/layout/photo_item.xml -->

@@ -3,4 +3,4 @@
     android:src="@drawable/calendar_next_arrow"
     android:tileMode="disabled" android:gravity="center" >
 </bitmap>
-<!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/caldroid/src/main/res/drawable/right_arrow.xml -->
+<!-- From: file:/Users/selway/CS446/FitGooseDemo/caldroid/src/main/res/drawable/right_arrow.xml -->

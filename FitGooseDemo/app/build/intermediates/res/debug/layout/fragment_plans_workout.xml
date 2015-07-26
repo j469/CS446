@@ -20,4 +20,4 @@
         card:list_card_layout_resourceID="@layout/native_recyclerview_card_layout"
         android:id="@+id/plan_recyclerview"/>
 
-</RelativeLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/fragment_plans_workout.xml -->
+</RelativeLayout><!-- From: file:/Users/selway/CS446/FitGooseDemo/app/src/main/res/layout/fragment_plans_workout.xml -->

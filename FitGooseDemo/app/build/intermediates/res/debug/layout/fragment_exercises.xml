@@ -32,4 +32,4 @@
         card:list_card_layout_resourceID="@layout/native_recyclerview_card_layout"
         android:id="@+id/exercise_recyclerview"/>
 
-</LinearLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/fragment_exercises.xml -->
+</LinearLayout><!-- From: file:/Users/selway/CS446/FitGooseDemo/app/src/main/res/layout/fragment_exercises.xml -->

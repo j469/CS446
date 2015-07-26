@@ -110,8 +110,16 @@ public class TodaysExercisesDialog extends DialogFragment {
                 final ArrayList<ExSet> tempExSet = selectedPlan.exSets;
                 ListView exsetList = (ListView) getDialog().findViewById(R.id.exset_list);
                 //Toast.makeText(getActivity(), "Set Number " + Integer.toString(selectedPlan.exSets.size()), Toast.LENGTH_SHORT).show();
+                GlobalVariables.unit1 = GlobalVariables.exerciseUnit.get(GlobalVariables.searchUnitByEid(selectedPlan.eID));
+
+                if (GlobalVariables.getExerciseByEid(selectedPlan.eID).secondUnit) {
+                    GlobalVariables.unit2 = GlobalVariables.exerciseUnit.get(GlobalVariables.searchSecondUnitByEid(selectedPlan.eID));
+                }
                 final ArrayAdapter<ExSet> exsetAdapter = new ExerciseSetAdapter(getActivity(), tempExSet);
                 exsetList.setAdapter(exsetAdapter);
+
+
+
                 //exsetList.findViewById(R.id.setUnit1);
 
                 // Set up Button
@@ -171,7 +179,11 @@ public class TodaysExercisesDialog extends DialogFragment {
                     @Override
                     public void onClick(View view) {
 
-                        ExSet newSet = new ExSet(0, selectedPlan.pID, Integer.parseInt(num_lbs.getText().toString()), Integer.parseInt(num_set.getText().toString()));
+                        Integer secondUnit = 0;
+                        if (GlobalVariables.getExerciseByEid(selectedPlan.eID).secondUnit) {
+                            secondUnit = Integer.parseInt(num_set.getText().toString());
+                        }
+                        ExSet newSet = new ExSet(0, selectedPlan.pID, Integer.parseInt(num_lbs.getText().toString()), secondUnit);
                         FGDataSource.storeExSet(newSet);
 
                         tempExSet.add(newSet);

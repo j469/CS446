@@ -56,4 +56,4 @@
         android:layout_below="@+id/daily_add_set_number"
         android:layout_toRightOf="@id/daily_add_dialogOK"/>
 
-</RelativeLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/daily_add_exercise.xml -->
+</RelativeLayout><!-- From: file:/Users/selway/CS446/FitGooseDemo/app/src/main/res/layout/daily_add_exercise.xml -->

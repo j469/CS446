@@ -10,4 +10,4 @@
     android:dividerHeight="0dp"
     android:background="@color/black"
     tools:context=".NavigationDrawerFragment" />
-<!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/fragment_navigation_drawer.xml -->
+<!-- From: file:/Users/selway/CS446/FitGooseDemo/app/src/main/res/layout/fragment_navigation_drawer.xml -->

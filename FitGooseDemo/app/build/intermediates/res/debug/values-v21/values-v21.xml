@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <item name="topcolored_bg" type="drawable">@null</item>
-    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <string name="card_font_fontFamily_header">sans-serif-condensed</string>
-    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <string name="card_font_fontFamily_image_text_over">sans-serif-medium</string>
-    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <string name="card_font_fontFamily_main_content">sans-serif</string>
-    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <string name="card_native_font_fontFamily_action">sans-serif-medium</string>
-    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <string name="card_native_font_fontFamily_header">sans-serif-medium</string>
     <string name="card_native_font_fontFamily_main_content">sans-serif</string>
-    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>
@@ -273,7 +273,7 @@
         <item name="android:colorControlHighlight">?attr/colorControlHighlight</item>
         <item name="android:colorButtonNormal">?attr/colorButtonNormal</item>
     </style>
-    <!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <style name="card.header_button_base">
         <item name="android:layout_width">wrap_content</item>

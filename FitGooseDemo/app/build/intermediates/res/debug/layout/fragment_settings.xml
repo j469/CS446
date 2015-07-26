@@ -36,4 +36,4 @@
         android:text="2. Update default database"
         android:id="@+id/setting_update_databse_button"/>
 
-</LinearLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/fragment_settings.xml -->
+</LinearLayout><!-- From: file:/Users/selway/CS446/FitGooseDemo/app/src/main/res/layout/fragment_settings.xml -->

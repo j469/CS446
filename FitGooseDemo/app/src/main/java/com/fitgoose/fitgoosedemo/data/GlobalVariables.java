@@ -29,6 +29,9 @@ public class GlobalVariables {
     public static ArrayList<Plan> calvesPlan = new ArrayList<>();
     public static ArrayList<Plan> backPlan = new ArrayList<>();
 
+    public static String unit1 = "";
+    public static String unit2 = "";
+
 
     public static List<String> bodyPartName = Arrays.asList("All","Shoulder","Chest","Abs",
             "Upper Arm","Forearm", "Quads","Calves","Back","Cardio","Regimen");
