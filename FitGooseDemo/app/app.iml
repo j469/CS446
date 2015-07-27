@@ -76,6 +76,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-recyclerview/2.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.5.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.jjoe64/graphview/4.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
@@ -95,7 +97,9 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 22 Platform (1)" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="commons-io-2.4" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-22.1.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-drive-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="ParseCrashReporting-1.9.3" level="project" />
     <orderEntry type="library" exported="" name="caldroid-2.1.0" level="project" />
     <orderEntry type="library" exported="" name="YouTubeAndroidPlayerApi" level="project" />
@@ -108,6 +112,7 @@
     <orderEntry type="library" exported="" name="Parse-1.9.3" level="project" />
     <orderEntry type="library" exported="" name="cardslib-core-2.1.0" level="project" />
     <orderEntry type="library" exported="" name="cardslib-recyclerview-2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-base-7.5.0" level="project" />
     <orderEntry type="library" exported="" name="bolts-android-1.2.0" level="project" />
     <orderEntry type="library" exported="" name="1_bolts-android-1.2.0" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-22.1.1" level="project" />

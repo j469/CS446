@@ -49,6 +49,19 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".GoogleDriveActivity"
+            android:label="Google Drive Backup" >
+            <intent-filter>
+                <action android:name="com.fitgoose.fitgoosedemo.GOOGLEDRIVEACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fitgoose.fitgoosedemo.MainActivity" />
+
+        </activity>
+
 
         <!--
              These are push notification. At the end of <application> tag

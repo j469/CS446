@@ -25,6 +25,8 @@ import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 import com.fitgoose.fitgoosedemo.data.Plan;
 import com.fitgoose.fitgoosedemo.utilities.YouTubeDialog;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -117,6 +119,9 @@ public class TodaysExercisesDialog extends DialogFragment {
                 }
                 final ArrayAdapter<ExSet> exsetAdapter = new ExerciseSetAdapter(getActivity(), tempExSet);
                 exsetList.setAdapter(exsetAdapter);
+
+                TextView titleText = (TextView) getDialog().findViewById(R.id.exercise_title);
+                titleText.setText(GlobalVariables.searchENameByEid(selectedPlan.eID));
 
 
 

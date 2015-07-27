@@ -53,7 +53,7 @@
       <file leaf-file-name="exercise_set_layout.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/exercise_set_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.37931">
+            <state vertical-scroll-proportion="0.0">
               <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
               <folding />
             </state>
@@ -63,17 +63,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TodaysExercisesDialog.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TodaysExercisesDialog.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/TodaysExercisesDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.62963">
-              <caret line="186" column="56" selection-start-line="186" selection-start-column="56" selection-end-line="186" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.30612245">
+              <caret line="103" column="50" selection-start-line="103" selection-start-column="50" selection-end-line="103" selection-end-column="50" />
               <folding />
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="RegimenAddDialog.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/plan_tab/RegimenAddDialog.java">
@@ -86,10 +87,29 @@
 =======
       <file leaf-file-name="ExerciseSetAdapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/ExerciseSetAdapter.java">
+=======
+      <file leaf-file-name="dialog_body_chart_next.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_body_chart_next.xml">
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38961038">
-              <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+            <state vertical-scroll-proportion="-6.206897">
+              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
               <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExerciseSetAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/ExerciseSetAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="55" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,8 +140,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+<<<<<<< HEAD
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
               <folding />
+=======
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#647#648#0" expanded="false" />
+                <element signature="e#683#684#0" expanded="false" />
+              </folding>
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
             </state>
           </provider>
         </entry>
@@ -196,7 +224,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-              <folding />
+              <folding>
+                <element signature="e#2366#2367#0" expanded="false" />
+                <element signature="e#2392#2393#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -206,6 +237,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+<<<<<<< HEAD
               <folding />
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
             </state>
@@ -245,6 +277,11 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="66" column="61" selection-start-line="66" selection-start-column="61" selection-end-line="66" selection-end-column="61" />
               <folding />
+=======
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
             </state>
           </provider>
         </entry>
@@ -2343,10 +2380,21 @@
 =======
         <option value="$PROJECT_DIR$/app/src/main/res/layout/exercise_set_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/TodaysExercisesDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/ExerciseSetAdapter.java" />
+<<<<<<< HEAD
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
+=======
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_body_chart_next.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/TodaysExercisesDialog.java" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="NamedScopeManager">
@@ -2381,6 +2429,7 @@
     </navigator>
     <panes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
@@ -2390,6 +2439,8 @@
       <pane id="Scope" />
       <pane id="Scratches" />
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
+=======
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2639,9 +2690,16 @@
         </subPane>
       </pane>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <pane id="ProjectPane" />
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
+=======
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2873,7 +2931,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
 =======
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2932,6 +2990,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/plan_tab/DailyAddPlanDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2940,12 +2999,19 @@
 =======
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/ExerciseSetAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/plan_tab/RegimenAddDialog.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -2955,16 +3021,33 @@
             <element signature="imports" expanded="true" />
 =======
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/MainActivity.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/ExSet.java">
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/Plan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="false" />
+<<<<<<< HEAD
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
+=======
+            <element signature="e#647#648#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/regimen_add.xml">
       <provider editor-type-id="android-designer">
@@ -3007,18 +3090,36 @@
             <element signature="e#8683#8684#0" expanded="false" />
 =======
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/WorkoutPlansFragment.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/Exercise.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#964#965#0" expanded="false" />
-            <element signature="e#1014#1015#0" expanded="false" />
->>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
+            <element signature="e#2366#2367#0" expanded="false" />
+            <element signature="e#2392#2393#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/GlobalVariables.java">
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+<<<<<<< HEAD
+            <element signature="e#964#965#0" expanded="false" />
+            <element signature="e#1014#1015#0" expanded="false" />
+>>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
+=======
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/TodaysExercisesDialog.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -3097,23 +3198,49 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/exercise_set_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/TodaysExercisesDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="186" column="56" selection-start-line="186" selection-start-column="56" selection-end-line="186" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/ExerciseSetAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/ExSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/WorkoutPlansFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/Plan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
           <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
         </state>
       </provider>
@@ -3124,10 +3251,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
+=======
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3136,6 +3271,23 @@
           <folding />
 =======
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/Exercise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="e#2366#2367#0" expanded="false" />
+            <element signature="e#2392#2393#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -3143,6 +3295,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/exercise_set_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+=======
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/TodaysExercisesDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="186" column="56" selection-start-line="186" selection-start-column="56" selection-end-line="186" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/ExerciseSetAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/ExSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/Plan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/Exercise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="e#2366#2367#0" expanded="false" />
+            <element signature="e#2392#2393#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/data/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/WorkoutPlansFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3154,9 +3415,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="36" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3171,12 +3437,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/WorkoutPlansFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/WorkoutPlansFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3195,7 +3473,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="470" column="57" selection-start-line="470" selection-start-column="37" selection-end-line="470" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3203,10 +3480,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
 <<<<<<< HEAD
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/plan_tab/DailyNativeCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7930591">
+          <caret line="75" column="46" selection-start-line="74" selection-start-column="24" selection-end-line="75" selection-end-column="46" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
         </state>
       </provider>
     </entry>
@@ -3221,6 +3508,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -3231,6 +3519,8 @@
           <folding />
 =======
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
+=======
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
         </state>
       </provider>
     </entry>
@@ -3278,6 +3568,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27892032">
           <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -3321,6 +3612,8 @@
             <element signature="e#4648#4910#0" expanded="false" />
             <element signature="e#4909#4910#0" expanded="false" />
           </folding>
+=======
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
         </state>
       </provider>
     </entry>
@@ -3468,17 +3761,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_body_chart_next.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_exercise_today.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3494,9 +3776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5689655">
           <caret line="79" column="19" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3504,7 +3783,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#647#648#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3512,13 +3795,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.2586207">
           <caret line="312" column="44" selection-start-line="312" selection-start-column="44" selection-end-line="312" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/exercise_set_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.37931">
+        <state vertical-scroll-proportion="0.0">
           <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
           <folding />
         </state>
@@ -3531,7 +3813,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="e#2366#2367#0" expanded="false" />
+            <element signature="e#2392#2393#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3539,7 +3824,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3551,16 +3838,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/TodaysExercisesDialog.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/ExerciseSetAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.62963">
-          <caret line="186" column="56" selection-start-line="186" selection-start-column="56" selection-end-line="186" selection-end-column="56" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="55" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/ExerciseSetAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_body_chart_next.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.206897">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fitgoose/fitgoosedemo/TodaysExercisesDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.38961038">
           <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
 >>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
@@ -3572,6 +3873,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="49" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
+=======
+        <state vertical-scroll-proportion="0.30612245">
+          <caret line="103" column="50" selection-start-line="103" selection-start-column="50" selection-end-line="103" selection-end-column="50" />
+>>>>>>> b00493836eb4b9bc2abae9e323f4ae4f42ac9a20
           <folding />
         </state>
       </provider>
