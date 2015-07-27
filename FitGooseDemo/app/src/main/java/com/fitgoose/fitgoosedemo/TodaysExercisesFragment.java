@@ -152,6 +152,8 @@ public class TodaysExercisesFragment extends Fragment implements View.OnClickLis
             Plan todayPlan = todayData.get(i);
             Exercise tempExercise = GlobalVariables.getExerciseByEid(todayPlan.eID);
 
+            if(tempExercise == null) continue;
+
             if (tempExercise.shoulder) {
                 GlobalVariables.shoulderPlan.add(todayPlan);
                 Button shoulderBtn1 = (Button) rootView.findViewById(R.id.shoulder1_btn);
