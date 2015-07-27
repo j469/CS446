@@ -57,7 +57,7 @@ public final class R {
 		public static final int calendar_month_year_textview = 0x7f0e0061;
 		public static final int calendar_right_arrow = 0x7f0e0062;
 		public static final int calendar_title_view = 0x7f0e005f;
-		public static final int calendar_tv = 0x7f0e00d7;
+		public static final int calendar_tv = 0x7f0e00d9;
 		public static final int months_infinite_pager = 0x7f0e0064;
 		public static final int weekday_gridview = 0x7f0e0063;
 	}
@@ -65,8 +65,8 @@ public final class R {
 		public static final int calendar_view = 0x7f040022;
 		public static final int date_grid_fragment = 0x7f04002c;
 		public static final int normal_date_cell = 0x7f04005d;
-		public static final int square_date_cell = 0x7f04006e;
-		public static final int weekday_textview = 0x7f040070;
+		public static final int square_date_cell = 0x7f04006f;
+		public static final int weekday_textview = 0x7f040071;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f06001c;

@@ -33,9 +33,21 @@ public class ExerciseSetAdapter extends ArrayAdapter<ExSet> {
         TextView setUnit1 = (TextView) customView.findViewById(R.id.setUnit1);
         TextView setUnit2 = (TextView) customView.findViewById(R.id.setUnit2);
 
-        setNumber.setText("0");
+        TextView unit1 = (TextView) customView.findViewById(R.id.unit1);
+        TextView unit2 = (TextView) customView.findViewById(R.id.unit2);
+
+        unit1.setText(GlobalVariables.unit1);
+
+        if (tempExset.quantity2 != 0) {
+            setUnit2.setText(Integer.toString(tempExset.quantity2));
+            unit2.setText(GlobalVariables.unit2);
+        }
+        else {
+            setUnit2.setText("");
+            unit2.setText("");
+        }
+        setNumber.setText(Integer.toString(position));
         setUnit1.setText(Integer.toString(tempExset.quantity1));
-        setUnit2.setText(Integer.toString(tempExset.quantity2));
 
         return customView;
 

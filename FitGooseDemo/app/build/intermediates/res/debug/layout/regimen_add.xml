@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp">
+
+    <TextView
+        android:id="@+id/regimen_name_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Regimen name: "
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/regimen_name"
+        android:gravity="center"/>
+    
+    <EditText
+        android:id="@+id/regimen_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/regimen_add_choose_exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regimen_name_hint"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:layout_alignBottom="@+id/regimen_add_button"
+        android:gravity="center"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/regimen_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/regimen_name_hint"
+        android:text="Select" />
+
+    <TextView
+        android:id="@+id/regimen_add_choose_sets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How many sets?"
+        android:textSize="16sp"
+        android:layout_below="@id/regimen_add_button"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/regimen_add_set_number"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/regimen_add_set_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@id/regimen_add_button"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/regimen_add_choose_sets"/>
+
+    <Button
+        android:id="@+id/regimen_add_dialogAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_below="@+id/regimen_add_set_number"/>
+
+    <Button
+        android:id="@+id/regimen_add_dialogOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:layout_below="@+id/regimen_add_set_number"
+        android:layout_toRightOf="@id/regimen_add_dialogAdd"/>
+
+    <Button
+        android:id="@+id/regimen_add_dialogCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_below="@+id/regimen_add_set_number"
+        android:layout_toRightOf="@id/regimen_add_dialogOK"/>
+
+    <ListView
+        android:id="@+id/regimen_add_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regimen_add_dialogCancel"></ListView>
+    
+</RelativeLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/regimen_add.xml -->

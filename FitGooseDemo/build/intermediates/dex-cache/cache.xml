@@ -2,20 +2,29 @@
 <items version="2" >
 
     <item
+<<<<<<< HEAD
         jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="8190861e323934dad89d5e6b830ea66878c11970">
         <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-612ea58786007f2c7f5fde82a39637aa30adbbbc.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/jars/classes.jar"
+=======
+        jar="/Users/selway/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="3965ef9b385194df898456d234f141279747a5c4">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-5a4f6637aef8223eebaee3385ad41bd5cf683109.jar" />
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-bcdd86b6f963d3828e1c3e304522d9a6b251418c.jar" />
+>>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
     </item>
     <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="22886d910315028a2b34b1ba068c265534ade87a">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-63fa120e53d354ff421e5c7a518c7c9f4a935e78.jar" />
+    </item>
+    <item
+<<<<<<< HEAD
         jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -112,6 +121,104 @@
         revision="22.0.1"
         sha1="78b8f6e37921559ed21c1fae1f30f9f713494db8">
         <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/YouTubeAndroidPlayerApi-2cf097f5b016cf4544a89f41207e7418001d4af4.jar" />
+=======
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-recyclerview/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c187f5fc4f47d1abb8839d124591502ece9b7a37">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-66294f0a48dfe767d0ef406762e21a9e5fd88382.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3965ef9b385194df898456d234f141279747a5c4">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-2d4cada35eef2f1c43029ef38e7ad4fa2e3d6d75.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-1a6e66fde087b27702e679372b30e2ec911fcfa6.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-a23c0a1a33b2c2460e20abf5d529f525f1edd844.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-f0f9566b34e07bb6b6676ccea935220759f7e79e.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.jjoe64/graphview/4.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="37bf8de5b4f9e7e93006db783b9b3168e32e38e9">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-8b3fb3861f0c2ac51896f8ee3297e21ef30fd985.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/libs/ParseCrashReporting-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b2fc26f71157545cc214e36008dae494adeda93">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/ParseCrashReporting-1.9.3-947263cb2e0ef75e2adc0333659ad0e469bd4dcf.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/libs/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-896fdf9beaeabc62da776d4b8e5dc44293cf80c9.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e0b0c35d02308b270015a74cada4887e2e49b889">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-b755d45417ccf1ec577f37a79a8b030775ea1c0f.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/libs/YouTubeAndroidPlayerApi.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="78b8f6e37921559ed21c1fae1f30f9f713494db8">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/YouTubeAndroidPlayerApi-eab59a8ac7e02dba3a3cb2f7df88b3274438e5c6.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9ec1d846000db2b979dac2159584f027195a8174">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-13c18ff6003b4e3be1e5ae11faa14a8a76da3c07.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8190861e323934dad89d5e6b830ea66878c11970">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-ba32355cacc97b8282cdcc4534f5b40515be6a6a.jar" />
+    </item>
+    <item
+        jar="/Users/selway/CS446/FitGooseDemo/app/libs/Parse-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="35921ead63f6cafd9f84ff178c60fe474c4b17a6">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/Parse-1.9.3-7cd6ecf9aacd879690adc358f55cb2a08da97585.jar" />
+    </item>
+    <item
+        jar="/Users/selway/.gradle/caches/modules-2/files-2.1/com.darwinsys/hirondelle-date4j/1.5.1/7b52de513f87ae4d9ff5d17518def0a1e9bc3df0/hirondelle-date4j-1.5.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7b52de513f87ae4d9ff5d17518def0a1e9bc3df0">
+        <dex dex="/Users/selway/CS446/FitGooseDemo/app/build/intermediates/pre-dexed/debug/hirondelle-date4j-1.5.1-1ea78555ed2e75d71b73f90fa60ac1f1ab7ee6af.jar" />
+>>>>>>> d511e1e2c68817ee5df0683aa85e44f48bb2bc2b
     </item>
 
 </items>

@@ -32,7 +32,7 @@
             android:layout_weight="1"/>
 
         <TextView
-            android:text="sets"
+            android:text="  Sets"
             android:textSize="20sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

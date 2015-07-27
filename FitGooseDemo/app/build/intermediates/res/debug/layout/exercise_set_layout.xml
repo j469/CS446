@@ -9,27 +9,47 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
-        android:text="1."
+        android:text="1"
         android:textSize="50px" >
     </TextView>
 
     <TextView
         android:id="@+id/setUnit1"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
-        android:text="135lbs"
+        android:text="135"
+        android:textSize="50px" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/unit1"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:text="unit1"
         android:textSize="50px" >
     </TextView>
 
     <TextView
         android:id="@+id/setUnit2"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="60dp"
-        android:text="8 reps"
+        android:text="8"
+        android:textSize="50px" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/unit2"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:text="unit2"
         android:textSize="50px" >
     </TextView>
 
