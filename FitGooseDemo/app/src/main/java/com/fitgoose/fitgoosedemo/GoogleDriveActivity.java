@@ -295,20 +295,12 @@ public class GoogleDriveActivity extends AppCompatActivity implements Connection
                         try {
                             // Get the file reader for the Drive file
                             DriveContents driveContents = result.getDriveContents();
-                            BufferedReader reader = new BufferedReader(
-                                    new InputStreamReader(driveContents.getInputStream()));
+                            InputStream inputStream = driveContents.getInputStream();
 
                             // Get the file writer for the local db file
                             File dbFile = getDatabasePath("FitGoose.db");
-                            BufferedWriter writer = new BufferedWriter(new FileWriter(dbFile.getAbsoluteFile()));
 
-                            // Write from the Drive file to the DB file
-                            int c;
-                            while ((c = reader.read()) != -1) {
-                                writer.write(c);
-                            }
-                            writer.close();
-                            reader.close();
+                            FileUtils.copyInputStreamToFile(inputStream, dbFile);
 
                             // Refresh the Exercise cache
                             FGDataSource.cacheExercise();
