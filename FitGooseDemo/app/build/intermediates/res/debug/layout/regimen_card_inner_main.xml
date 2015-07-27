@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<it.gmariotti.cardslib.library.prototypes.LinearListView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/card_inner_base_main_cardwithlist"
-    android:orientation="vertical"
-    android:layout_marginLeft="0dp"
-    android:layout_marginRight="0dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:layout_gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="5dp" >
 
 
     <LinearLayout
@@ -15,7 +13,7 @@
         android:layout_marginRight="12dp"
         android:layout_gravity="center_vertical"
         android:layout_height="wrap_content"
-        android:weightSum="9">
+        android:weightSum="5">
 
         <TextView
             android:id="@+id/regimen_card_exercise_name"
@@ -41,23 +39,7 @@
             android:gravity="left"
             android:layout_weight="1.5"/>
 
-        <TextView
-            android:id="@+id/regimen_card_unit_one"
-            android:textSize="18sp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="2"/>
-
-        <TextView
-            android:id="@+id/regimen_card_unit_two"
-            android:textSize="18sp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="2"/>
-
 
     </LinearLayout>
 
-</it.gmariotti.cardslib.library.prototypes.LinearListView><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/regimen_card_inner_main.xml -->
+</RelativeLayout><!-- From: file:/Users/guest/Documents/cs446/project/FitGooseDemo/app/src/main/res/layout/regimen_card_inner_main.xml -->

@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,7 +23,7 @@ import com.fitgoose.fitgoosedemo.data.GlobalVariables;
 import com.fitgoose.fitgoosedemo.data.Regimen;
 import com.fitgoose.fitgoosedemo.plan_tab.ExerciseDetailsCard;
 import com.fitgoose.fitgoosedemo.plan_tab.ExerciseDetailsCardExpand;
-import com.fitgoose.fitgoosedemo.plan_tab.RegimenDetailCard;
+import com.fitgoose.fitgoosedemo.plan_tab.RegimenDetailsCardExpand;
 import com.fitgoose.fitgoosedemo.utilities.CustomExerciseDialog;
 import com.fitgoose.fitgoosedemo.utilities.YouTubeDialog;
 
@@ -32,8 +31,6 @@ import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.internal.CardHeader;
-import it.gmariotti.cardslib.library.internal.ViewToClickToExpand;
-import it.gmariotti.cardslib.library.internal.base.BaseCard;
 import it.gmariotti.cardslib.library.recyclerview.internal.CardArrayRecyclerViewAdapter;
 import it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView;
 
@@ -130,10 +127,31 @@ public class ExercisesFragment extends Fragment {
             ArrayList<Regimen> regimens = FGDataSource.searchAllRegimen();
 
             for (Regimen regimen: regimens) {
-                RegimenDetailCard card = new RegimenDetailCard(context,regimen);
-                card.init();
+                //card
+                ExerciseDetailsCard card = new ExerciseDetailsCard(context);
+
+                //card expand
+                RegimenDetailsCardExpand expand = new RegimenDetailsCardExpand(context,regimen);
+                expand.setTitle("Details:");
+                card.addCardExpand(expand);
+
+                // card header
+                CardHeader header = new CardHeader(context);
+                header.setButtonExpandVisible(true);
+                header.setTitle(regimen.rname);
+                card.addCardHeader(header);
+
+                card.setClickable(false);
+                card.setSwipeable(false);
+
+                // add card to the list
                 cards.add(card);
             }
+
+            // set adapter
+            CardArrayRecyclerViewAdapter mCardArrayAdapter = new CardArrayRecyclerViewAdapter(context, cards);
+
+            mRecyclerView.setAdapter(mCardArrayAdapter);
 
         } else { // exercise
 

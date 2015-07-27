@@ -17,10 +17,11 @@ import java.util.ArrayList;
 public class DailyAddPlanDialog extends Dialog {
     private ArrayList<String> mList;
     private Context mContext;
-    private int localEID = -1;
+    private int localEID = -10000;
 
     public interface DialogListener {
         public void ready(int eid, int number_of_sets);
+        public void regimen_ready(int rid, int number_of_sets);
         public void cancelled();
     }
 
@@ -47,7 +48,7 @@ public class DailyAddPlanDialog extends Dialog {
                 ExerciseDialog exerciseDialog = new ExerciseDialog(getContext(), new ExerciseDialog.ExerciseDialogListener() {
                     public void ready(int eid, String ename) {
                         localEID = eid;
-                        textView.setText(ename+": ");
+                        textView.setText(ename+":");
                     }
                 });
                 exerciseDialog.setTitle("Choose an exercise");
@@ -69,12 +70,16 @@ public class DailyAddPlanDialog extends Dialog {
                     return;
                 }
                 // eid
-                if (localEID == -1) {
+                if (localEID == -10000) {
                     Toast.makeText(mContext, "You need to choose an exercise.",Toast.LENGTH_LONG).show();
                     return;
+                } else if (localEID >= 0) {
+                    mReadyListener.ready(localEID,sets);
+                    DailyAddPlanDialog.this.dismiss();
+                } else {
+                    mReadyListener.regimen_ready( (0- localEID),sets);
+                    DailyAddPlanDialog.this.dismiss();
                 }
-                mReadyListener.ready(localEID,sets);
-                DailyAddPlanDialog.this.dismiss();
             }
         });
         buttonCancel.setOnClickListener(new android.view.View.OnClickListener(){

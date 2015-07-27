@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-7c26d750725f04e667d9cc9b6409a151bda572f4.jar" />
+        sha1="8190861e323934dad89d5e6b830ea66878c11970">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-612ea58786007f2c7f5fde82a39637aa30adbbbc.jar" />
     </item>
     <item
         jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.roomorama/caldroid/2.1.0/jars/classes.jar"
@@ -16,11 +16,81 @@
         <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-5a4f6637aef8223eebaee3385ad41bd5cf683109.jar" />
     </item>
     <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/libs/bolts-android-1.2.0.jar"
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-9506d392f959806738a8f885f31655f3f241a0dc.jar" />
+    </item>
+    <item
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.jjoe64/graphview/4.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="37bf8de5b4f9e7e93006db783b9b3168e32e38e9">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-73e215035b3d3cf2fabf65edaaec785564b53015.jar" />
+    </item>
+    <item
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e0b0c35d02308b270015a74cada4887e2e49b889">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-aaadd6bda6b26b672b2ca9f54e2db340b98712ab.jar" />
+    </item>
+    <item
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-7c26d750725f04e667d9cc9b6409a151bda572f4.jar" />
+    </item>
+    <item
+        jar="/Users/guest/.gradle/caches/modules-2/files-2.1/com.darwinsys/hirondelle-date4j/1.5.1/7b52de513f87ae4d9ff5d17518def0a1e9bc3df0/hirondelle-date4j-1.5.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7b52de513f87ae4d9ff5d17518def0a1e9bc3df0">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/hirondelle-date4j-1.5.1-28730c1fb3b1268ab2c144e63b0b8ddff7cc1757.jar" />
+    </item>
+    <item
+        jar="/Users/guest/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-244d60538925327b28b463992e876e491a1ef15b.jar" />
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-9d3eb466de24bc4a5bb41099e24cbfb643c07e5d.jar" />
+    </item>
+    <item
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/libs/ParseCrashReporting-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b2fc26f71157545cc214e36008dae494adeda93">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/ParseCrashReporting-1.9.3-cd163d7e09bf85a02f3a786a18c135c1122ffa27.jar" />
+    </item>
+    <item
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-recyclerview/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c187f5fc4f47d1abb8839d124591502ece9b7a37">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-c5734a05a9f102042635021bae066b92100ae7fe.jar" />
+    </item>
+    <item
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-725ade8bd2fd495e78515bf06571bdb669238bd5.jar" />
+    </item>
+    <item
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="22886d910315028a2b34b1ba068c265534ade87a">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-9f74038f5c01252feb32336b8bbd02f04881a2ca.jar" />
+    </item>
+    <item
+        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/libs/Parse-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="35921ead63f6cafd9f84ff178c60fe474c4b17a6">
+        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/Parse-1.9.3-9da26340f34588d9943954e62916fa687df20e10.jar" />
     </item>
     <item
         jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.1.0/jars/classes.jar"
@@ -42,76 +112,6 @@
         revision="22.0.1"
         sha1="78b8f6e37921559ed21c1fae1f30f9f713494db8">
         <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/YouTubeAndroidPlayerApi-2cf097f5b016cf4544a89f41207e7418001d4af4.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-725ade8bd2fd495e78515bf06571bdb669238bd5.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-9506d392f959806738a8f885f31655f3f241a0dc.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="22886d910315028a2b34b1ba068c265534ade87a">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-9f74038f5c01252feb32336b8bbd02f04881a2ca.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8190861e323934dad89d5e6b830ea66878c11970">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-612ea58786007f2c7f5fde82a39637aa30adbbbc.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/libs/ParseCrashReporting-1.9.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4b2fc26f71157545cc214e36008dae494adeda93">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/ParseCrashReporting-1.9.3-cd163d7e09bf85a02f3a786a18c135c1122ffa27.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/libs/Parse-1.9.3.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="35921ead63f6cafd9f84ff178c60fe474c4b17a6">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/Parse-1.9.3-9da26340f34588d9943954e62916fa687df20e10.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-recyclerview/2.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="c187f5fc4f47d1abb8839d124591502ece9b7a37">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-c5734a05a9f102042635021bae066b92100ae7fe.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.jjoe64/graphview/4.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="37bf8de5b4f9e7e93006db783b9b3168e32e38e9">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-73e215035b3d3cf2fabf65edaaec785564b53015.jar" />
-    </item>
-    <item
-        jar="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e0b0c35d02308b270015a74cada4887e2e49b889">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/classes-aaadd6bda6b26b672b2ca9f54e2db340b98712ab.jar" />
-    </item>
-    <item
-        jar="/Users/guest/.gradle/caches/modules-2/files-2.1/com.darwinsys/hirondelle-date4j/1.5.1/7b52de513f87ae4d9ff5d17518def0a1e9bc3df0/hirondelle-date4j-1.5.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="7b52de513f87ae4d9ff5d17518def0a1e9bc3df0">
-        <dex dex="/Users/guest/Documents/cs446/project/FitGooseDemo/app/build/intermediates/pre-dexed/debug/hirondelle-date4j-1.5.1-28730c1fb3b1268ab2c144e63b0b8ddff7cc1757.jar" />
     </item>
 
 </items>

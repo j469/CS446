@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import com.fitgoose.fitgoosedemo.R;
 import com.fitgoose.fitgoosedemo.data.Exercise;
+import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
+import com.fitgoose.fitgoosedemo.data.Regimen;
 
 import java.util.ArrayList;
 
@@ -78,29 +80,64 @@ public class ExerciseDialog extends Dialog {
     private void updateCardList (int type) {
         //prepare data
         ArrayList<Card> cards = new ArrayList<>();
-        ArrayList<Exercise> exercises = GlobalVariables.getExercisesByType(type);
 
-        for (final Exercise e: exercises) {
-            // card constructor
-            ExerciseDetailsCard card = new ExerciseDetailsCard(context);
+        if (type == 10) { // regimen
+            ArrayList<Regimen> regimens = FGDataSource.searchAllRegimen();
 
-            // card header
-            CardHeader header = new CardHeader(context);
-            header.setTitle(e.name);
-            card.addCardHeader(header);
+            for (final Regimen regimen: regimens) {
+                //card
+                ExerciseDetailsCard card = new ExerciseDetailsCard(context);
 
-            card.setClickable(true);
-            card.setSwipeable(false);
-            card.setOnClickListener(new Card.OnCardClickListener() {
-                @Override
-                public void onClick(Card card, View view) {
-                    mReadyListener.ready(e.eID, e.name);
-                    dismiss();
-                }
-            });
+                //card expand
+                RegimenDetailsCardExpand expand = new RegimenDetailsCardExpand(context,regimen);
+                expand.setTitle("Details:");
+                card.addCardExpand(expand);
 
-            // add card to the list
-            cards.add(card);
+                // card header
+                CardHeader header = new CardHeader(context);
+                header.setButtonExpandVisible(true);
+                header.setTitle(regimen.rname);
+                card.addCardHeader(header);
+
+                card.setClickable(true);
+                card.setSwipeable(false);
+                card.setOnClickListener(new Card.OnCardClickListener() {
+                    @Override
+                    public void onClick(Card card, View view) {
+                        mReadyListener.ready( (0 - regimen.rID), regimen.rname);
+                        dismiss();
+                    }
+                });
+
+                // add card to the list
+                cards.add(card);
+            }
+
+        } else { // exercise
+            ArrayList<Exercise> exercises = GlobalVariables.getExercisesByType(type);
+
+            for (final Exercise e : exercises) {
+                // card constructor
+                ExerciseDetailsCard card = new ExerciseDetailsCard(context);
+
+                // card header
+                CardHeader header = new CardHeader(context);
+                header.setTitle(e.name);
+                card.addCardHeader(header);
+
+                card.setClickable(true);
+                card.setSwipeable(false);
+                card.setOnClickListener(new Card.OnCardClickListener() {
+                    @Override
+                    public void onClick(Card card, View view) {
+                        mReadyListener.ready(e.eID, e.name);
+                        dismiss();
+                    }
+                });
+
+                // add card to the list
+                cards.add(card);
+            }
         }
 
         // set adapter

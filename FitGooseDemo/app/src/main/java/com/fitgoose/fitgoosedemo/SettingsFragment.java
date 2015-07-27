@@ -37,7 +37,7 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        Button add_exercise_button = (Button) rootView.findViewById(R.id.setting_add_exercise_button);
+        Button add_exercise_button = (Button) rootView.findViewById(R.id.setting_add_regimen_button);
         add_exercise_button.setOnClickListener(new android.view.View.OnClickListener() {
             public void onClick(View v) {
                 CustomExerciseDialog dialog = new CustomExerciseDialog(context);
@@ -63,6 +63,8 @@ public class SettingsFragment extends Fragment {
                                 FileOutputStream outputStream = new FileOutputStream(file);
                                 outputStream.write(content);
                                 outputStream.close();
+
+                                FGDataSource.cacheExercise();
 
                                 Toast.makeText(context, "Update DB from server success.", Toast.LENGTH_LONG).show();
 

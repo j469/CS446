@@ -22,7 +22,7 @@ import it.gmariotti.cardslib.library.internal.CardExpand;
  */
 public class ExerciseDetailsCardExpand extends CardExpand {
     private Exercise exercise;
-    Context context;
+    private Context context;
     int unit_one_int;
     int unit_two_int;
 

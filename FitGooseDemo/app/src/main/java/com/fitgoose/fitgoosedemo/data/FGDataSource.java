@@ -691,6 +691,46 @@ public class FGDataSource extends SQLiteOpenHelper {
         return regimenArrayList;
     }
 
+    public static Regimen searchRegimen(int rid) {
+        SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getReadableDatabase();
+        Regimen regimen = null;
+
+        String s = " SELECT rname "
+                + " FROM regimen"
+                + " WHERE rid = ? ";
+
+        Cursor cursor = database.rawQuery(s, new String[]{ Integer.toString(rid)} );
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                    String rname = cursor.getString(0);
+                    regimen = new Regimen(rid,rname);
+            }
+            cursor.close();
+        }
+
+        //then use pid to get ExSet, and attach the ExSets to the Plan
+        s = " SELECT eid, numofreps "
+                + " FROM rexref "
+                + " WHERE rid = ? ";
+        cursor = database.rawQuery(s, new String[]{ Integer.toString(rid)} );
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    int eid = cursor.getInt(0);
+                    int numofreps = cursor.getInt(1);
+                    regimen.attachEID(eid);
+                    regimen.attachNumOfSet(numofreps);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+        database.close();
+
+        return regimen;
+    }
+
     public static int deleteExercise(int eid){
         SQLiteDatabase database = getInstance(mContext.getApplicationContext()).getWritableDatabase();
         if (eid < 10000) {

@@ -24,8 +24,8 @@
         android:paddingTop="15dp"
         android:layout_gravity="left"
         android:paddingLeft="15dp"
-        android:text="1. Add custom exercise"
-        android:id="@+id/setting_add_exercise_button"/>
+        android:text="1. Add Regimen"
+        android:id="@+id/setting_add_regimen_button"/>
 
     <Button
         android:layout_width="wrap_content"

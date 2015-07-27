@@ -18,6 +18,7 @@ import com.fitgoose.fitgoosedemo.R;
 import com.fitgoose.fitgoosedemo.data.FGDataSource;
 import com.fitgoose.fitgoosedemo.data.Plan;
 import com.fitgoose.fitgoosedemo.data.GlobalVariables;
+import com.fitgoose.fitgoosedemo.data.Regimen;
 import com.fitgoose.fitgoosedemo.utilities.CalendarDialog;
 
 import it.gmariotti.cardslib.library.internal.Card;
@@ -61,6 +62,17 @@ public class DailyNativeCard extends CardWithList{
                                 Plan plan = new Plan(date, eid, number_of_sets);
                                 FGDataSource.storePlan(plan);
                                 updateItems(plan);
+                                //WorkoutPlansFragment.mCardArrayAdapter.notifyDataSetChanged();
+                            }
+
+                            public void regimen_ready(int rid, int number_of_sets) {
+                                Regimen regimen = FGDataSource.searchRegimen(rid);
+
+                                for (int ii = 0; ii < regimen.eIDs.size(); ii++) {
+                                    Plan plan = new Plan(date, regimen.eIDs.get(ii), number_of_sets * regimen.sets.get(ii));
+                                    FGDataSource.storePlan(plan);
+                                    updateItems(plan);
+                                }
                                 //WorkoutPlansFragment.mCardArrayAdapter.notifyDataSetChanged();
                             }
                         });
