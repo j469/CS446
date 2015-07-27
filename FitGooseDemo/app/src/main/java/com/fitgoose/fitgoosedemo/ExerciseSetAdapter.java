@@ -46,7 +46,7 @@ public class ExerciseSetAdapter extends ArrayAdapter<ExSet> {
             setUnit2.setText("");
             unit2.setText("");
         }
-        setNumber.setText(Integer.toString(position));
+        setNumber.setText(Integer.toString(position + 1));
         setUnit1.setText(Integer.toString(tempExset.quantity1));
 
         return customView;
