@@ -18,22 +18,9 @@
         android:gravity="center"
         android:text="@string/title_settings"/>
 
-    <Button
+    <ListView
+        android:id="@+id/settings_list"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:layout_gravity="left"
-        android:paddingLeft="15dp"
-        android:text="1. Add custom exercise"
-        android:id="@+id/setting_add_exercise_button"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:layout_gravity="left"
-        android:paddingLeft="15dp"
-        android:text="2. Update default database"
-        android:id="@+id/setting_update_databse_button"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
